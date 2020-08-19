@@ -1,0 +1,16 @@
+.example-card {
+    max-width: 220px;
+    -webkit-box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
+    -moz-box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
+    box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
+    height: 440px;
+}
+
+.buy-btn {
+    background-color: yellow;
+}
+
+.product-image-container {
+    height: 250px;
+    align-items: center;
+}

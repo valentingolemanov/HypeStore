@@ -1,0 +1,15 @@
+.nav-bar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: inline;
+    margin: 0;
+    padding: 0%;
+}
+
+.nav-item {
+    display: inline;
+}

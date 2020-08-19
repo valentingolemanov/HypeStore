@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <div class="product-image-container">
+        <img mat-card-image src='{{model.ImageUrl}}' alt="Photo of a Shiba Inu">
+    </div>
+    <div>
+        <mat-card-title>
+            <h6>
+                {{model.Title}}
+            </h6>
+            <h6>{{model.Price}}$</h6>
+        </mat-card-title>
+        <mat-card-actions>
+            <button class="buy-btn" mat-button>BUY</button>
+            <button mat-button>Add to cart</button>
+        </mat-card-actions>
+    </div>
+</mat-card>

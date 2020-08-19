@@ -1,0 +1,33 @@
+<nav class="nav-bar">
+    <ul class="nav-items">
+        <li class="nav-item">
+            <a class="nav-item-btn " mat-button [matMenuTriggerFor]="aboveMenu">Home</a>
+            <mat-menu #aboveMenu="matMenu" yPosition="above">
+                <a mat-menu-item>Item 1</a>
+                <a mat-menu-item>Item 2</a>
+            </mat-menu>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-item-btn" mat-button [matMenuTriggerFor]="belowMenu">Catalog</a>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+                <a mat-menu-item>Item 1</a>
+                <a mat-menu-item>Item 2</a>
+            </mat-menu>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-btn" mat-button [matMenuTriggerFor]="beforeMenu">About</a>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <a mat-menu-item>Item 1</a>
+                <a mat-menu-item>Item 2</a>
+            </mat-menu>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-btn" mat-button [matMenuTriggerFor]="afterMenu">F&Q</a>
+            <mat-menu #afterMenu="matMenu" xPosition="after">
+                <a mat-menu-item>Item 1</a>
+                <a mat-menu-item>Item 2</a>
+            </mat-menu>
+        </li>
+    </ul>
+</nav>
