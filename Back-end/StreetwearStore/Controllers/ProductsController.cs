@@ -24,5 +24,24 @@
         {
             return this.productsService.GetProducts<ProductsListViewModel>().ToList();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateInputViewModel model)
+        {
+            var productId = -1;
+            if (ModelState.IsValid)
+            {
+                productId = await this.productsService.CreateAsync(model.Name, model.Description, model.ImageUrl, model.Price);
+            }
+
+            if(productId == -1)
+            {
+                return this.BadRequest();
+            }
+            else
+            {
+                return this.Json(productId);
+            }
+        }
     }
 }

@@ -1,33 +1,33 @@
 <nav class="nav-bar">
-    <ul class="nav-items">
+    <ul class="nav-items-wrapper">
         <li class="nav-item">
-            <a class="nav-item-btn " mat-button [matMenuTriggerFor]="aboveMenu">Home</a>
-            <mat-menu #aboveMenu="matMenu" yPosition="above">
+            <a routerLinkActive="active" routerLink="/" class="nav-item-btn " mat-button [matMenuTriggerFor]="">Home</a>
+            <!-- <mat-menu #aboveMenu="matMenu" yPosition="above">
                 <a mat-menu-item>Item 1</a>
                 <a mat-menu-item>Item 2</a>
-            </mat-menu>
+            </mat-menu> -->
         </li>
 
         <li class="nav-item">
-            <a class="nav-item-btn" mat-button [matMenuTriggerFor]="belowMenu">Catalog</a>
-            <mat-menu #belowMenu="matMenu" yPosition="below">
+            <a routerLinkActive="active" routerLink="/catalog" class="nav-item-btn" mat-button [matMenuTriggerFor]="">Catalog</a>
+            <!-- <mat-menu #belowMenu="matMenu" yPosition="below">
                 <a mat-menu-item>Item 1</a>
                 <a mat-menu-item>Item 2</a>
-            </mat-menu>
+            </mat-menu> -->
         </li>
         <li class="nav-item">
-            <a class="nav-item-btn" mat-button [matMenuTriggerFor]="beforeMenu">About</a>
-            <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <a routerLinkActive="active" routerLink="/add-product" class="nav-item-btn" mat-button [matMenuTriggerFor]="">Sell</a>
+            <!-- <mat-menu #beforeMenu="matMenu" xPosition="before">
                 <a mat-menu-item>Item 1</a>
                 <a mat-menu-item>Item 2</a>
-            </mat-menu>
+            </mat-menu> -->
         </li>
         <li class="nav-item">
-            <a class="nav-item-btn" mat-button [matMenuTriggerFor]="afterMenu">F&Q</a>
-            <mat-menu #afterMenu="matMenu" xPosition="after">
+            <a routerLinkActive="active" class="nav-item-btn" mat-button [matMenuTriggerFor]="">F&Q</a>
+            <!-- <mat-menu #afterMenu="matMenu" xPosition="after">
                 <a mat-menu-item>Item 1</a>
                 <a mat-menu-item>Item 2</a>
-            </mat-menu>
+            </mat-menu> -->
         </li>
     </ul>
 </nav>

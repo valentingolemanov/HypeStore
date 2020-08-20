@@ -7,5 +7,7 @@ namespace StreetwearStore.Services.Products
     public interface IProductsService
     {
       ICollection<TModel> GetProducts<TModel>();
+
+      Task<int> CreateAsync(string name, string description, string imageUrl, decimal price);
     }
 }

@@ -4,16 +4,23 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list'
+import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
-import { GendercollectionListComponent } from './gendercollection/gendercollection-list/gendercollection-list.component';
+import {ProductsService} from './services/products.service';
+import {AddProductComponent} from './product/add-product/add-product.component';
 
-
+const appRoutes: Routes = [
+  {path: '', component: ProductListComponent},
+  {path: 'add-product', component: AddProductComponent},
+  {path: 'product-detail', component: ProductDetailComponent}
+]
 
 @NgModule({
   declarations: [
@@ -22,8 +29,7 @@ import { GendercollectionListComponent } from './gendercollection/gendercollecti
     ProductListComponent,
     NavbarComponent,
     ProductCardComponent,
-    GendercollectionListComponent,
-
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +37,11 @@ import { GendercollectionListComponent } from './gendercollection/gendercollecti
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
