@@ -1,7 +1,7 @@
-<section class="list-cards-section">
-    <mat-grid-list cols="5" rowHeight="500">
-        <mat-grid-tile *ngFor="let product of products ">
-            <app-product-card [model]="product "></app-product-card>
-        </mat-grid-tile>
-    </mat-grid-list>
-</section>
+<div class="content" fxLayout="row wrap" fxLayoutGap="30px grid">
+    <!-- <mat-grid-list fxLayout="row wrap"> -->
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let product of products ">
+        <app-product-card [model]="product "></app-product-card>
+    </div>
+    <!-- </mat-grid-list> -->
+</div>

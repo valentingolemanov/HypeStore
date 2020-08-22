@@ -1,19 +1,14 @@
-<a routerLink="/product-detail">
-    <mat-card class="example-card">
-        <div class="img-wrapper">
-            <img class="product-image" mat-card-image src='{{model.ImageUrl}}' alt="Photo of a Shiba Inu">
-        </div>
-        <div>
-            <mat-card-title>
-                <h6>
-                    {{model.Name}}
-                </h6>
-                <h6>{{model.Price}}$</h6>
-            </mat-card-title>
-            <mat-card-actions>
-                <button class="buy-btn" mat-button>BUY</button>
-                <button mat-button>Add to cart</button>
-            </mat-card-actions>
-        </div>
-    </mat-card>
-</a>
+<mat-card class="mat-elevation-z4 card">
+    <div class="img-wrapper">
+        <img class="image" mat-card-image src="{{model.ImageUrl}}" />
+    </div>
+    <div>
+        <mat-card-title>{{model.Name}}</mat-card-title>
+        <mat-card-content>
+            <p>{{model.Price}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a class="buy-btn" mat-button>BUY</a> <a routerLink="product-detail/{{model.Id}}" mat-button>View</a>
+        </mat-card-actions>
+    </div>
+</mat-card>

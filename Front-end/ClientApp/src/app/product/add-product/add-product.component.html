@@ -1,3 +1,39 @@
-<p>
-  add-product works!
-</p>
+<div class='add-product-container' fxLayout="row wrap">
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='left-container'>
+
+
+    </div>
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='right-container'>
+        <form [formGroup]="addProductForm" class="add-product-form" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input formControlName="title" matInput>
+                <!-- <span class="error-block" *ngIf="!addProductForm.get('title').valid && addProductForm.get('title').touched">
+                  Please provide a valid title</span> -->
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" matInput></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+                <mat-select>
+                    <mat-option value="option">Option</mat-option>
+                    <mat-option value="option">Option</mat-option>
+                    <mat-option value="option">Option</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input formControlName="price" matInput type="number" class="example-right-align">
+                <span matPrefix>$&nbsp;</span>
+                <span matSuffix>.00</span>
+            </mat-form-field>
+            <br>
+            <button type="submit" class="submit-btn" mat-fab color="accent">Save</button>
+        </form>
+    </div>
+</div>

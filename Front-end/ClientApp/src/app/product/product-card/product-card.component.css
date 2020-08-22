@@ -1,34 +1,35 @@
-.example-card {
-    max-width: 220px;
-    height: 440px;
-    border-style: ridge;
-}
+  .card {
+      border-style: ridge;
+  }
 
-.example-card:hover {
-    -webkit-box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
-    -moz-box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
-    box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
-}
+  .card:hover {
+      -webkit-box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
+      -moz-box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
+      box-shadow: 9px 6px 23px -7px rgba(138, 119, 138, 0.83);
+  }
 
-.buy-btn {
-    background-color: rgb(255, 204, 0);
-}
+  .buy-btn {
+      background-color: rgb(255, 204, 0);
+  }
 
-.img-wrapper {
-    height: 250px;
-}
+  .img-wrapper {
+      overflow: hidden;
+      height: 250px;
+      width: 250px;
+  }
 
-.img-wrapper img {
-    background-size: cover;
-}
+  .image {
+      overflow: hidden;
+      transform: scale(1, 1);
+      transition-duration: 500ms;
+      transition-timing-function: ease-in-out;
+      max-width: 100%;
+      height: auto;
+  }
 
-.img-wrapper:hover img {
-    transform: scale(1.2, 1.2);
-    transition-duration: 500ms;
-    transition-timing-function: ease-in-out;
-    opacity: .8;
-}
-
-.animate {
-    transition: all 0.3s ease-in-out;
-}
+  .image:hover {
+      transform: scale(1.2, 1.2);
+      transition-duration: 500ms;
+      transition-timing-function: ease-in-out;
+      opacity: .8;
+  }

@@ -31,7 +31,7 @@
             var productId = -1;
             if (ModelState.IsValid)
             {
-                productId = await this.productsService.CreateAsync(model.Name, model.Description, model.ImageUrl, model.Price);
+                productId = await this.productsService.CreateAsync(model.Title, model.Description, model.ImageUrl, model.Price);
             }
 
             if(productId == -1)

@@ -5,7 +5,7 @@ namespace StreetwearStore.Web.ViewModels.Products
 {
     public class CreateInputViewModel
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         public string Description { get; set; }
 

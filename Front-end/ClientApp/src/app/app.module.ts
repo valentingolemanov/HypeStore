@@ -7,6 +7,12 @@ import {MatGridListModule} from '@angular/material/grid-list'
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select'
+import {ReactiveFormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -15,11 +21,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import {ProductsService} from './services/products.service';
 import {AddProductComponent} from './product/add-product/add-product.component';
+import { HomeComponent } from './home/home.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
 
 const appRoutes: Routes = [
-  {path: '', component: ProductListComponent},
+  {path: '', component: HomeComponent},
   {path: 'add-product', component: AddProductComponent},
-  {path: 'product-detail', component: ProductDetailComponent}
+  {path: 'product-detail/:id', component: ProductDetailComponent},
+  {path: 'login', component: UserLoginComponent},
+  {path: 'register', component: UserRegisterComponent}
 ]
 
 @NgModule({
@@ -29,7 +40,10 @@ const appRoutes: Routes = [
     ProductListComponent,
     NavbarComponent,
     ProductCardComponent,
-    AddProductComponent
+    AddProductComponent,
+    HomeComponent,
+    UserLoginComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +54,12 @@ const appRoutes: Routes = [
     MatGridListModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
