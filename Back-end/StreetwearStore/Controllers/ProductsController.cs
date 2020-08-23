@@ -12,7 +12,7 @@
     [ApiController]
     public class ProductsController : Controller
     {
-        private readonly IProductsService productsService;
+        private readonly IProductsService productsService; 
 
         public ProductsController(IProductsService productsService)
         {
@@ -20,9 +20,9 @@
         }
 
         [HttpGet]
-        public async Task<ActionResult<ICollection<ProductsListViewModel>>> GetAll()
+        public IActionResult GetAll()
         {
-            return this.productsService.GetProducts<ProductsListViewModel>().ToList();
+            return this.Json(this.productsService.GetProducts<ProductsListViewModel>());
         }
 
         [HttpPost]
@@ -42,6 +42,18 @@
             {
                 return this.Json(productId);
             }
+        }
+
+        public IActionResult Details(int id)
+        {
+            var product = this.productsService.GetById<DetailsViewModel>(id);
+
+            if(product == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.Json(product);
         }
     }
 }

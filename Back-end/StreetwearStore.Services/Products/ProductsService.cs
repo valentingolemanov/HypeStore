@@ -33,9 +33,19 @@
             return product.Id;
         }
 
+        public TModel GetById<TModel>(int id)
+        {
+            return this.repository.All()
+                .Where(x => x.Id == id)
+                .To<TModel>()
+                .FirstOrDefault();
+        }
+
         public ICollection<TModel> GetProducts<TModel>()
         {
-            return this.repository.All().To<TModel>().ToList();
+            return this.repository.All()
+                .To<TModel>()
+                .ToList();
         }
     }
 }

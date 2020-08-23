@@ -9,5 +9,7 @@ namespace StreetwearStore.Services.Products
       ICollection<TModel> GetProducts<TModel>();
 
       Task<int> CreateAsync(string name, string description, string imageUrl, decimal price);
+
+      TModel GetById<TModel>(int id);
     }
 }

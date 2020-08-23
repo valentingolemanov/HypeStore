@@ -16,6 +16,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -27,8 +29,8 @@ import {AddProductComponent} from './product/add-product/add-product.component';
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import {UploadService} from './services/Upload.service'
 import { UsersService } from './services/users.service';
+import {AlertifyService} from './services/alertify.service'
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -68,9 +70,10 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatProgressBarModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTabsModule
   ],
-  providers: [ProductsService, UploadService, UsersService],
+  providers: [ProductsService,UsersService, AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
