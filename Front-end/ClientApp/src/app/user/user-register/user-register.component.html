@@ -1,1 +1,41 @@
-<p>user-register works!</p>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class='register-user-container' fxLayout="row wrap">
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='left-container'>
+
+        </div>
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='right-container'>
+            <div fxLayout="row wrap" class="fields-container">
+                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%" appearance="standard">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" type="email" matInput placeholder="example@example.com">
+
+
+                </mat-form-field>
+                <br>
+                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%">
+                    <mat-label>Username</mat-label>
+                    <input formControlName="username" type="text" matInput placeholder="Username">
+
+                </mat-form-field>
+                <br>
+                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" type="password" matInput placeholder="Password">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+                <br>
+                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%">
+                    <mat-label>Confirm Password</mat-label>
+                    <input formControlName="confirmPassword" type="password" matInput placeholder="Confirm Password">
+
+                </mat-form-field>
+
+
+
+                <button type="submit" class="submit-btn" mat-flat-button color="accent">Sign up</button>
+            </div>
+            <h5>FormStatus: {{registrationForm.valid}}</h5>
+            <h5>FormValues : {{registrationForm.value | json}}</h5>
+        </div>
+    </div>
+</form>

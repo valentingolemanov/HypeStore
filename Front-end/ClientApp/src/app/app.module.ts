@@ -11,8 +11,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select'
-import {ReactiveFormsModule} from '@angular/forms'
+import {MatSelectModule} from '@angular/material/select';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -24,6 +27,8 @@ import {AddProductComponent} from './product/add-product/add-product.component';
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import {UploadService} from './services/Upload.service'
+import { UsersService } from './services/users.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -43,7 +48,8 @@ const appRoutes: Routes = [
     AddProductComponent,
     HomeComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -59,9 +65,12 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressBarModule,
+    MatIconModule,
+    MatSidenavModule
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, UploadService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

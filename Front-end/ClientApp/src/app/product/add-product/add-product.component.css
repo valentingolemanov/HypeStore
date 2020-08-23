@@ -1,3 +1,10 @@
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 .example-form {
     min-width: 150px;
     max-width: 500px;
@@ -13,20 +20,28 @@ td {
 }
 
 .add-product-container {
-    align-content: center;
     column-count: 2;
     column-gap: 0;
-    height: 80%;
+    height: auto;
     width: 70%;
     margin: auto;
     box-shadow: 10px 10px 19px -7px rgba(138, 119, 138, 0.83);
 }
 
-.add-product-form {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
+.upload-card {
+    width: 70%;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.fields-container {
     margin-top: 70px;
+}
+
+.fields-container>mat-form-field {
+    margin: auto;
 }
 
 .left-container {
@@ -41,6 +56,9 @@ td {
 
 .submit-btn {
     float: right;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
 }
 
 .center-item {

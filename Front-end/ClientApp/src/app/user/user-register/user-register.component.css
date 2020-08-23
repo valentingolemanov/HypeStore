@@ -1,0 +1,37 @@
+.register-user-container {
+    column-count: 2;
+    column-gap: 0;
+    height: auto;
+    width: 70%;
+    margin: auto;
+    box-shadow: 10px 10px 19px -7px rgba(138, 119, 138, 0.83);
+}
+
+.fields-container {
+    margin-top: 10%;
+}
+
+.fields-container>mat-form-field {
+    margin: auto;
+}
+
+.left-container {
+    height: 100%;
+    width: 100%;
+}
+
+.right-container {
+    height: 100%;
+    width: 100%;
+}
+
+.submit-btn {
+    float: right;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.center-item {
+    margin: auto;
+}
