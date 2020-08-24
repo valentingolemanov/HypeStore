@@ -8,3 +8,43 @@
 .example-sidenav {
     padding: 20px;
 }
+
+.collections-container {
+    display: flex;
+    height: 85vh;
+}
+
+.man-collection-container {
+    flex: 1;
+    background-color: black;
+    transition: 1s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.woman-collection-container {
+    flex: 1;
+    background-color: black;
+    transition: 1s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.collection-image {
+    height: 100%;
+    transform: scale(1, 1);
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+}
+
+.collection-image:hover {
+    transform: scale(1.2, 1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+}

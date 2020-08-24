@@ -30,14 +30,19 @@ import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UsersService } from './services/users.service';
-import {AlertifyService} from './services/alertify.service'
+import {AlertifyService} from './services/alertify.service';
+import {AuthService} from './services/auth.service';
+import { CatalogComponent } from './catalog/catalog.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'add-product', component: AddProductComponent},
   {path: 'product-detail/:id', component: ProductDetailComponent},
   {path: 'login', component: UserLoginComponent},
-  {path: 'register', component: UserRegisterComponent}
+  {path: 'register', component: UserRegisterComponent},
+  {path: 'catalog', component: CatalogComponent},
+  {path: 'admin-panel', component: AdminPanelComponent}
 ]
 
 @NgModule({
@@ -51,8 +56,9 @@ const appRoutes: Routes = [
     HomeComponent,
     UserLoginComponent,
     UserRegisterComponent,
-
-  ],
+      CatalogComponent,
+      AdminPanelComponent
+   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -73,7 +79,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatTabsModule
   ],
-  providers: [ProductsService,UsersService, AlertifyService],
+  providers: [ProductsService,UsersService, AlertifyService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

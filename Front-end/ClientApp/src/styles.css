@@ -12,3 +12,7 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.icon-size-28 {
+    font-size: 28px;
+}

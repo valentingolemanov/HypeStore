@@ -1,41 +1,38 @@
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <div class='register-user-container' fxLayout="row wrap">
-        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='left-container'>
+<div class='register-user-container' fxLayout="row wrap">
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='left-container' rowHeight="fit">
 
-        </div>
-        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='right-container'>
-            <div fxLayout="row wrap" class="fields-container">
-                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%">
-                    <mat-label>Email</mat-label>
-                    <input formControlName="email" type="email" matInput placeholder="example@example.com">
-
-
-                </mat-form-field>
-                <br>
-                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%">
-                    <mat-label>Username</mat-label>
-                    <input formControlName="username" type="text" matInput placeholder="">
-
-                </mat-form-field>
-                <br>
-                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%">
-                    <mat-label>Password</mat-label>
-                    <input formControlName="password" type="password" matInput placeholder="">
-                    <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-                <br>
-                <mat-form-field fxFlex="90%" fxFlex.xs="90%" fxFlex.sm="90%">
-                    <mat-label>Confirm Password</mat-label>
-                    <input formControlName="confirmPassword" type="password" matInput placeholder="">
-
-                </mat-form-field>
-
-
-
-                <button type="submit" class="submit-btn" mat-flat-button color="accent">Sign up</button>
-            </div>
-            <h5>FormStatus: {{registrationForm.valid}}</h5>
-            <h5>FormValues : {{registrationForm.value | json}}</h5>
-        </div>
     </div>
-</form>
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='right-container'>
+        <div class="header">
+            <h2 class="animation a1">Welcome!</h2>
+            <h4 class="animation a2">If you already hava an account, please proceed with
+                <span><a routerLink="/login">Login</a></span>!
+            </h4>
+
+        </div>
+        <form [formGroup]="registrationForm" class="form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field" appearance="standard">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="example@example.com">
+            </mat-form-field>
+            <mat-form-field class="form-field " appearance="standard">
+                <mat-label>Username</mat-label>
+                <input formControlName="username" type="text" matInput>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="standard">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" type="password" matInput>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="standard">
+                <mat-label>Confirm Password</mat-label>
+                <input formControlName="confirmPassword" type="password" matInput>
+            </mat-form-field>
+
+            <button type="submit" mat-flat-button>Sign up</button>
+        </form>
+    </div>
+
+
+
+
+</div>

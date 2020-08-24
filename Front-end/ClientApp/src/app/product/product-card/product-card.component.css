@@ -1,5 +1,6 @@
   .card {
-      border-style: ridge;
+      margin-top: 50px;
+      border-style: dotted;
   }
 
   .card:hover {
@@ -15,16 +16,14 @@
   .img-wrapper {
       overflow: hidden;
       height: 250px;
-      width: 250px;
   }
 
   .image {
-      overflow: hidden;
+      height: 100%;
+      width: 100%;
       transform: scale(1, 1);
       transition-duration: 500ms;
       transition-timing-function: ease-in-out;
-      max-width: 100%;
-      height: auto;
   }
 
   .image:hover {

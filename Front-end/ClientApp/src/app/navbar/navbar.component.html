@@ -11,13 +11,7 @@
                 <a mat-menu-item>Item 2</a>
             </mat-menu>
         </li>
-        <li class="nav-item">
-            <a routerLinkActive="active" routerLink="/add-product" class="nav-item-btn" mat-button>Sell</a>
-            <!-- <mat-menu #beforeMenu="matMenu" xPosition="before">
-                <a mat-menu-item>Item 1</a>
-                <a mat-menu-item>Item 2</a>
-            </mat-menu> -->
-        </li>
+
         <li class="nav-item">
             <a routerLinkActive="active" routerLink="/fandq" class="nav-item-btn" mat-button>F&Q</a>
             <!-- <mat-menu #afterMenu="matMenu" xPosition="after">
@@ -25,14 +19,31 @@
                 <a mat-menu-item>Item 2</a>
             </mat-menu> -->
         </li>
-        <li class="nav-item float-right">
+        <li *ngIf="!loggedIn()" class="nav-item float-right">
             <a routerLinkActive="active" routerLink="/login" class="nav-item-btn" mat-button>Login</a>
 
         </li>
-        <li class="nav-item float-right">
+        <li *ngIf="!loggedIn()" class="nav-item float-right">
             <a routerLinkActive="active" routerLink="/register" class="nav-item-btn" mat-button>Register</a>
-
         </li>
-
+        <li *ngIf="loggedIn()" class="nav-item float-right">
+            <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+              <mat-icon class="icon-size-28">person</mat-icon>
+            </button>
+            <mat-menu #accountMenu="matMenu">
+                <button routerLink="/admin-panel" mat-menu-item>
+                Admin panel
+              </button>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="settingsMenu">
+              <mat-icon class="icon-size-28">menu</mat-icon>
+            </button>
+            <mat-menu #settingsMenu="matMenu">
+                <button (click)="onLogout()" mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </li>
     </ul>
 </nav>
