@@ -4,6 +4,8 @@
 @import './assets/forms.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes//semantic.min.css';
+@import '../node_modules/quill/dist/quill.bubble.css';
+@import '../node_modules/quill/dist/quill.snow.css';
 body {
     height: 100%;
 }
@@ -13,6 +15,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.icon-size-28 {
-    font-size: 28px;
+.icon-size-29 {
+    font-size: 29px;
+}
+
+.icon-size-26 {
+    font-size: 26px;
 }

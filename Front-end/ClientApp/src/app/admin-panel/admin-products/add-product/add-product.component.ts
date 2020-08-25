@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ProductsService } from 'src/app/services/products.service';
+import { ProductsService } from './../../../services/products.service';
 
 
 @Component({
@@ -11,7 +11,11 @@ import { ProductsService } from 'src/app/services/products.service';
 export class AddProductComponent implements OnInit {
 
   addProductForm: FormGroup;
-  @ViewChild("fileUpload", {static: false}) fileUpload: ElementRef;
+  checked = false;
+  indeterminate = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled = false;
+  showForm = false;
   files  = [];
 
   constructor(private service: ProductsService) {
@@ -30,6 +34,10 @@ export class AddProductComponent implements OnInit {
 
   onClick(){
 
+  }
+
+  toggleForm(){
+    this.showForm = !this.showForm;
   }
 
   onSubmit(){

@@ -12,6 +12,7 @@ import { AlertifyService } from 'src/app/services/alertify.service';
 export class UserLoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  hide = true;
 
   constructor(private fb: FormBuilder,
     private authService: AuthService,

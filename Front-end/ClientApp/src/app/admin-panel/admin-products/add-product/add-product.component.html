@@ -1,0 +1,48 @@
+<button class="add-product-btn" (click)="toggleForm()" mat-button><mat-icon>add</mat-icon>  Add Product</button>
+<div class="form-container" *ngIf="showForm">
+    <mat-tab-group mat-stretch-tabs mat-align-tabs="start">
+        <form formGroup="addProductForm" class="form" (ngSubmit)="onSubmit()">
+            <mat-tab label="Basic Info" fxLayout="row wrap">
+                <div class="fields-container">
+                    <div class="left" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+                        <mat-form-field appearance="standard">
+                            <mat-label>Name</mat-label>
+                            <input formControlName="title" matInput>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <mat-label>Category</mat-label>
+                            <mat-select>
+                                <mat-option formControlName="category" value="option">Option</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field appearance="standard">
+                            <mat-label>Description</mat-label>
+                            <textarea formControlName="description" matInput></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="right" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+                        <div class="example-section">
+                            <label class="example-margin">Collection:</label>
+                            <mat-radio-group>
+                                <mat-radio-button class="example-margin" value="after">Men</mat-radio-button>
+                                <mat-radio-button class="example-margin" value="before">Women</mat-radio-button>
+                                <mat-radio-button class="example-margin" value="other">N/A</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Pricing"></mat-tab>
+            <mat-tab label="Inventory"></mat-tab>
+            <mat-tab label="Media"></mat-tab>
+        </form>
+    </mat-tab-group>
+</div>

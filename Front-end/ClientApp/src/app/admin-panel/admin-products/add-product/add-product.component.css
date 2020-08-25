@@ -1,0 +1,48 @@
+.form-container {
+    width: 95%;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 50px;
+    /* box-shadow: 10px 10px 19px -7px rgba(138, 119, 138, 0.83); */
+    border-style: ridge;
+    -webkit-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
+    box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
+}
+
+.fields-container {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.left>mat-form-field {
+    width: 85%;
+}
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+
+.example-margin {
+    margin: 0 20px;
+}
+
+.example-section>label {
+    float: left;
+}
+
+.add-product-btn {
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: slateblue solid;
+}

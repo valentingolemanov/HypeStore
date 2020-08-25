@@ -17,7 +17,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import { QuillModule } from 'ngx-quill';
+import { MatListModule} from '@angular/material/list'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -25,7 +30,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import {ProductsService} from './services/products.service';
-import {AddProductComponent} from './product/add-product/add-product.component';
+import {AddProductComponent} from './admin-panel/admin-products/add-product/add-product.component';
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
@@ -34,10 +39,14 @@ import {AlertifyService} from './services/alertify.service';
 import {AuthService} from './services/auth.service';
 import { CatalogComponent } from './catalog/catalog.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import {AdminPanelSidenavComponent} from './admin-panel/admin-panel-sidenav/admin-panel-sidenav.component';
+import { AdminProductsComponent} from './admin-panel/admin-products/admin-products.component';
+import {ProductsTableComponent} from './admin-panel/admin-products/products-table/products-table.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'add-product', component: AddProductComponent},
+  {path: 'admin-products', component: AdminProductsComponent},
   {path: 'product-detail/:id', component: ProductDetailComponent},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
@@ -57,7 +66,11 @@ const appRoutes: Routes = [
     UserLoginComponent,
     UserRegisterComponent,
       CatalogComponent,
-      AdminPanelComponent
+      AdminPanelComponent,
+      AdminPanelSidenavComponent,
+      AdminProductsComponent,
+      ProductsTableComponent
+
    ],
   imports: [
     BrowserModule,
@@ -77,7 +90,13 @@ const appRoutes: Routes = [
     MatProgressBarModule,
     MatIconModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatPaginatorModule,
+    MatTableModule,
+    QuillModule.forRoot()
   ],
   providers: [ProductsService,UsersService, AlertifyService, AuthService],
   bootstrap: [AppComponent]
