@@ -1,7 +1,8 @@
-import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { ProductsService } from './../../../services/products.service';
-
+import { AlertifyService } from 'src/app/services/alertify.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -20,7 +21,8 @@ export class AddProductComponent implements OnInit {
   newProduct: any = {};
 
   constructor(private service: ProductsService,
-     private fb: FormBuilder) {
+     private fb: FormBuilder, private alertify: AlertifyService,
+     private router: Router) {
 
    }
 
@@ -49,8 +51,8 @@ export class AddProductComponent implements OnInit {
 
   createAddProductForm(): void {
     this.addProductForm = this.fb.group({
-     title: [null, [Validators.required]],
-     description: [null, [Validators.required]],
+     title: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
+     description: [null, [Validators.required], Validators.minLength(20), Validators.maxLength(300)],
      price: [null, [Validators.required]],
     });
   }
@@ -60,13 +62,17 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.addProductForm);
-   this.newProduct = Object.assign(this.newProduct, this.addProductForm.value);
-
-    console.log(this.newProduct);
-    this.service.createProduct(this.newProduct).subscribe(res => {
-      console.log(res);
-    });
+    if(this.addProductForm.valid){
+      this.newProduct = Object.assign(this.newProduct, this.addProductForm.value);
+      this.service.createProduct(this.newProduct).subscribe(res => {
+        console.log(res);
+      });
+      this.addProductForm.reset();
+      this.alertify.success("Congrats, you added a new product!")
+      this.router.navigateByUrl('/catalog');
+    }else{
+      this.alertify.error("Please provide valid information in all of the fields!")
+    }
   }
 
 }
