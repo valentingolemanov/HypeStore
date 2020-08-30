@@ -11,3 +11,7 @@
 .admin-panel-sidenav {
     width: 15%;
 }
+
+.admin-content {
+    height: 900px;
+}

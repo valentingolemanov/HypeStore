@@ -4,7 +4,8 @@ table {
 
 .mat-form-field {
     font-size: 14px;
-    width: 100%;
+    width: 70%;
+    margin-left: 30px;
 }
 
 td,
@@ -17,7 +18,7 @@ th {
     margin: auto;
     margin-top: 3%;
     /* box-shadow: 10px 10px 19px -7px rgba(138, 119, 138, 0.83); */
-    border-top-style: none;
+    border: #3a243b solid;
     -webkit-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     -moz-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);

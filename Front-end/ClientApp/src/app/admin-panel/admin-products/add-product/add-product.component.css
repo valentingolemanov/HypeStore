@@ -1,10 +1,11 @@
 .form-container {
     width: 95%;
+    height: 350px;
     margin: auto;
     margin-top: 3%;
     margin-bottom: 50px;
     /* box-shadow: 10px 10px 19px -7px rgba(138, 119, 138, 0.83); */
-    border-style: ridge;
+    border: #3a243b solid;
     -webkit-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     -moz-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
@@ -44,5 +45,10 @@
     padding-bottom: 10px;
     padding-left: 30px;
     padding-right: 30px;
-    border: slateblue solid;
+    border: #3a243b solid;
+}
+
+.save-btn {
+    margin-bottom: 0%;
+    margin-right: 0%;
 }

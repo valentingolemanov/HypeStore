@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { ProductsService } from './../../../services/products.service';
 
 
@@ -17,23 +17,42 @@ export class AddProductComponent implements OnInit {
   disabled = false;
   showForm = false;
   files  = [];
+  newProduct: any = {};
 
-  constructor(private service: ProductsService) {
+  constructor(private service: ProductsService,
+     private fb: FormBuilder) {
 
    }
 
+  //Getter method for all form controls
+  // get title(){
+  //   return this.addProductForm.get('title') as FormControl;
+  // }
+
+  // get description(){
+  //   return this.addProductForm.get('description') as FormControl;
+  // }
+
+  // get price(){
+  //   return this.addProductForm.get('price') as FormControl;
+  // }
+
+
   ngOnInit() {
-    this.addProductForm = new FormGroup( {
-      title: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
-      description: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(200)]),
-      category: new FormControl(null),
-      price: new FormControl(null, [Validators.required]),
-      images: new FormControl(null, [Validators.required])
-   });
+
+    this.createAddProductForm();
   }
 
   onClick(){
 
+  }
+
+  createAddProductForm(): void {
+    this.addProductForm = this.fb.group({
+     title: [null, [Validators.required]],
+     description: [null, [Validators.required]],
+     price: [null, [Validators.required]],
+    });
   }
 
   toggleForm(){
@@ -42,15 +61,10 @@ export class AddProductComponent implements OnInit {
 
   onSubmit(){
     console.log(this.addProductForm);
-    const product = {
-      Title: this.addProductForm.value['title'],
-      Description: this.addProductForm.value['description'],
-      Price: this.addProductForm.value['price'],
-      Images: this.addProductForm.value['images']
-    };
+   this.newProduct = Object.assign(this.newProduct, this.addProductForm.value);
 
-    console.log(product);
-    this.service.createProduct(product).subscribe(res => {
+    console.log(this.newProduct);
+    this.service.createProduct(this.newProduct).subscribe(res => {
       console.log(res);
     });
   }

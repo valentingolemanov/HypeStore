@@ -1,7 +1,8 @@
 <button class="add-product-btn" (click)="toggleForm()" mat-button><mat-icon>add</mat-icon>  Add Product</button>
+
 <div class="form-container" *ngIf="showForm">
     <mat-tab-group mat-stretch-tabs mat-align-tabs="start">
-        <form formGroup="addProductForm" class="form" (ngSubmit)="onSubmit()">
+        <form [formGroup]="addProductForm" class="form" *ngIf="showForm">
             <mat-tab label="Basic Info" fxLayout="row wrap">
                 <div class="fields-container">
                     <div class="left" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
@@ -13,7 +14,10 @@
                         <mat-form-field>
                             <mat-label>Category</mat-label>
                             <mat-select>
-                                <mat-option formControlName="category" value="option">Option</mat-option>
+                                <!-- <mat-option formControlName="category" value="option">Shoes</mat-option>
+                                <mat-option formControlName="category" value="option">T-shirts</mat-option>
+                                <mat-option formControlName="category" value="option">Jeans</mat-option> -->
+
                             </mat-select>
                         </mat-form-field>
                         <br>
@@ -32,17 +36,32 @@
                                 <mat-radio-button class="example-margin" value="other">N/A</mat-radio-button>
                             </mat-radio-group>
                         </div>
-                        <div>
+                        <button type="submit" class="save-btn" (click)="onSubmit()" mat-flat-button mat-fab color="accent">
+                          <mat-icon>save</mat-icon>
+                        </button>
 
 
-
-                        </div>
                     </div>
+
+                </div>
+
+            </mat-tab>
+            <mat-tab label="Pricing">
+                <div class="fields-container">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Amount</mat-label>
+                        <input formControlName="price" matInput type="number" class="example-right-align">
+                        <span matPrefix>$&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
                 </div>
             </mat-tab>
-            <mat-tab label="Pricing"></mat-tab>
             <mat-tab label="Inventory"></mat-tab>
-            <mat-tab label="Media"></mat-tab>
+            <mat-tab label="Media">
+
+            </mat-tab>
+
+
         </form>
     </mat-tab-group>
 </div>

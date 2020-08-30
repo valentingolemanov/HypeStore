@@ -38,17 +38,19 @@ export class ProductsTableComponent implements OnInit {
   constructor(private service: ProductsService) {
 
     // Assign the data to the data source for the table to render
+    this.service.getAllProducts().subscribe(data => {
+      this.products = data;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+      console.log(this.products);
+    });
     this.dataSource = new MatTableDataSource(this.products);
 
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-     this.service.getAllProducts().subscribe(data => {
-      this.products = data;
-      console.log(this.products);
-    });
+
   }
 
   applyFilter(event: Event) {

@@ -15,7 +15,7 @@ export class ProductsService{
   getAllProducts(){
     return this.http.get('http://localhost:58341/api/products').pipe(
       map(data => {
-        const models: Array<IProduct> = []
+        const models: Array<IProduct> = [];
         for(const id in data){
           if(data.hasOwnProperty(id)){
             models.push(data[id]);

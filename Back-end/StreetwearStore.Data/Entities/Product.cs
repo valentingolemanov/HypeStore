@@ -11,7 +11,7 @@
 
         public string ImageUrl { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         public Gender Gender{ get; set; }
 
