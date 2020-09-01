@@ -5,7 +5,7 @@
     margin-top: 3%;
     margin-bottom: 50px;
     /* box-shadow: 10px 10px 19px -7px rgba(138, 119, 138, 0.83); */
-    border: #3a243b solid;
+    border: 1px black ridge;
     -webkit-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     -moz-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
@@ -45,7 +45,7 @@
     padding-bottom: 10px;
     padding-left: 30px;
     padding-right: 30px;
-    border: #3a243b solid;
+    border: 1px black ridge;
 }
 
 .save-btn {

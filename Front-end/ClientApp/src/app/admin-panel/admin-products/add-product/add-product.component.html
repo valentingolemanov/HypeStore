@@ -6,24 +6,26 @@
             <mat-tab label="Basic Info" fxLayout="row wrap">
                 <div class="fields-container">
                     <div class="left" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
-                        <mat-form-field appearance="standard">
+                        <mat-form-field hintLabel="Max 60 characters" appearance="standard">
                             <mat-label>Name</mat-label>
-                            <input formControlName="title" matInput>
+                            <input #nameInput formControlName="title" matInput>
+                            <mat-hint align="end">{{nameInput.value?.length || 0}}/60</mat-hint>
                         </mat-form-field>
                         <br>
                         <mat-form-field>
                             <mat-label>Category</mat-label>
                             <mat-select>
-                                <!-- <mat-option formControlName="category" value="option">Shoes</mat-option>
-                                <mat-option formControlName="category" value="option">T-shirts</mat-option>
-                                <mat-option formControlName="category" value="option">Jeans</mat-option> -->
+                                <mat-option value="option">Shoes</mat-option>
+                                <mat-option value="option">T-shirts</mat-option>
+                                <mat-option value="option">Jeans</mat-option>
 
                             </mat-select>
                         </mat-form-field>
                         <br>
-                        <mat-form-field appearance="standard">
+                        <mat-form-field hintLabel="Max 200 characters" appearance="standard">
                             <mat-label>Description</mat-label>
-                            <textarea formControlName="description" matInput></textarea>
+                            <textarea #descriptionInput formControlName="description" matInput></textarea>
+                            <mat-hint align="end">{{descriptionInput.value?.length || 0}}/200</mat-hint>
                         </mat-form-field>
                     </div>
                     <div class="right" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">

@@ -23,6 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -42,6 +43,9 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import {AdminPanelSidenavComponent} from './admin-panel/admin-panel-sidenav/admin-panel-sidenav.component';
 import { AdminProductsComponent} from './admin-panel/admin-products/admin-products.component';
 import {ProductsTableComponent} from './admin-panel/admin-products/products-table/products-table.component';
+import {CatalogSidenavComponent} from './catalog/catalog-sidenav/catalog-sidenav.component';
+import {CatalogFilterMenuComponent} from './catalog/catalog-filter-menu/catalog-filter-menu.component';
+
 
 
 const appRoutes: Routes = [
@@ -69,8 +73,9 @@ const appRoutes: Routes = [
       AdminPanelComponent,
       AdminPanelSidenavComponent,
       AdminProductsComponent,
-      ProductsTableComponent
-
+      ProductsTableComponent,
+      CatalogSidenavComponent,
+      CatalogFilterMenuComponent
    ],
   imports: [
     BrowserModule,
@@ -96,6 +101,7 @@ const appRoutes: Routes = [
     MatRadioModule,
     MatPaginatorModule,
     MatTableModule,
+    MatExpansionModule,
     QuillModule.forRoot()
   ],
   providers: [ProductsService,UsersService, AlertifyService, AuthService],

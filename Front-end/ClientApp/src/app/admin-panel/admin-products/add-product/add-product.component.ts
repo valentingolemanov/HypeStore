@@ -51,7 +51,7 @@ export class AddProductComponent implements OnInit {
 
   createAddProductForm(): void {
     this.addProductForm = this.fb.group({
-     title: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
+     title: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
      description: [null, [Validators.required], Validators.minLength(20), Validators.maxLength(300)],
      price: [null, [Validators.required]],
     });
@@ -66,6 +66,7 @@ export class AddProductComponent implements OnInit {
       this.newProduct = Object.assign(this.newProduct, this.addProductForm.value);
       this.service.createProduct(this.newProduct).subscribe(res => {
         console.log(res);
+
       });
       this.addProductForm.reset();
       this.alertify.success("Congrats, you added a new product!")

@@ -1,2 +1,9 @@
-<app-product-list>
-</app-product-list>
+<mat-sidenav-container class="admin-panel-container" fullscreen>
+    <mat-sidenav class="admin-panel-sidenav" mode="side" opened>
+        <app-catalog-sidenav></app-catalog-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content class="admin-content">
+        <app-catalog-filter-menu></app-catalog-filter-menu>
+        <app-product-list></app-product-list>
+    </mat-sidenav-content>
+</mat-sidenav-container>

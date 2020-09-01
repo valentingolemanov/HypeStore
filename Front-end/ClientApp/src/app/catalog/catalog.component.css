@@ -1,0 +1,17 @@
+.admin-panel-container {
+    top: 64px !important;
+}
+
+@media(max-width: 599px) {
+    .admin-panel-container {
+        top: 56px !important;
+    }
+}
+
+.admin-panel-sidenav {
+    width: 15%;
+}
+
+.admin-content {
+    height: 900px;
+}
