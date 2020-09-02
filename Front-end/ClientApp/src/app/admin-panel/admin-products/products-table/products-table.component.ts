@@ -27,7 +27,7 @@ import {IProduct} from '../../../product/IProduct.interface';
   })
 
 export class ProductsTableComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'title', 'description', 'price'];
+  displayedColumns: string[] = ['id', 'title', 'price', 'imageUrl'];
    dataSource: MatTableDataSource<IProduct>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -37,20 +37,21 @@ export class ProductsTableComponent implements OnInit {
 
   constructor(private service: ProductsService) {
 
-    // Assign the data to the data source for the table to render
-    this.service.getAllProducts().subscribe(data => {
-      this.products = data;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
 
-      console.log(this.products);
-    });
+
     this.dataSource = new MatTableDataSource(this.products);
-
+    console.log(this.dataSource);
   }
 
   ngOnInit() {
+ // Assign the data to the data source for the table to render
+ this.service.getAllProducts().subscribe(data => {
+  this.products = data;
+this.dataSource.paginator = this.paginator;
+this.dataSource.sort = this.sort;
 
+  console.log(this.products);
+});
   }
 
   applyFilter(event: Event) {

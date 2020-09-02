@@ -1,14 +1,3 @@
-.example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.example-sidenav {
-    padding: 20px;
-}
-
 .collections-container {
     display: flex;
     height: 85vh;
@@ -23,6 +12,8 @@
     background-position: center;
     height: 100%;
     overflow: hidden;
+    position: relative;
+    text-align: center;
 }
 
 .woman-collection-container {
@@ -34,6 +25,8 @@
     background-position: center;
     height: 100%;
     overflow: hidden;
+    position: relative;
+    text-align: center;
 }
 
 .collection-image {
@@ -44,6 +37,25 @@
 }
 
 .collection-image:hover {
+    transform: scale(1.2, 1.2);
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    font-size: 26px;
+    color: cornsilk;
+    border-style: solid;
+    margin: auto;
+    opacity: 0.8;
+    transform: scale(1, 1);
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+}
+
+.center:hover {
     transform: scale(1.2, 1.2);
     transition-duration: 500ms;
     transition-timing-function: ease-in-out;
