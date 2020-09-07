@@ -16,8 +16,7 @@ th {
 .table-container {
     width: 95%;
     margin: auto;
-    margin-top: 4%;
-    margin-bottom: 4%;
+    margin-top: 30px;
     /* box-shadow: 10px 10px 19px -7px rgba(138, 119, 138, 0.83); */
     /* -webkit-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     -moz-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);

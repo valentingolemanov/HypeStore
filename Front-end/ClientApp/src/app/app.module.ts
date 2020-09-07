@@ -24,6 +24,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -45,17 +47,17 @@ import { AdminProductsComponent} from './admin-panel/admin-products/admin-produc
 import {ProductsTableComponent} from './admin-panel/admin-products/products-table/products-table.component';
 import {CatalogSidenavComponent} from './catalog/catalog-sidenav/catalog-sidenav.component';
 import {CatalogFilterMenuComponent} from './catalog/catalog-filter-menu/catalog-filter-menu.component';
-
+import {AddProductFormContentComponent} from './admin-panel/admin-products/add-product/add-product-form-content/add-product-form-content.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'admin-products', component: AdminProductsComponent},
-  {path: 'product-detail/:id', component: ProductDetailComponent},
+  {path: 'catalog/:id', component: ProductDetailComponent},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
   {path: 'catalog', component: CatalogComponent},
-  {path: 'admin-panel', component: AdminPanelComponent}
+  {path: 'admin-panel', component: AdminProductsComponent}
 ]
 
 @NgModule({
@@ -75,7 +77,8 @@ const appRoutes: Routes = [
       AdminProductsComponent,
       ProductsTableComponent,
       CatalogSidenavComponent,
-      CatalogFilterMenuComponent
+      CatalogFilterMenuComponent,
+      AddProductFormContentComponent
    ],
   imports: [
     BrowserModule,
@@ -102,7 +105,8 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatTableModule,
     MatExpansionModule,
-    QuillModule.forRoot()
+    MatDialogModule,
+
   ],
   providers: [ProductsService,UsersService, AlertifyService, AuthService],
   bootstrap: [AppComponent]

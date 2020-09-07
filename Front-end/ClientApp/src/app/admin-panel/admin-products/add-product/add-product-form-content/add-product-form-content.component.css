@@ -1,0 +1,19 @@
+.basic-info-fields-container>mat-form-field {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+}
+
+.add-product-form {
+    width: 600px;
+}
+
+.add-product-tab-group {
+    height: 300px;
+}
+
+.pricing-fields-container {
+    width: 90%;
+    margin: auto;
+}
