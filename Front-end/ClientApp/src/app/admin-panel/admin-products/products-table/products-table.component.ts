@@ -4,6 +4,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ProductsService } from 'src/app/services/products.service';
 import {IProduct} from '../../../product/IProduct.interface';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 
@@ -23,31 +24,44 @@ import {IProduct} from '../../../product/IProduct.interface';
 @Component({
     selector: 'app-products-table',
     templateUrl: './products-table.component.html',
-    styleUrls: ['./products-table.component.css']
-  })
+    styleUrls: ['./products-table.component.css'],
+    animations: [
+      trigger('detailExpand', [
+        state('collapsed', style({height: '0px', minHeight: '0'})),
+        state('expanded', style({height: '*'})),
+        transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+      ]),
+    ],
+    })
 
 export class ProductsTableComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'title', 'description', 'price', 'imageUrl'];
+   columnsToDisplay : string[] = ['Id', 'Title', 'Description', 'Price', 'ImageUrl'];
    dataSource: MatTableDataSource<IProduct>;
+   expandedElement: IProduct | null;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+
+  isExpansionDetailRow = (index, row) => row.hasOwnProperty('detailRow');
   products: Array<IProduct>;
 
   constructor(private service: ProductsService) {
 
     // Assign the data to the data source for the table to render
-    this.service.getAllProducts().subscribe(data => {
-      this.products = data;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.service.getAllProducts().subscribe(
+      data => {
+     this.products = data;
+      },
+      (err) => console.log(err),
+      () => {
+        this.dataSource = new MatTableDataSource(this.products);
+        console.log(this.dataSource);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
 
-      console.log(this.products);
-    });
-
-    this.dataSource = new MatTableDataSource(this.products);
-    console.log(this.dataSource);
+    );
   }
 
   ngOnInit() {

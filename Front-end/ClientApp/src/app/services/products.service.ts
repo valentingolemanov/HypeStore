@@ -33,7 +33,7 @@ export class ProductsService{
   }
 
   getProduct(id: number){
-    return this.http.get('http://localhost:58341/api/products/' + id)
+    return this.http.get('http://localhost:58341/api/products/' + id);
   }
 
 }
