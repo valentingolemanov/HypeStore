@@ -35,7 +35,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     })
 
 export class ProductsTableComponent implements OnInit {
-   columnsToDisplay : string[] = ['Id', 'Title', 'Description', 'Price', 'ImageUrl'];
+   columnsToDisplay : string[] = ['Id', 'Title',  'Price', ];
    dataSource: MatTableDataSource<IProduct>;
    expandedElement: IProduct | null;
 

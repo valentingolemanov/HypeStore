@@ -73,7 +73,7 @@ export class AddProductFormContentComponent implements OnInit {
       () => {
         this.alertify.success("Congrats, you added a new product!");
       this.addProductForm.reset();
-      this.router.navigate([`/catalog/${newProductId}`]);
+       this.router.navigate([`/admin-products`]);
     });
 
     }else{
