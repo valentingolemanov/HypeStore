@@ -28,6 +28,15 @@
                         <textarea formControlName="description" #descriptionInput matInput></textarea>
                         <mat-hint align="end">{{descriptionInput.value?.length || 0}}/200</mat-hint>
                     </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Brand</mat-label>
+                        <mat-select formControlName="brand" [(ngModel)]="selectedValue" name="brand">
+                            <mat-option *ngFor="let brand of brands" [value]="brand.Name">
+                                {{brand.Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
             </mat-tab>
             <mat-tab label="Pricing">

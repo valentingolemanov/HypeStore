@@ -14,17 +14,20 @@
     </div>
 </mat-card> -->
 
-
+<a></a>
 <mat-card class="product-card">
     <div class="img-wrapper">
         <img class="product-image" mat-card-image src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F53295439%2Fusing-div-ngstyle-for-background-image-and-am-looping-it-ngfor-if-any-of-ima&psig=AOvVaw3ugfVZm7TemvuONWnASEgH&ust=1599147596905000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCagZznyusCFQAAAAAdAAAAABAD"
             alt="">
     </div>
-
-    <h3 class="product-name-label">{{model.Name}}</h3>
-
-    <mat-action-list>
+    <div class="card-content-wrapper">
+        <a routerLink="/catalog/{{model.Id}}" style="text-decoration: none">
+            <h3 class="product-name-label">{{model.Title}}</h3>
+        </a>
         <p class="price-label">{{model.Price.toFixed(2)}}$</p>
-        <button class="add-to-card-btn icon-size-29" mat-button><mat-icon>add_shopping_cart</mat-icon></button>
-    </mat-action-list>
+        <p class="brand-label">{{model.Brand}}</p>
+        <mat-action-list>
+
+        </mat-action-list>
+    </div>
 </mat-card>

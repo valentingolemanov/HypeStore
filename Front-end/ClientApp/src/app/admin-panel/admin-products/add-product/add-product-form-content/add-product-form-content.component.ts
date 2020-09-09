@@ -4,9 +4,8 @@ import { ProductsService } from '../../../../services/products.service';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import {Router} from '@angular/router';
 import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
-
-
-
+import {BrandsService} from '../../../../services/brands.service';
+import {IBrand} from '../../../../models/IBrand';
 
 @Component({
   selector: 'app-add-product-form-content',
@@ -25,17 +24,28 @@ export class AddProductFormContentComponent implements OnInit {
   files  = [];
   newProduct: any = {};
   isFormValid: boolean;
+  selectedValue: string;
 
-
+  public brands: IBrand[];
   public Editor = BalloonEditor;
 
-  constructor(private service: ProductsService,
-     private fb: FormBuilder, private alertify: AlertifyService,
-     private router: Router) { }
+  constructor(private productsService: ProductsService,
+    private brandsService: BrandsService,
+    private fb: FormBuilder,
+    private alertify: AlertifyService,
+    private router: Router) { }
 
   ngOnInit() {
     this.createAddProductForm();
     this.isFormValid = this.addProductForm.valid;
+     this.brandsService.getAllBrands().subscribe(
+       data =>
+       {
+         this.brands = data;
+        },
+        (err) => console.log(err),
+        () => console.log(this.brands)
+     )
   }
 
     //Getter method for all form controls
@@ -56,7 +66,8 @@ export class AddProductFormContentComponent implements OnInit {
      title: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
      description: [null, [Validators.required, Validators.maxLength(300)]],
      price: [null, [Validators.required]],
-     imageUrl: [null, [Validators.required]]
+     imageUrl: [null, [Validators.required]],
+     brand: [null, [Validators.required]]
     });
   }
 
@@ -65,7 +76,7 @@ export class AddProductFormContentComponent implements OnInit {
 
       this.newProduct = Object.assign(this.newProduct, this.addProductForm.value);
       let newProductId;
-      this.service.createProduct(this.newProduct).subscribe(res => {
+      this.productsService.createProduct(this.newProduct).subscribe(res => {
         newProductId = res;
 
       },

@@ -29,7 +29,6 @@
 
 .product-name-label {
     margin-top: 0%;
-    text-decoration: unset;
 }
 
 .add-to-card-btn {
@@ -38,8 +37,6 @@
 }
 
 .price-label {
-    text-decoration: unset;
     font-size: 20px;
-    margin: 0%;
-    display: inline;
+    float: right;
 }

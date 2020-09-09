@@ -16,6 +16,7 @@ namespace StreetwearStore.Data.Repository
         {
         }
 
+
         public IQueryable<TEntity> AllAsNoTrackingWithDeleted() => base.AllAsNoTracking().IgnoreQueryFilters();
 
         public IQueryable<TEntity> AllWithDeleted() => base.All().IgnoreQueryFilters();

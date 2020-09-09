@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Reflection;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using StreetwearStore.Data;
 using StreetwearStore.Data.Repository;
+using StreetwearStore.Services.Brands;
 using StreetwearStore.Services.Mapping;
 using StreetwearStore.Services.Products;
 using StreetwearStore.Web.ViewModels;
@@ -34,6 +33,7 @@ namespace StreetwearStore
             services.AddDbContext<ApplicationDbContext>(
               options => options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")));
 
+          
 
             services.AddControllers().AddJsonOptions(options =>
                 {
@@ -60,7 +60,7 @@ namespace StreetwearStore
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
             services.AddTransient<IProductsService, ProductsService>();
-
+            services.AddTransient<IBrandsService, BrandsService>();
         }
           
 
