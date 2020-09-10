@@ -19,13 +19,13 @@
 
         public Category Category { get; set; }
 
-        public int? BrandId { get; set; }
+        public int BrandId { get; set; }
 
         public Brand Brand { get; set; }
 
         public string Color { get; set; }
 
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         public USSize USSize { get; set; }
 

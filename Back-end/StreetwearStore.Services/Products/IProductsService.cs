@@ -8,7 +8,7 @@ namespace StreetwearStore.Services.Products
     {
       ICollection<TModel> GetProducts<TModel>();
 
-      Task<int> CreateAsync(string name, string description, string imageUrl, decimal price);
+      Task<int> CreateAsync(string name, string description, string imageUrl, decimal price, int brandId);
 
       TModel GetById<TModel>(int id);
     }

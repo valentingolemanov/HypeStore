@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StreetwearStore.Data;
 
 namespace StreetwearStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200910092817_randomMigration2")]
+    partial class randomMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -170,7 +172,7 @@ namespace StreetwearStore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BrandId")
+                    b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CategoryId")
@@ -236,9 +238,7 @@ namespace StreetwearStore.Data.Migrations
                 {
                     b.HasOne("StreetwearStore.Data.Entities.Brand", "Brand")
                         .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BrandId");
 
                     b.HasOne("StreetwearStore.Data.Entities.Category", "Category")
                         .WithMany("Products")

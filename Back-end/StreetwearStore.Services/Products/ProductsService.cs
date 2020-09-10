@@ -17,14 +17,15 @@
             this.repository = repository;
         }
 
-        public async Task<int> CreateAsync(string name, string description, string imageUrl, decimal price)
+        public async Task<int> CreateAsync(string name, string description, string imageUrl, decimal price, int brandId)
         {
             var product = new Product
             {
                 Name = name,
                 Description = description,
                 ImageUrl = imageUrl,
-                Price = price
+                Price = price,
+                BrandId = brandId
             };
 
             await this.repository.AddAsync(product);

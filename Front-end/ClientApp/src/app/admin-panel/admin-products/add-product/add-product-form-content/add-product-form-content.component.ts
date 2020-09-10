@@ -48,26 +48,32 @@ export class AddProductFormContentComponent implements OnInit {
      )
   }
 
-    //Getter method for all form controls
+  // -----------------------------------
+  // Getter method for all form controls
+  // -----------------------------------
   get title(){
     return this.addProductForm.get('title') as FormControl;
   }
-
   get description(){
     return this.addProductForm.get('description') as FormControl;
   }
-
   get price(){
     return this.addProductForm.get('price') as FormControl;
+  }
+  get imageUrl(){
+    return this.addProductForm.get('imageUrl') as FormControl;
+  }
+  get brandId(){
+    return this.addProductForm.get('brand') as FormControl;
   }
 
   createAddProductForm(): void {
     this.addProductForm = this.fb.group({
-     title: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-     description: [null, [Validators.required, Validators.maxLength(300)]],
+     title: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+     description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(400)]],
      price: [null, [Validators.required]],
      imageUrl: [null, [Validators.required]],
-     brand: [null, [Validators.required]]
+     brandId: [null, [Validators.required]]
     });
   }
 
@@ -91,5 +97,7 @@ export class AddProductFormContentComponent implements OnInit {
       console.log(this.addProductForm);
       this.alertify.error("Please provide valid information in all fields!");
     }
+
+    console.log(this.addProductForm);
   }
 }

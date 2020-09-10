@@ -3,8 +3,7 @@
     using Microsoft.AspNetCore.Mvc;
     using StreetwearStore.Services.Products;
     using StreetwearStore.Web.ViewModels.Products;
-    using System.Collections.Generic;
-    using System.Linq;
+
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -31,7 +30,7 @@
             var productId = -1;
             if (ModelState.IsValid)
             {
-                productId = await this.productsService.CreateAsync(model.Title, model.Description, model.ImageUrl, model.Price);
+                productId = await this.productsService.CreateAsync(model.Title, model.Description, model.ImageUrl, model.Price, model.BrandId);
             }
 
             if(productId == -1)

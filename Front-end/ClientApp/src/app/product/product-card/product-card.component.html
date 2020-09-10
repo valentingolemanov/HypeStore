@@ -14,11 +14,10 @@
     </div>
 </mat-card> -->
 
-<a></a>
+
 <mat-card class="product-card">
     <div class="img-wrapper">
-        <img class="product-image" mat-card-image src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F53295439%2Fusing-div-ngstyle-for-background-image-and-am-looping-it-ngfor-if-any-of-ima&psig=AOvVaw3ugfVZm7TemvuONWnASEgH&ust=1599147596905000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCagZznyusCFQAAAAAdAAAAABAD"
-            alt="">
+        <img class="product-image" mat-card-image src="{{model.ImageUrl}}" alt="">
     </div>
     <div class="card-content-wrapper">
         <a routerLink="/catalog/{{model.Id}}" style="text-decoration: none">

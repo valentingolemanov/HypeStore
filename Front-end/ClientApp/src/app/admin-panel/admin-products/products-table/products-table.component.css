@@ -30,12 +30,10 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .example-element-diagram {
-    min-width: 80px;
-    border: 1px dotted;
     font-weight: lighter;
     margin: 8px 0;
-    height: 200px;
-    width: 200px;
+    max-height: 200px;
+    max-width: 200px;
 }
 
 .example-element-symbol {
@@ -69,5 +67,5 @@ mat-paginator {
 .product-image {
     max-height: 100%;
     max-width: 100%;
-    background-size: contain;
+    background-size: cover;
 }
