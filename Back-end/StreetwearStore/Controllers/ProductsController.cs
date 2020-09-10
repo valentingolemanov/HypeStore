@@ -44,7 +44,7 @@
         }
 
         [HttpGet]
-        [Route("details")]
+        [Route("{id:int}")]
         public IActionResult Details(int id)
         {
             var product = this.productsService.GetById<DetailsViewModel>(id);
