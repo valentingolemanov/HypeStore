@@ -17,10 +17,13 @@
 
         public string ImageUrl { get; set; }
 
+        public string BrandName { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Product, ProductsListViewModel>()
-                 .ForMember(x => x.Title, y => y.MapFrom(z => z.Name));
+                 .ForMember(x => x.Title, y => y.MapFrom(z => z.Name))
+                 .ForMember(x => x.BrandName, y => y.MapFrom(z => z.Brand.Name));
         }
     }
 }

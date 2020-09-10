@@ -17,16 +17,18 @@
 
 <mat-card class="product-card">
     <div class="img-wrapper">
+
         <img class="product-image" mat-card-image src="{{model.ImageUrl}}" alt="">
     </div>
     <div class="card-content-wrapper">
-        <a routerLink="/catalog/{{model.Id}}" style="text-decoration: none">
-            <h3 class="product-name-label">{{model.Title}}</h3>
+        <p class="brand-label">{{model.BrandName}}</p>
+        <a class="product-name-label" routerLink="/catalog/{{model.Id}}" style="text-decoration: none">
+            <h3>{{model.Title}}</h3>
         </a>
         <p class="price-label">{{model.Price.toFixed(2)}}$</p>
-        <p class="brand-label">{{model.Brand}}</p>
-        <mat-action-list>
 
-        </mat-action-list>
+        <!-- <mat-action-list>
+
+        </mat-action-list> -->
     </div>
 </mat-card>

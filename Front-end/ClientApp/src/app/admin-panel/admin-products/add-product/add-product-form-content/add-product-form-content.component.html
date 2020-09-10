@@ -63,6 +63,6 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button type="submit" (click)="onSubmit()" [disabled]="isFormValid" mat-button cdkFocusInitial>Save</button>
+        <button type="submit" (click)="onSubmit()" [mat-dialog-close]="addProductForm.valid" [disabled]="isFormValid" mat-button cdkFocusInitial>Save</button>
     </mat-dialog-actions>
 </form>
