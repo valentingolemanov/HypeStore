@@ -5,10 +5,10 @@
             <mat-tab label="Basic Info">
                 <div class="basic-info-fields-container">
                     <br>
-                    <mat-form-field hintLabel="Max 30 characters" appearance="standard">
+                    <mat-form-field hintLabel="Max 50 characters" appearance="standard">
                         <mat-label>Title</mat-label>
                         <input formControlName="title" class="title-input" matInput #titleInput placeholder="Ex. Supreme Winter Hoodie">
-                        <mat-hint align="end">{{titleInput.value?.length || 0}}/30</mat-hint>
+                        <mat-hint align="end">{{titleInput.value?.length || 0}}/50</mat-hint>
                         <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)" class="alert alert-danger">
 
                             <div *ngIf="titleInput.errors.required">
@@ -23,10 +23,10 @@
                         </div>
                     </mat-form-field>
                     <br>
-                    <mat-form-field hintLabel="Max 200 characters" appearance="standard">
+                    <mat-form-field hintLabel="Max 400 characters" appearance="standard">
                         <mat-label>Description</mat-label>
                         <textarea formControlName="description" #descriptionInput matInput></textarea>
-                        <mat-hint align="end">{{descriptionInput.value?.length || 0}}/200</mat-hint>
+                        <mat-hint align="end">{{descriptionInput.value?.length || 0}}/400</mat-hint>
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="standard">
@@ -52,7 +52,7 @@
                 </div>
             </mat-tab>
             <mat-tab label="Media">
-                <mat-form-field appearance="standard">
+                <mat-form-field class="imageurl-input" appearance="standard">
                     <mat-label>Image</mat-label>
                     <input formControlName="imageUrl" matInput>
                 </mat-form-field>

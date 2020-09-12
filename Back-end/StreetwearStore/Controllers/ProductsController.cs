@@ -3,7 +3,7 @@
     using Microsoft.AspNetCore.Mvc;
     using StreetwearStore.Services.Products;
     using StreetwearStore.Web.ViewModels.Products;
-
+    using System;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -55,6 +55,22 @@
             }
 
             return this.Json(product);
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                await this.productsService.Delete(id);
+            }
+            catch
+            {
+                return this.BadRequest();
+            }
+
+            return this.Ok();
         }
     }
 }

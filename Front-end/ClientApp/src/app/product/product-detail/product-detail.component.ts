@@ -18,7 +18,7 @@ export class ProductDetailComponent implements OnInit {
   public productId;
 
   ngOnInit(): void {
-      this.productId = +this.route.params['id'];
+
 
       this.route.params.subscribe(
         (params) => {

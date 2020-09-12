@@ -25,7 +25,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -48,7 +48,7 @@ import {ProductsTableComponent} from './admin-panel/admin-products/products-tabl
 import {CatalogSidenavComponent} from './catalog/catalog-sidenav/catalog-sidenav.component';
 import {CatalogFilterMenuComponent} from './catalog/catalog-filter-menu/catalog-filter-menu.component';
 import {AddProductFormContentComponent} from './admin-panel/admin-products/add-product/add-product-form-content/add-product-form-content.component';
-
+import {DeleteDialogContentComponent} from './admin-panel/admin-products/products-table/delete-dialog-content/delete-dialog-content.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -78,7 +78,8 @@ const appRoutes: Routes = [
       ProductsTableComponent,
       CatalogSidenavComponent,
       CatalogFilterMenuComponent,
-      AddProductFormContentComponent
+      AddProductFormContentComponent,
+      DeleteDialogContentComponent
    ],
   imports: [
     BrowserModule,
@@ -106,7 +107,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatExpansionModule,
     MatDialogModule,
-
+    MatTooltipModule
   ],
   providers: [ProductsService,UsersService, AlertifyService, AuthService],
   bootstrap: [AppComponent]

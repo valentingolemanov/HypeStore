@@ -5,8 +5,10 @@ import {MatTableDataSource} from '@angular/material/table';
 import { ProductsService } from 'src/app/services/products.service';
 import {IProduct} from '../../../product/IProduct.interface';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-
-
+import {Router} from '@angular/router';
+import { AlertifyService } from 'src/app/services/alertify.service';
+import {MatDialog} from '@angular/material/dialog';
+import {DeleteDialogContentComponent} from './delete-dialog-content/delete-dialog-content.component';
 
 /** Constants used to fill up our data base. */
 // const COLORS: string[] = [
@@ -46,7 +48,11 @@ export class ProductsTableComponent implements OnInit {
   isExpansionDetailRow = (index, row) => row.hasOwnProperty('detailRow');
   products: Array<IProduct>;
 
-  constructor(private service: ProductsService) {
+  constructor(private service: ProductsService,
+    private router: Router,
+    private alertify: AlertifyService,
+    public dialog: MatDialog) {
+
 
     // Assign the data to the data source for the table to render
     this.service.getAllProducts().subscribe(
@@ -67,6 +73,16 @@ export class ProductsTableComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  openDialog(id: number) {
+
+    this.dialog.open(DeleteDialogContentComponent,
+      {data : {
+        productId: id,
+      }});
+  }
+
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

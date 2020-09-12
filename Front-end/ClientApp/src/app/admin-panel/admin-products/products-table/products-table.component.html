@@ -39,9 +39,10 @@
                     </div>
                     <div class="example-element-description">
                         {{product.Description}}
-
                     </div>
-
+                    <div class="admin-product-actions">
+                        <button (click)="openDialog(product.Id)" mat-icon-button #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon></button>
+                    </div>
                 </div>
             </td>
         </ng-container>
