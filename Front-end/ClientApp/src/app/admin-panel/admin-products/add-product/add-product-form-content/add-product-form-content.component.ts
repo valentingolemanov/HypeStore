@@ -3,7 +3,6 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { ProductsService } from '../../../../services/products.service';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import {Router} from '@angular/router';
-import * as BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
 import {BrandsService} from '../../../../services/brands.service';
 import {IBrand} from '../../../../models/IBrand';
 
@@ -27,7 +26,7 @@ export class AddProductFormContentComponent implements OnInit {
   selectedValue: string;
 
   public brands: IBrand[];
-  public Editor = BalloonEditor;
+
 
   constructor(private productsService: ProductsService,
     private brandsService: BrandsService,

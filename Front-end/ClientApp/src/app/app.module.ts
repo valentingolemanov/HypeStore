@@ -17,7 +17,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
-import { QuillModule } from 'ngx-quill';
 import { MatListModule} from '@angular/material/list'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
@@ -26,6 +25,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSortModule} from '@angular/material/sort';
+import {MatDividerModule} from '@angular/material/divider';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -54,7 +56,10 @@ import {ProductDetailsResolverService} from './services/product-details-resolver
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'admin-products', component: AdminProductsComponent},
-  {path: 'catalog/:id', component: ProductDetailComponent, resolve: {prd: ProductDetailsResolverService}},
+  {path:
+      'catalog/:id',
+      component: ProductDetailComponent,
+      resolve: {prd: ProductDetailsResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
   {path: 'catalog', component: CatalogComponent},
@@ -108,7 +113,10 @@ const appRoutes: Routes = [
     MatTableModule,
     MatExpansionModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSortModule,
+    MatDividerModule,
+    IvyCarouselModule
   ],
   providers: [ProductsService,UsersService, AlertifyService, AuthService, ProductDetailsResolverService],
   bootstrap: [AppComponent]
