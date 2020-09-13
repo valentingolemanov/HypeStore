@@ -24,7 +24,8 @@
                  new Brand { Id = 5, Name = "Supreme" },
                  new Brand { Id = 6, Name = "Dior" },
                  new Brand { Id = 7, Name = "Off-White" },
-                 new Brand { Id = 8, Name = "Yeezy" }
+                 new Brand { Id = 8, Name = "Yeezy" },
+                 new Brand { Id = 9, Name = "Puma"}
                  );
        
         }

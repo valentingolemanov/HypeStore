@@ -3,53 +3,53 @@
         width: 70%;
         margin-left: 30px;
     }
-    
+
     table {
         width: 100%;
     }
-    
+
     tr.example-detail-row {
         height: 0;
     }
-    
+
     tr.example-element-row:not(.example-expanded-row):hover {
         background: whitesmoke;
     }
-    
+
     tr.example-element-row:not(.example-expanded-row):active {
         background: #efefef;
     }
-    
+
     .example-element-row td {
         border-bottom-width: 0;
     }
-    
+
     .example-element-detail {
         overflow: hidden;
         display: flex;
     }
-    
+
     .example-element-diagram {
         font-weight: lighter;
         margin: 8px 0;
         max-height: 200px;
         max-width: 200px;
     }
-    
+
     .example-element-symbol {
         font-weight: bold;
         font-size: 40px;
         line-height: normal;
     }
-    
+
     .example-element-description {
         padding: 16px;
     }
-    
+
     .example-element-description-attribution {
         opacity: 0.5;
     }
-    
+
     .table-container {
         width: 95%;
         margin: auto;
@@ -59,19 +59,21 @@
     -moz-box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04);
     box-shadow: 19px -18px 6px -14px rgba(0, 0, 0, 0.04); */
     }
-    
+
     mat-paginator {
         background: transparent;
     }
-    
+
     .product-image {
         max-height: 100%;
         max-width: 100%;
         background-size: contain;
         object-fit: scale-down;
     }
-    
+
     .delete-icon {
         color: #e60000;
         font-size: 30px;
     }
+
+    .admin-product-actions {}
