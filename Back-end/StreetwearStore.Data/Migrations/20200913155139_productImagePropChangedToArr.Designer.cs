@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StreetwearStore.Data;
 
 namespace StreetwearStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200913155139_productImagePropChangedToArr")]
+    partial class productImagePropChangedToArr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,12 +159,6 @@ namespace StreetwearStore.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -190,6 +186,9 @@ namespace StreetwearStore.Data.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CollectionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
 
@@ -207,9 +206,6 @@ namespace StreetwearStore.Data.Migrations
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -238,22 +234,9 @@ namespace StreetwearStore.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("StreetwearStore.Data.Entities.ProductCollection", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CollectionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "CollectionId");
-
                     b.HasIndex("CollectionId");
 
-                    b.ToTable("ProductCollections");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("StreetwearStore.Data.Entities.Product", b =>
@@ -267,21 +250,10 @@ namespace StreetwearStore.Data.Migrations
                     b.HasOne("StreetwearStore.Data.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId");
-                });
 
-            modelBuilder.Entity("StreetwearStore.Data.Entities.ProductCollection", b =>
-                {
-                    b.HasOne("StreetwearStore.Data.Entities.Collection", "Collection")
-                        .WithMany("CollectionProducts")
-                        .HasForeignKey("CollectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StreetwearStore.Data.Entities.Product", "Product")
-                        .WithMany("ProductCollections")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("StreetwearStore.Data.Entities.Collection", null)
+                        .WithMany("Products")
+                        .HasForeignKey("CollectionId");
                 });
 #pragma warning restore 612, 618
         }

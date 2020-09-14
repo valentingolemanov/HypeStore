@@ -24,10 +24,12 @@
             {
                 Name = name,
                 Description = description,
-                ImageUrl = imageUrl,
                 Price = price,
+                ImageUrl = imageUrl,
                 BrandId = brandId
             };
+
+
 
             await this.repository.AddAsync(product);
             await this.repository.SaveChangesAsync();

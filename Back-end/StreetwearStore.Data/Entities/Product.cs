@@ -2,14 +2,20 @@
 {
     using StreetwearStore.Data.Common;
     using StreetwearStore.Data.Entities.Enums;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Dynamic;
 
     public class Product : BaseDeletableModel<int>
     {
+        public Product()
+        {
+            this.ProductCollections = new HashSet<ProductCollection>();
+        }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
-
-        public string ImageUrl { get; set; }
 
         public decimal Price { get; set; }
 
@@ -32,6 +38,10 @@
         public UKSize UKSize { get; set; }
 
         public EUSize EUSize { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public ICollection<ProductCollection> ProductCollections { get; set; }
 
     }
 }

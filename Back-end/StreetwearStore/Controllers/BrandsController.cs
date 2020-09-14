@@ -15,7 +15,7 @@ namespace StreetwearStore.Web.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class BrandsController : Controller
+    public class BrandsController : BaseController
     {
         private readonly IBrandsService brandsService;
 

@@ -8,7 +8,7 @@
 
 .img-wrapper {
     width: 100%;
-    height: 70%;
+    height: 80%;
     display: flex;
     justify-content: center;
     margin: 0px;
@@ -38,7 +38,8 @@
     padding: 0%;
     margin: 0%;
     font-family: Opt ma, sans-serif;
-    color: rgb(41, 6, 75);
+    color: rgb(29, 29, 29);
+    text-align: center;
 }
 
 .price-label {

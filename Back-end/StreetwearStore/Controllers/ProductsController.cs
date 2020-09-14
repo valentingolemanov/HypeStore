@@ -9,7 +9,7 @@
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private readonly IProductsService productsService; 
 

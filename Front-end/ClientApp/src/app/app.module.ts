@@ -52,18 +52,23 @@ import {CatalogFilterMenuComponent} from './catalog/catalog-filter-menu/catalog-
 import {AddProductFormContentComponent} from './admin-panel/admin-products/add-product/add-product-form-content/add-product-form-content.component';
 import {DeleteDialogContentComponent} from './admin-panel/admin-products/products-table/delete-dialog-content/delete-dialog-content.component';
 import {ProductDetailsResolverService} from './services/product-details-resolver.service';
+import {CollectionCardComponent} from './collection/collection-card/collection-card.component';
+import {CollectionCardListingComponent} from './collection/collection-card-listing/collection-card-listing.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'admin-products', component: AdminProductsComponent},
+  {path:
+      'admin-products',
+      component: AdminProductsComponent,
+  },
   {path:
       'catalog/:id',
       component: ProductDetailComponent,
-      resolve: {prd: ProductDetailsResolverService}},
+      resolve: {prd_details: ProductDetailsResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
-  {path: 'catalog', component: CatalogComponent},
-  {path: 'admin-panel', component: AdminProductsComponent}
+  {path: 'catalog', component: CatalogComponent}
 ]
 
 @NgModule({
@@ -85,7 +90,9 @@ const appRoutes: Routes = [
       CatalogSidenavComponent,
       CatalogFilterMenuComponent,
       AddProductFormContentComponent,
-      DeleteDialogContentComponent
+      DeleteDialogContentComponent,
+      CollectionCardComponent,
+      CollectionCardListingComponent
    ],
   imports: [
     BrowserModule,
@@ -118,7 +125,12 @@ const appRoutes: Routes = [
     MatDividerModule,
     IvyCarouselModule
   ],
-  providers: [ProductsService,UsersService, AlertifyService, AuthService, ProductDetailsResolverService],
+  providers: [ProductsService,
+    UsersService,
+     AlertifyService,
+      AuthService,
+      ProductDetailsResolverService,
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,10 @@
 ﻿namespace StreetwearStore.Web.ViewModels.Products
 {
     using Newtonsoft.Json.Serialization;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class CreateInputViewModel
     {
         [Required(ErrorMessage = "Product title is required.")]
@@ -14,7 +17,7 @@
         [MaxLength(400, ErrorMessage = "Product description must be at most 400 characters.")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Product image is required.")]
+        [Required(ErrorMessage = "Product images are required.")]
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "Product brand is required.")]

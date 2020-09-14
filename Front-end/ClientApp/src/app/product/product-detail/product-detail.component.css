@@ -68,6 +68,7 @@
 .product-price-label {
     font-size: 38px;
     font-family: American Typewriter, serif;
+    text-align: end;
 }
 
 .product-description-label {

@@ -23,21 +23,7 @@
         <br>
 
         <br>
-        <mat-tab-group mat-align-tabs="center">
-            <mat-tab label="Pricing">
-                <p class="product-price-label">${{product.Price.toFixed(2)}}</p>
-            </mat-tab>
-            <mat-tab label="Sizing">
-                <mat-form-field class="product-size-form-field" appearance="standard">
-                    <mat-label>Size</mat-label>
-                    <mat-select>
-                        <mat-option value="option">Option</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </mat-tab>
-            <mat-tab label="Shipping"></mat-tab>
-        </mat-tab-group>
-
+        <p class="product-price-label">{{product.Price.toFixed(2)}}$</p>
 
     </div>
 

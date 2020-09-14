@@ -32,7 +32,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
       this.route.data.subscribe(
         (data: Product) => {
-          this.product = data['prd'];
+          this.product = data['prd_details'];
         }
       );
   }

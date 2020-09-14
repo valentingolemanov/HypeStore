@@ -17,8 +17,8 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Brand>().HasData(
-                 new Brand {Id = 1, Name="Nike" },
-                 new Brand {Id =2 , Name = "Adidas" },
+                 new Brand { Id = 1, Name="Nike" },
+                 new Brand { Id =2 , Name = "Adidas" },
                  new Brand { Id = 3, Name = "Air Jordan" },
                  new Brand { Id = 4, Name = "Alexander McQueen" },
                  new Brand { Id = 5, Name = "Supreme" },
@@ -27,6 +27,9 @@
                  new Brand { Id = 8, Name = "Yeezy" },
                  new Brand { Id = 9, Name = "Puma"}
                  );
+
+            modelBuilder.Entity<ProductCollection>()
+                .HasKey(x => new { x.ProductId, x.CollectionId });
        
         }
 
@@ -36,6 +39,10 @@
 
         public DbSet<Collection> Collections { get; set; }
 
+        public DbSet<ProductCollection> ProductCollections { get; set; }
+
         public DbSet<Category> Categories { get; set; }
+
+      
     }
 }
