@@ -1,3 +1,5 @@
+<button class="add-product-btn" (click)="openAddProductDialog()" mat-button><mat-icon>add</mat-icon>  Add Product</button>
+
 <div class="table-container">
     <mat-form-field appearance="standard">
         <mat-label>Filter</mat-label>
@@ -6,9 +8,9 @@
 
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort class="mat-elevation-z8">
         <!-- <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-            <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-        </ng-container> -->
+          <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container> -->
         <!-- ID Column -->
         <ng-container matColumnDef="Id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
@@ -43,7 +45,7 @@
                         {{product.Description}}
                     </div>
                     <div fxFlex="5%" fxFlex.xs="100%" fxFlex.sm="50%" class="admin-product-actions">
-                        <button (click)="openDialog(product.Id)" mat-icon-button #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon></button>
+                        <button (click)="openDeleteDialog(product.Id)" mat-icon-button #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon></button>
                     </div>
                 </div>
             </td>

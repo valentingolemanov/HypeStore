@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
-import { ProductsService } from '../../../../services/products.service';
-import { AlertifyService } from 'src/app/services/alertify.service';
+import { ProductsService } from '../../../services/products.service';
+import { AlertifyService } from '../../../services/alertify.service';
 import {Router} from '@angular/router';
-import {BrandsService} from '../../../../services/brands.service';
-import {IBrand} from '../../../../models/IBrand';
+import {BrandsService} from '../../../services/brands.service';
+import {IBrand} from '../../../models/IBrand';
 
 @Component({
-  selector: 'app-add-product-form-content',
-  templateUrl: './add-product-form-content.component.html',
-  styleUrls: ['./add-product-form-content.component.css']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.css']
 })
 
-export class AddProductFormContentComponent implements OnInit {
+export class AddProductComponent implements OnInit {
 
   addProductForm: FormGroup;
   checked = false;
@@ -89,7 +89,7 @@ export class AddProductFormContentComponent implements OnInit {
       () => {
         this.alertify.success("Congrats, you added a new product!");
       this.addProductForm.reset();
-       this.router.navigate([`/admin-products`]);
+       this.router.navigate([`/dashboard-products`]);
     });
 
     }else{

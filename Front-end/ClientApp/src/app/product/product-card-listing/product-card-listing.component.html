@@ -1,7 +1,7 @@
 <div class="products-listing-wrapper" fxLayout="row wrap" fxLayoutGap="30px grid">
     <!-- <mat-grid-list fxLayout="row wrap"> -->
-    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let product of products ">
-        <app-product-card [model]="product "></app-product-card>
+    <div *ngFor="let product of products" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
+        <app-product-card [product]="product "></app-product-card>
     </div>
     <!-- </mat-grid-list> -->
 </div>

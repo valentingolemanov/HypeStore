@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../services/products.service';
+import {Product} from './../models/Product';
+import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-catalog',
@@ -8,9 +12,24 @@ import { Component, OnInit } from '@angular/core';
 export class CatalogComponent implements OnInit {
 
   showFiller = false;
-  constructor() { }
+
+  products: Array<Product> = [];
+
+  constructor(private route: ActivatedRoute, private productsService: ProductsService) { }
 
   ngOnInit() {
+
+    this.route.data.subscribe(
+      (data: Product) => {
+        this.products = data['prd_listing'];
+      }
+    );
+
+  // this.productsService.getAllProducts().subscribe(data => {
+  //     this.products = data;
+  //     console.log(data);
+  //   });
+
   }
 
 }

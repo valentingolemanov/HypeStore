@@ -5,6 +5,6 @@
     <mat-sidenav-content class="admin-content">
         <button mat-button (click)="sidenav.toggle()">Show filters <mat-icon>tune</mat-icon></button>
         <app-catalog-filter-menu></app-catalog-filter-menu>
-        <app-product-list></app-product-list>
+        <app-product-list [products]='products'></app-product-list>
     </mat-sidenav-content>
 </mat-sidenav-container>

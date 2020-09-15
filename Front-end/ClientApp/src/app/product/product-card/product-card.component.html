@@ -18,12 +18,12 @@
 <mat-card class="product-card">
     <div class="img-wrapper">
 
-        <img class="product-image" mat-card-image src="{{model.ImageUrl}}" alt="">
+        <img class="product-image" mat-card-image src="{{product.ImageUrl}}" alt="">
     </div>
     <div class="card-content-wrapper">
-        <p class="brand-label">{{model.BrandName}}</p>
-        <a class="product-name-label" routerLink="/catalog/{{model.Id}}" style="text-decoration: none">
-            <h3>{{model.Title}}</h3>
+        <p class="brand-label">{{product.BrandName}}</p>
+        <a class="product-name-label" routerLink="/catalog/{{product.Id}}" style="text-decoration: none">
+            <h3>{{product.Title}}</h3>
         </a>
 
 

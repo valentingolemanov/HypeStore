@@ -1,0 +1,20 @@
+<mat-sidenav-container class="admin-panel-container" fullscreen>
+    <mat-sidenav class="admin-panel-sidenav" mode="side" opened>
+        <div class="sidenav-menu-content">
+            <button routerLink="/admin-products" mat-button>Products</button>
+
+
+            <button mat-button>Collections</button>
+
+
+            <button mat-button>Customers</button>
+
+
+            <button mat-button>Orders</button>
+
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-products-table [products]="products"></app-products-table>
+    </mat-sidenav-content>
+</mat-sidenav-container>

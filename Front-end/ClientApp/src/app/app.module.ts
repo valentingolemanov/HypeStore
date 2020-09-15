@@ -31,11 +31,10 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductCardListingComponent } from './product/product-card-listing/product-card-listing.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import {ProductsService} from './services/products.service';
-import {AddProductComponent} from './admin-panel/admin-products/add-product/add-product.component';
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
@@ -43,39 +42,40 @@ import { UsersService } from './services/users.service';
 import {AlertifyService} from './services/alertify.service';
 import {AuthService} from './services/auth.service';
 import { CatalogComponent } from './catalog/catalog.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-import {AdminPanelSidenavComponent} from './admin-panel/admin-panel-sidenav/admin-panel-sidenav.component';
-import { AdminProductsComponent} from './admin-panel/admin-products/admin-products.component';
-import {ProductsTableComponent} from './admin-panel/admin-products/products-table/products-table.component';
+import {AddProductComponent} from './dashboard/dashboard-products/add-product/add-product.component';
 import {CatalogSidenavComponent} from './catalog/catalog-sidenav/catalog-sidenav.component';
 import {CatalogFilterMenuComponent} from './catalog/catalog-filter-menu/catalog-filter-menu.component';
-import {AddProductFormContentComponent} from './admin-panel/admin-products/add-product/add-product-form-content/add-product-form-content.component';
-import {DeleteDialogContentComponent} from './admin-panel/admin-products/products-table/delete-dialog-content/delete-dialog-content.component';
+import {DeleteDialogContentComponent} from './dashboard/dashboard-products/products-table/delete-dialog-content/delete-dialog-content.component';
 import {ProductDetailsResolverService} from './services/product-details-resolver.service';
 import {CollectionCardComponent} from './collection/collection-card/collection-card.component';
 import {CollectionCardListingComponent} from './collection/collection-card-listing/collection-card-listing.component';
-
+import {FilterPipe} from './pipes/filter.pipe';
+import {SortPipe} from './pipes/sort.pipe';
+import {ProductListingResolverService} from './services/product-listing-resolver.service';
+import {DashboardProductsComponent} from './dashboard/dashboard-products/dashboard-products.component';
+import {ProductsTableComponent} from './dashboard/dashboard-products/products-table/products-table.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path:
-      'admin-products',
-      component: AdminProductsComponent,
-  },
-  {path:
-      'catalog/:id',
+  {path: 'catalog',
+  component: CatalogComponent,
+  resolve: {prd_listing: ProductListingResolverService}},
+  {path:'catalog/:id',
       component: ProductDetailComponent,
       resolve: {prd_details: ProductDetailsResolverService}},
+  {path: 'dashboard-products',
+      component: DashboardProductsComponent,
+      resolve: {prd_listing : ProductListingResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
-  {path: 'catalog', component: CatalogComponent}
+
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductDetailComponent,
-    ProductListComponent,
+    ProductCardListingComponent,
     NavbarComponent,
     ProductCardComponent,
     AddProductComponent,
@@ -83,16 +83,15 @@ const appRoutes: Routes = [
     UserLoginComponent,
     UserRegisterComponent,
       CatalogComponent,
-      AdminPanelComponent,
-      AdminPanelSidenavComponent,
-      AdminProductsComponent,
       ProductsTableComponent,
       CatalogSidenavComponent,
       CatalogFilterMenuComponent,
-      AddProductFormContentComponent,
       DeleteDialogContentComponent,
       CollectionCardComponent,
-      CollectionCardListingComponent
+      CollectionCardListingComponent,
+      FilterPipe,
+      SortPipe,
+      DashboardProductsComponent
    ],
   imports: [
     BrowserModule,
@@ -130,6 +129,7 @@ const appRoutes: Routes = [
      AlertifyService,
       AuthService,
       ProductDetailsResolverService,
+      ProductListingResolverService
       ],
   bootstrap: [AppComponent]
 })

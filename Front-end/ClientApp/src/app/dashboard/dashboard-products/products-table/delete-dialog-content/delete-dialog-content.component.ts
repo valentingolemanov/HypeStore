@@ -34,7 +34,7 @@ export class DeleteDialogContentComponent implements OnInit {
       (err) => console.log(err),
       () =>{
          this.alertify.success('Congrats! You successfully deleted the product');
-         this.router.navigate(['/admin-products']);
+         this.router.navigate(['/dashboard-products']);
         }
     )
   }

@@ -1,14 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ProductsService } from 'src/app/services/products.service';
-import {IProduct} from '../../../product/IProduct.interface';
+import {Product} from '../../../models/Product';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import {Router} from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import {MatDialog} from '@angular/material/dialog';
-import {DeleteDialogContentComponent} from './delete-dialog-content/delete-dialog-content.component';
+import {DeleteDialogContentComponent} from '../products-table/delete-dialog-content/delete-dialog-content.component'
+import { AddProductComponent } from '../add-product/add-product.component';
 
 @Component({
     selector: 'app-products-table',
@@ -25,15 +26,15 @@ import {DeleteDialogContentComponent} from './delete-dialog-content/delete-dialo
 
 export class ProductsTableComponent implements OnInit {
    columnsToDisplay : string[] = ['Id', 'Title',  'Price', ];
-   dataSource: MatTableDataSource<IProduct>;
-   expandedElement: IProduct | null;
+   dataSource: MatTableDataSource<Product>;
+   expandedElement: Product | null;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
   isExpansionDetailRow = (index, row) => row.hasOwnProperty('detailRow');
-  products: Array<IProduct>;
+  @Input() products: Array<Product>;
 
   constructor(private service: ProductsService,
     private router: Router,
@@ -42,26 +43,29 @@ export class ProductsTableComponent implements OnInit {
 
 
     // Assign the data to the data source for the table to render
-    this.service.getAllProducts().subscribe(
-      data => {
-     this.products = data;
-      },
-      (err) => console.log(err),
-      () => {
-        this.dataSource = new MatTableDataSource(this.products);
-        console.log(this.dataSource);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      }
+    // this.service.getAllProducts().subscribe(
+    //   data => {
+    //  this.products = data;
+    //   },
+    //   (err) => console.log(err),
+    //   () => {
+    //     this.dataSource = new MatTableDataSource(this.products);
+    //     console.log(this.dataSource);
+    //     this.dataSource.paginator = this.paginator;
+    //     this.dataSource.sort = this.sort;
+    //   }
 
-    );
+    // );
   }
 
   ngOnInit() {
-
+    this.dataSource = new MatTableDataSource(this.products);
+        console.log(this.dataSource);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
   }
 
-  openDialog(id: number) {
+  openDeleteDialog(id: number) {
 
     this.dialog.open(DeleteDialogContentComponent,
       {data : {
@@ -69,7 +73,13 @@ export class ProductsTableComponent implements OnInit {
       }});
   }
 
+  openAddProductDialog() {
+    const dialogRef = this.dialog.open(AddProductComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

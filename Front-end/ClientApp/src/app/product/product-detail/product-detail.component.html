@@ -6,11 +6,13 @@
                     <img src="{{product.ImageUrl}}">
                 </div> -->
     <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class="main-photo-container">
-        <carousel [dots]="true" [height]="600" [loop]="true" [cellsToShow]="1">
-            <div class="img-wrapper" *ngFor="let image of slides" class="carousel-cell">
-                <img src="{{product.ImageUrl}}" alt="somethin">
-            </div>
-        </carousel>
+        <div class="carousel-wrapper">
+            <carousel [dots]="true" [height]="600" [loop]="true" [cellsToShow]="1">
+                <div class="img-wrapper" *ngFor="let image of slides" class="carousel-cell">
+                    <img src="{{product.ImageUrl}}" alt="somethin">
+                </div>
+            </carousel>
+        </div>
     </div>
     <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class="product-menu-container">
         <a>
