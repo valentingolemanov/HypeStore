@@ -1,18 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {Product} from '../models/Product';
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any[], filterString: string, propName: string): any[] {
+  transform(value: Array<Product>, filterString: string): any[] {
     const resultArr = [];
-    if(value.length === 0 || filterString === '' || propName === ''){
+
+    if(value.length === 0 || filterString === '' ){
       return value;
     }
 
     for(const item of value){
-      if(item[propName].toLowerCase().includes(filterString.toLowerCase())){
+      if(item.Title.toLowerCase().includes(filterString.toLowerCase())){
+        resultArr.push(item);
+      }else if(item.BrandName.toLowerCase().includes(filterString.toLowerCase())){
         resultArr.push(item);
       }
     }

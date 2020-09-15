@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dashboard-collections',
   templateUrl: './dashboard-collections.component.html',
-  styleUrls: ['./dashboard-collections.component.scss']
+  styleUrls: ['./dashboard-collections.component.css']
 })
 export class DashboardCollectionsComponent implements OnInit {
 

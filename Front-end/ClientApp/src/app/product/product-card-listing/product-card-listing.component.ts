@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {IProduct} from '../IProduct.interface';
+import {Product} from '../../models/Product';
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +10,7 @@ export class ProductCardListingComponent implements OnInit {
 
   constructor() {}
 
-  @Input() products: Array<IProduct>;
+  @Input() products: Array<Product> = [];
 
   SearchInput = '';
   SearchOption = '';

@@ -1,21 +1,14 @@
 <div class="filter-menu">
     <mat-form-field class="filter-input" appearance="standard">
-        <mat-label>Filter</mat-label>
+        <mat-label>Search</mat-label>
         <input [(ngModel)]='SearchInput' matInput placeholder="Ex. Air Jordan">
     </mat-form-field>
-    <mat-form-field class="property-select" appearance="standard">
-        <mat-label>Select an option</mat-label>
-        <mat-select [(ngModel)]="SearchOption" disableRipple>
-            <mat-option>--</mat-option>
-            <mat-option value="Title">Title</mat-option>
-            <mat-option value="BrandName">Brand</mat-option>
-        </mat-select>
-    </mat-form-field>
+
 </div>
 
 <div class="products-listing-wrapper" fxLayout="row wrap" fxLayoutGap="30px grid">
 
-    <div *ngFor="let product of products|filter: SearchInput : SearchOption" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
+    <div *ngFor="let product of products|filter: SearchInput" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
 
         <app-product-card [product]="product"></app-product-card>
 
