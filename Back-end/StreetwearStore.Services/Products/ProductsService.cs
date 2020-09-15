@@ -4,6 +4,7 @@
     using StreetwearStore.Data.Entities;
     using StreetwearStore.Data.Repository;
     using StreetwearStore.Services.Mapping;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
@@ -26,7 +27,8 @@
                 Description = description,
                 Price = price,
                 ImageUrl = imageUrl,
-                BrandId = brandId
+                BrandId = brandId,
+                CreatedOn = DateTime.UtcNow
             };
 
 

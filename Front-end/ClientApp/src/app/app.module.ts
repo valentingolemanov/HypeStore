@@ -1,15 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list'
 import {HttpClientModule} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatToolbarModule } from "@angular/material/toolbar";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
@@ -18,7 +18,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
-import { MatListModule} from '@angular/material/list'
+import {MatListModule} from '@angular/material/list'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -57,6 +57,8 @@ import {ProductListingResolverService} from './services/product-listing-resolver
 import {DashboardProductsComponent} from './dashboard/dashboard-products/dashboard-products.component';
 import {ProductsTableComponent} from './dashboard/dashboard-products/products-table/products-table.component';
 import {DashboardCollectionsComponent} from './dashboard/dashboard-collections/dashboard-collections.component';
+import {AddCollectionComponent} from './dashboard/dashboard-collections/add-collection/add-collection.component'
+import {CollectionsService} from './services/collections.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -71,6 +73,7 @@ const appRoutes: Routes = [
       resolve: {prd_listing : ProductListingResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
+  {path: 'dashboard-collections', component: DashboardCollectionsComponent}
 
 ]
 
@@ -95,7 +98,8 @@ const appRoutes: Routes = [
       FilterPipe,
       SortPipe,
       DashboardProductsComponent,
-      DashboardCollectionsComponent
+      DashboardCollectionsComponent,
+      AddCollectionComponent
    ],
   imports: [
     BrowserModule,
@@ -134,7 +138,8 @@ const appRoutes: Routes = [
      AlertifyService,
       AuthService,
       ProductDetailsResolverService,
-      ProductListingResolverService
+      ProductListingResolverService,
+      CollectionsService
       ],
   bootstrap: [AppComponent]
 })

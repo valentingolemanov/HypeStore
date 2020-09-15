@@ -9,4 +9,5 @@ export class Product implements IProduct{
   ImageUrl: string;
   Price: number;
   BrandName: string;
+  ReleasedOn: string;
 }

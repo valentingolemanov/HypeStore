@@ -1,5 +1,6 @@
 ﻿namespace StreetwearStore.Services.Collections
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -30,7 +31,8 @@
             {
                 Name = name,
                 Description = description,
-                ImageUrl = imageUrl
+                ImageUrl = imageUrl,
+                CreatedOn = DateTime.UtcNow
             };
 
             await this.repository.AddAsync(collection);

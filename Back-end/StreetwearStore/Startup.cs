@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using StreetwearStore.Data;
 using StreetwearStore.Data.Repository;
 using StreetwearStore.Services.Brands;
+using StreetwearStore.Services.Collections;
 using StreetwearStore.Services.Mapping;
 using StreetwearStore.Services.Products;
 using StreetwearStore.Web.ViewModels;
@@ -61,6 +62,7 @@ namespace StreetwearStore
 
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IBrandsService, BrandsService>();
+            services.AddTransient<ICollectionsService, CollectionsService>();
         }
           
 

@@ -37,10 +37,9 @@
             {
                 return this.BadRequest();
             }
-            else
-            {
+          
                 return this.Json(productId);
-            }
+            
         }
 
         [HttpGet]

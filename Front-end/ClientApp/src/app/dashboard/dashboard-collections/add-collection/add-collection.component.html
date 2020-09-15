@@ -1,0 +1,26 @@
+<form [formGroup]="addCollectionForm" class="add-collection-form">
+    <h2 mat-dialog-title>Add Collection</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <mat-form-field appearance="standard">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="standard">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="standard">
+            <mat-label>ImageUrl</mat-label>
+            <input formControlName="imageUrl" matInput>
+        </mat-form-field>
+        <br>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="onSubmit()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</form>

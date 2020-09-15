@@ -5,4 +5,5 @@ export interface IProduct {
   Price: Number;
   ImageUrl: string;
   BrandName: string;
+  ReleasedOn: string;
 }

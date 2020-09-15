@@ -1,0 +1,10 @@
+form {
+    width: 600px;
+}
+
+mat-form-field {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+}

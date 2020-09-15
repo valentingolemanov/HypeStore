@@ -5,6 +5,7 @@ import { AlertifyService } from '../../../services/alertify.service';
 import {Router} from '@angular/router';
 import {BrandsService} from '../../../services/brands.service';
 import {IBrand} from '../../../models/IBrand';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-add-product',

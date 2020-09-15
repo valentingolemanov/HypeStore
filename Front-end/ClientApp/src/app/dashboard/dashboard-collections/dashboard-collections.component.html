@@ -1,20 +1,20 @@
 <mat-sidenav-container class="admin-panel-container" fullscreen>
     <mat-sidenav class="admin-panel-sidenav" mode="side" opened>
         <div class="sidenav-menu-content">
-            <button routerLink="/admin-products" mat-button>Products</button>
+            <a routerLink="/dashboard-products" mat-button>Products</a>
 
 
-            <button mat-button>Collections</button>
+            <a routerLink="/dashboard-collections" mat-button>Collections</a>
 
 
-            <button mat-button>Customers</button>
+            <a mat-button>Customers</a>
 
 
-            <button mat-button>Orders</button>
+            <a mat-button>Orders</a>
 
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
-
+        <button class="add-product-btn" (click)="openAddCollectionDialog()" mat-button><mat-icon>add</mat-icon>  Add Collection</button>
     </mat-sidenav-content>
 </mat-sidenav-container>
