@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -29,6 +30,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDividerModule} from '@angular/material/divider';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 
+
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductCardListingComponent } from './product/product-card-listing/product-card-listing.component';
@@ -54,6 +56,7 @@ import {SortPipe} from './pipes/sort.pipe';
 import {ProductListingResolverService} from './services/product-listing-resolver.service';
 import {DashboardProductsComponent} from './dashboard/dashboard-products/dashboard-products.component';
 import {ProductsTableComponent} from './dashboard/dashboard-products/products-table/products-table.component';
+import {DashboardCollectionsComponent} from './dashboard/dashboard-collections/dashboard-collections.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -91,7 +94,8 @@ const appRoutes: Routes = [
       CollectionCardListingComponent,
       FilterPipe,
       SortPipe,
-      DashboardProductsComponent
+      DashboardProductsComponent,
+      DashboardCollectionsComponent
    ],
   imports: [
     BrowserModule,
@@ -122,7 +126,8 @@ const appRoutes: Routes = [
     MatTooltipModule,
     MatSortModule,
     MatDividerModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    FormsModule
   ],
   providers: [ProductsService,
     UsersService,

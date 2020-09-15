@@ -1,9 +1,9 @@
-<button class="add-product-btn" (click)="openAddProductDialog()" mat-button><mat-icon>add</mat-icon>  Add Product</button>
+<!-- <button class="add-product-btn" (click)="openAddProductDialog()" mat-button><mat-icon>add</mat-icon>  Add Product</button> -->
 
 <div class="table-container">
     <mat-form-field appearance="standard">
         <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Air Jordan" #input>
     </mat-form-field>
 
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort class="mat-elevation-z8">

@@ -12,8 +12,13 @@ export class ProductCardListingComponent implements OnInit {
 
   @Input() products: Array<IProduct>;
 
+  SearchInput = '';
+  SearchOption = '';
+
   ngOnInit(): void {
 
   }
+
+
 
 }

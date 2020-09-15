@@ -1,9 +1,11 @@
 .filter-menu {
     display: flex;
     width: 90%;
-    margin: auto;
+    margin: 0%;
+    padding: 0%;
 }
 
 .filter-menu>mat-form-field {
-    margin-right: 40px;
+    width: 40%;
+    margin: auto;
 }
