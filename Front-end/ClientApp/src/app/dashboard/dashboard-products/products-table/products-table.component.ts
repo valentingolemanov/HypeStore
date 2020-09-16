@@ -10,6 +10,7 @@ import { AlertifyService } from 'src/app/services/alertify.service';
 import {MatDialog} from '@angular/material/dialog';
 import {DeleteDialogContentComponent} from '../products-table/delete-dialog-content/delete-dialog-content.component'
 import { AddProductComponent } from '../add-product/add-product.component';
+import {SelectionModel} from '@angular/cdk/collections';
 
 @Component({
     selector: 'app-products-table',
@@ -25,9 +26,10 @@ import { AddProductComponent } from '../add-product/add-product.component';
     })
 
 export class ProductsTableComponent implements OnInit {
-   columnsToDisplay : string[] = ['Id', 'Title',  'Price', ];
+   columnsToDisplay : string[] = ['select', 'Id', 'Title',  'Price', ];
    dataSource: MatTableDataSource<Product>;
    expandedElement: Product | null;
+   selection = new SelectionModel<Product>(true, []);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -42,20 +44,6 @@ export class ProductsTableComponent implements OnInit {
     public dialog: MatDialog) {
 
 
-    // Assign the data to the data source for the table to render
-    // this.service.getAllProducts().subscribe(
-    //   data => {
-    //  this.products = data;
-    //   },
-    //   (err) => console.log(err),
-    //   () => {
-    //     this.dataSource = new MatTableDataSource(this.products);
-    //     console.log(this.dataSource);
-    //     this.dataSource.paginator = this.paginator;
-    //     this.dataSource.sort = this.sort;
-    //   }
-
-    // );
   }
 
   ngOnInit() {
@@ -88,6 +76,28 @@ export class ProductsTableComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: Product): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.Id + 1}`;
   }
 }
 

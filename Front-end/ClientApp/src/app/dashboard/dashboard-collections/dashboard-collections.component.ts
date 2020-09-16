@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AddCollectionComponent} from './add-collection/add-collection.component';
+import {ActivatedRoute} from '@angular/router';
+import { Collection } from 'src/app/models/Collection';
 
 @Component({
   selector: 'app-dashboard-collections',
@@ -9,9 +11,17 @@ import {AddCollectionComponent} from './add-collection/add-collection.component'
 })
 export class DashboardCollectionsComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  collections: Array<Collection> = [];
+
+  constructor(private dialog: MatDialog,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(
+      (data: Collection) => {
+        this.collections = data['cltn_listing'];
+      }
+    );
   }
 
   openAddCollectionDialog(){

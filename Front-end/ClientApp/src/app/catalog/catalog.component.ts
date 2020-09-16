@@ -12,7 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 export class CatalogComponent implements OnInit {
 
   showFiller = false;
-
+  showSpinner = false;
   products: Array<Product> = [];
 
   constructor(private route: ActivatedRoute, private productsService: ProductsService) { }
@@ -21,7 +21,12 @@ export class CatalogComponent implements OnInit {
 
     this.route.data.subscribe(
       (data: Product) => {
+        this.showSpinner =true;
         this.products = data['prd_listing'];
+      },
+      (err) => console.log(err),
+      () =>{
+        this.showSpinner = false;
       }
     );
 

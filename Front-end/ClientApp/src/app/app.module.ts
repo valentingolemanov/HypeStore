@@ -29,7 +29,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSortModule} from '@angular/material/sort';
 import {MatDividerModule} from '@angular/material/divider';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -59,6 +59,8 @@ import {ProductsTableComponent} from './dashboard/dashboard-products/products-ta
 import {DashboardCollectionsComponent} from './dashboard/dashboard-collections/dashboard-collections.component';
 import {AddCollectionComponent} from './dashboard/dashboard-collections/add-collection/add-collection.component'
 import {CollectionsService} from './services/collections.service';
+import {CollectionsTableComponent} from './dashboard/dashboard-collections/collections-table/collections-table.component';
+import {CollectionsListingResolverService} from './services/collections-listing-resolver.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -73,7 +75,9 @@ const appRoutes: Routes = [
       resolve: {prd_listing : ProductListingResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
-  {path: 'dashboard-collections', component: DashboardCollectionsComponent}
+  {path: 'dashboard-collections',
+     component: DashboardCollectionsComponent,
+    resolve: {cltn_listing : CollectionsListingResolverService}}
 
 ]
 
@@ -99,7 +103,8 @@ const appRoutes: Routes = [
       SortPipe,
       DashboardProductsComponent,
       DashboardCollectionsComponent,
-      AddCollectionComponent
+      AddCollectionComponent,
+      CollectionsTableComponent
    ],
   imports: [
     BrowserModule,
@@ -131,7 +136,8 @@ const appRoutes: Routes = [
     MatSortModule,
     MatDividerModule,
     IvyCarouselModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [ProductsService,
     UsersService,
@@ -139,7 +145,8 @@ const appRoutes: Routes = [
       AuthService,
       ProductDetailsResolverService,
       ProductListingResolverService,
-      CollectionsService
+      CollectionsService,
+      CollectionsListingResolverService
       ],
   bootstrap: [AppComponent]
 })
