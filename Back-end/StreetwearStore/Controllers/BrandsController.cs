@@ -27,7 +27,7 @@ namespace StreetwearStore.Web.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var brands = this.brandsService.GetBrands<GetBrandsResponseModel>();
+            var brands = this.brandsService.GetBrands<BrandsResponseModel>();
 
             return this.Json(brands);
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StreetwearStore.Web.ViewModels.Brands
 {
-    public class GetBrandsResponseModel : IMapFrom<Brand>
+    public class BrandsResponseModel : IMapFrom<Brand>
     {
         public int Id { get; set; }
         public string Name { get; set; }

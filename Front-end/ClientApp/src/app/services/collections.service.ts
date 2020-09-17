@@ -31,14 +31,14 @@ createCollection(collection: Collection){
   return this.http.post<Collection>('http://localhost:58341/api/collections', collection);
 }
 
-getProduct(id: number) : Observable<Collection>{
+getCollection(id: number) : Observable<Collection>{
   return this.getAllCollections().pipe(
     map(propertiesArray => {
       return propertiesArray.find(p => p.Id === id);
     }))
 }
 
-deleteProduct(id: number){
+deleteCollection(id: number){
   return this.http.delete('http://localhost:58341/api/collections/' + id);
 }
 }

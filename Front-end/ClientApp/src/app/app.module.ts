@@ -32,7 +32,6 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
-
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductCardListingComponent } from './product/product-card-listing/product-card-listing.component';
@@ -64,6 +63,8 @@ import {CollectionsService} from './services/collections.service';
 import {CollectionsTableComponent} from './dashboard/dashboard-collections/collections-table/collections-table.component';
 import {CollectionsListingResolverService} from './services/collections-listing-resolver.service';
 import {BrandsListingResolverService} from './services/brands-listing-resolver.service';
+import {CollectionDeleteDialogComponent} from './dashboard/dashboard-collections/collections-table/collection-delete-dialog/collection-delete-dialog.component';
+
 
 const appRoutes: Routes = [
   {path: '',
@@ -113,7 +114,8 @@ const appRoutes: Routes = [
       DashboardProductsComponent,
       DashboardCollectionsComponent,
       AddCollectionComponent,
-      CollectionsTableComponent
+      CollectionsTableComponent,
+      CollectionDeleteDialogComponent
    ],
   imports: [
     BrowserModule,

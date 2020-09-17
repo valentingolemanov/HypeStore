@@ -42,5 +42,21 @@
             return this.Json(productId);
             
         }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                await this.collectionsService.Delete(id);
+            }
+            catch
+            {
+                return this.BadRequest();
+            }
+
+            return this.Ok();
+        }
     }
 }

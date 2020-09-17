@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {AlertifyService} from '../../../../services/alertify.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ProductsService } from 'src/app/services/products.service';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA,} from "@angular/material/dialog";
 import { Inject } from '@angular/core';
 
 @Component({

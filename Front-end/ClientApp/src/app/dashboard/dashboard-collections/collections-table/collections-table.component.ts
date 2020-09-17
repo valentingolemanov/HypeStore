@@ -3,17 +3,25 @@ import { Collection } from 'src/app/models/Collection';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import {SelectionModel} from '@angular/cdk/collections';
 import { CollectionsService } from 'src/app/services/collections.service';
 import {Router} from '@angular/router';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import {MatDialog} from '@angular/material/dialog';
 import {AlertifyService} from './../../../services/alertify.service';
-
+import {CollectionDeleteDialogComponent} from './collection-delete-dialog/collection-delete-dialog.component';
+import {SelectionModel} from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-collections-table',
   templateUrl: './collections-table.component.html',
-  styleUrls: ['./collections-table.component.css']
+  styleUrls: ['./collections-table.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class CollectionsTableComponent implements OnInit {
   columnsToDisplay : string[] = ['select', 'Id', 'ImageUrl',  'Name', ];
@@ -68,6 +76,14 @@ export class CollectionsTableComponent implements OnInit {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.Id + 1}`;
+  }
+
+  openDeleteDialog(id: number) {
+
+    this.dialog.open(CollectionDeleteDialogComponent,
+      {data : {
+        productId: id,
+      }});
   }
 }
 
