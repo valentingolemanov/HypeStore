@@ -1,20 +1,31 @@
 <div class="sidenav-menu-content">
-
-    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel class="filter-panel" (opened)="brandPanelOpenState = true" (closed)="brandPanelOpenState = false">
         <mat-expansion-panel-header>
-            <mat-panel-title>
-                Gender
+            <mat-panel-title class="filter-label">
+                Brands
             </mat-panel-title>
-            <mat-panel-description>
-                <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
-    <!-- </mat-panel-description>
-    </mat-expansion-panel-header>
-    <section class="radio-group-section">
-        <mat-radio-group class="radio-group">
-            <mat-checkbox class="example-margin" value="1">Men</mat-checkbox>
-            <mat-checkbox class="example-margin" value="2">Women</mat-checkbox>
-            <mat-checkbox class="example-margin" value="3">Unisex</mat-checkbox>
-        </mat-radio-group>
-    </section>
-    </mat-expansion-panel> -->
+        </mat-expansion-panel-header>
+
+        <mat-selection-list #shoes>
+            <mat-list-option *ngFor="let brand of brands">
+                {{brand.Name}}
+            </mat-list-option>
+        </mat-selection-list>
+
+    </mat-expansion-panel>
+    <br>
+    <mat-expansion-panel class="filter-panel" (opened)="collectionPanelOpenState = true" (closed)="collectionPanelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="filter-label">
+                Collection
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-selection-list #shoes>
+            <mat-list-option *ngFor="let collection of collections">
+                {{collection.Name}}
+            </mat-list-option>
+        </mat-selection-list>
+
+    </mat-expansion-panel>
 </div>

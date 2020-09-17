@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Brand } from 'src/app/models/brand';
+import { Collection } from 'src/app/models/Collection';
+
+
 
 @Component({
   selector: 'app-catalog-sidenav',
@@ -7,12 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogSidenavComponent implements OnInit {
 
-  panelOpenState = false;
+  brandPanelOpenState = false;
+  collectionPanelOpenState = false;
+  @Input() brands: Array<Brand>;
+  @Input() collections: Array<Collection>
+
+  allComplete: boolean = false;
+
+
 
   constructor() { }
 
 
   ngOnInit() {
+
   }
 
+
+
 }
+

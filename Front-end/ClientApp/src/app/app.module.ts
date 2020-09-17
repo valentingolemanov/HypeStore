@@ -30,6 +30,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDividerModule} from '@angular/material/divider';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -61,23 +63,28 @@ import {AddCollectionComponent} from './dashboard/dashboard-collections/add-coll
 import {CollectionsService} from './services/collections.service';
 import {CollectionsTableComponent} from './dashboard/dashboard-collections/collections-table/collections-table.component';
 import {CollectionsListingResolverService} from './services/collections-listing-resolver.service';
+import {BrandsListingResolverService} from './services/brands-listing-resolver.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'login', component: UserLoginComponent},
+  {path: 'register', component: UserRegisterComponent},
   {path: 'catalog',
   component: CatalogComponent,
-  resolve: {prd_listing: ProductListingResolverService}},
+  resolve: {prd_listing : ProductListingResolverService,
+            brnd_listing : BrandsListingResolverService,
+            cltn_listing : CollectionsListingResolverService}},
   {path:'catalog/:id',
       component: ProductDetailComponent,
       resolve: {prd_details: ProductDetailsResolverService}},
-  {path: 'dashboard-products',
-      component: DashboardProductsComponent,
-      resolve: {prd_listing : ProductListingResolverService}},
-  {path: 'login', component: UserLoginComponent},
-  {path: 'register', component: UserRegisterComponent},
   {path: 'dashboard-collections',
      component: DashboardCollectionsComponent,
-    resolve: {cltn_listing : CollectionsListingResolverService}}
+    resolve: {cltn_listing : CollectionsListingResolverService}},
+    {path: 'dashboard-products',
+    component: DashboardProductsComponent,
+    resolve: {prd_listing : ProductListingResolverService,
+              brnd_listing : BrandsListingResolverService
+    }},
 
 ]
 
@@ -137,7 +144,8 @@ const appRoutes: Routes = [
     MatDividerModule,
     IvyCarouselModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ScrollingModule
   ],
   providers: [ProductsService,
     UsersService,
@@ -146,7 +154,8 @@ const appRoutes: Routes = [
       ProductDetailsResolverService,
       ProductListingResolverService,
       CollectionsService,
-      CollectionsListingResolverService
+      CollectionsListingResolverService,
+      BrandsListingResolverService
       ],
   bootstrap: [AppComponent]
 })

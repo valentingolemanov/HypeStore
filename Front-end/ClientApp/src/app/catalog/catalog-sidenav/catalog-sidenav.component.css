@@ -2,32 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: auto;
-}
-
-.sidenav-menu-content>button {
-    padding: 6px;
-    font-size: 18px;
 }
 
 .example-h2 {
     margin: 10px;
 }
 
-.radio-group-section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-}
+.brands-panel {}
 
-.radio-group {
-    flex-direction: column;
-}
-
-.radio-group>mat-radio-button {
+.filter-panel {
     width: 100%;
+    padding: 0%;
 }
 
-.example-margin {
-    margin: 5px 20px;
+.filter-label {
+    font-size: 18px;
+}
+
+.example-item {
+    height: 50px;
+}
+
+mat-list-option {
+    width: 100%;
 }

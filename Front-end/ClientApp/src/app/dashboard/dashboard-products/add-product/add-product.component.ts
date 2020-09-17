@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { ProductsService } from '../../../services/products.service';
 import { AlertifyService } from '../../../services/alertify.service';
 import {Router} from '@angular/router';
 import {BrandsService} from '../../../services/brands.service';
 import {IBrand} from '../../../models/IBrand';
-import { Product } from 'src/app/models/Product';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-product',
@@ -26,26 +26,23 @@ export class AddProductComponent implements OnInit {
   isFormValid: boolean;
   selectedValue: string;
 
-  public brands: IBrand[];
+   brands: IBrand[];
 
 
   constructor(private productsService: ProductsService,
     private brandsService: BrandsService,
     private fb: FormBuilder,
     private alertify: AlertifyService,
-    private router: Router) { }
+    private router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+
+     }
 
   ngOnInit() {
     this.createAddProductForm();
+
+    this.brands = this.data['brands'];
     this.isFormValid = this.addProductForm.valid;
-     this.brandsService.getAllBrands().subscribe(
-       data =>
-       {
-         this.brands = data;
-        },
-        (err) => console.log(err),
-        () => console.log(this.brands)
-     )
   }
 
   // -----------------------------------

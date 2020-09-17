@@ -32,15 +32,5 @@ namespace StreetwearStore.Web.Controllers
             return this.Json(brands);
         }
 
-        [HttpPost]
-        public async Task<int> Create()
-        {
-            return 4;
-        }
-
-        public IActionResult GetSomething()
-        {
-            return this.Ok();
-        }
     }
 }

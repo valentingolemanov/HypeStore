@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import {Product} from './../models/Product';
 import {ActivatedRoute} from '@angular/router';
+import { Brand } from '../models/brand';
+import { Collection } from '../models/Collection';
+
 
 
 @Component({
@@ -14,6 +17,8 @@ export class CatalogComponent implements OnInit {
   showFiller = false;
   showSpinner = false;
   products: Array<Product> = [];
+  brands: Array<Brand> = [];
+  collections: Array<Collection> = [];
 
   constructor(private route: ActivatedRoute, private productsService: ProductsService) { }
 
@@ -23,17 +28,16 @@ export class CatalogComponent implements OnInit {
       (data: Product) => {
         this.showSpinner =true;
         this.products = data['prd_listing'];
+        this.brands = data['brnd_listing'];
+        this.collections = data['cltn_listing'];
       },
       (err) => console.log(err),
       () =>{
-        this.showSpinner = false;
+
       }
     );
 
-  // this.productsService.getAllProducts().subscribe(data => {
-  //     this.products = data;
-  //     console.log(data);
-  //   });
+
 
   }
 
