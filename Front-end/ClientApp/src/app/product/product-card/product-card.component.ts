@@ -10,6 +10,7 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product: Product;
 
+
   ngOnInit(){
 
   }

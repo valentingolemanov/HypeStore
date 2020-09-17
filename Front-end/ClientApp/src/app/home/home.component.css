@@ -1,62 +1,29 @@
-/* .collections-container {
-    display: flex;
-    height: 85vh;
+.home-collections-container {
+    height: 500px;
+    padding: 0%;
 }
 
-.man-collection-container {
-    flex: 1;
-    background-color: black;
-    transition: 1s;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100%;
+.collection-container {
+    /* display: flex;
+    justify-content: center; */
+    /* margin: 0px; */
     overflow: hidden;
-    position: relative;
-    text-align: center;
+    height: 100%;
+    padding: 0%;
+    border: 1px solid black;
 }
 
-.woman-collection-container {
-    flex: 1;
-    background-color: black;
-    transition: 1s;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-}
-
-.collection-image {
-    height: 100%;
+.collection-container>img {
+    /* max-width: 100%;
+    max-height: 100%;
+    object-fit: scale-down;
     transform: scale(1, 1);
     transition-duration: 500ms;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out; */
 }
 
-.collection-image:hover {
-    transform: scale(1.2, 1.2);
+.collection-container>img:hover {
+    /* transform: scale(1.2, 1.2);
     transition-duration: 500ms;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out; */
 }
-
-.center {
-    position: absolute;
-    top: 50%;
-    font-size: 26px;
-    color: cornsilk;
-    border-style: solid;
-    margin: auto;
-    opacity: 0.8;
-    transform: scale(1, 1);
-    transition-duration: 500ms;
-    transition-timing-function: ease-in-out;
-}
-
-.center:hover {
-    transform: scale(1.2, 1.2);
-    transition-duration: 500ms;
-    transition-timing-function: ease-in-out;
-} */

@@ -5,12 +5,16 @@
                 Brands
             </mat-panel-title>
         </mat-expansion-panel-header>
+        <ng-scrollbar>
+            <mat-selection-list #shoes>
 
-        <mat-selection-list #shoes>
-            <mat-list-option *ngFor="let brand of brands">
-                {{brand.Name}}
-            </mat-list-option>
-        </mat-selection-list>
+                <mat-list-option *ngFor="let brand of brands">
+                    {{brand.Name}}
+                </mat-list-option>
+
+            </mat-selection-list>
+        </ng-scrollbar>
+
 
     </mat-expansion-panel>
     <br>

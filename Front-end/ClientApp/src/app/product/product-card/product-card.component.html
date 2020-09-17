@@ -20,12 +20,17 @@
 
         <img class="product-image" mat-card-image src="{{product.ImageUrl}}" alt="">
     </div>
-    <div class="card-content-wrapper">
+    <mat-card-content class="card-content-wrapper">
         <p class="brand-label">{{product.BrandName}}</p>
         <a class="product-name-label" routerLink="/catalog/{{product.Id}}" style="text-decoration: none">
-            <h3>{{product.Title}}</h3>
+            <h4>{{product.Title}}</h4>
         </a>
 
-    </div>
-
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="like-btn" mat-icon-button><mat-icon>
+          favorite_border
+          </mat-icon></button>
+        <button class="add-to-card-btn" mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
+    </mat-card-actions>
 </mat-card>

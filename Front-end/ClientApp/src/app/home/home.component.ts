@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Collection } from '../models/Collection';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+
   showFiller = false;
-  constructor() { }
+
+  collections: Array<Collection> = [];
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.data.subscribe(
+      (data: Collection) => {
+       this.collections = data['cltn_listing'];
+      }
+    )
   }
 
 }

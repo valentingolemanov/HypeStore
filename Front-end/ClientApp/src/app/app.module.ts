@@ -31,7 +31,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -66,12 +66,14 @@ import {CollectionsListingResolverService} from './services/collections-listing-
 import {BrandsListingResolverService} from './services/brands-listing-resolver.service';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '',
+      component: HomeComponent,
+      resolve: {cltn_listing : CollectionsListingResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
   {path: 'catalog',
-  component: CatalogComponent,
-  resolve: {prd_listing : ProductListingResolverService,
+      component: CatalogComponent,
+      resolve: {prd_listing : ProductListingResolverService,
             brnd_listing : BrandsListingResolverService,
             cltn_listing : CollectionsListingResolverService}},
   {path:'catalog/:id',
@@ -79,10 +81,10 @@ const appRoutes: Routes = [
       resolve: {prd_details: ProductDetailsResolverService}},
   {path: 'dashboard-collections',
      component: DashboardCollectionsComponent,
-    resolve: {cltn_listing : CollectionsListingResolverService}},
+     resolve: {cltn_listing : CollectionsListingResolverService}},
     {path: 'dashboard-products',
-    component: DashboardProductsComponent,
-    resolve: {prd_listing : ProductListingResolverService,
+     component: DashboardProductsComponent,
+     resolve: {prd_listing : ProductListingResolverService,
               brnd_listing : BrandsListingResolverService
     }},
 
@@ -145,7 +147,8 @@ const appRoutes: Routes = [
     IvyCarouselModule,
     FormsModule,
     MatProgressSpinnerModule,
-    ScrollingModule
+    ScrollingModule,
+    NgScrollbarModule
   ],
   providers: [ProductsService,
     UsersService,
