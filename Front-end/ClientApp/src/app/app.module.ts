@@ -30,8 +30,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDividerModule} from '@angular/material/divider';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import { NgScrollbarModule } from 'ngx-scrollbar';
+
+
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -147,8 +147,8 @@ const appRoutes: Routes = [
     IvyCarouselModule,
     FormsModule,
     MatProgressSpinnerModule,
-    ScrollingModule,
-    NgScrollbarModule
+
+
   ],
   providers: [ProductsService,
     UsersService,

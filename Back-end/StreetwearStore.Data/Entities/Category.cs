@@ -4,7 +4,7 @@
 
     using System.Collections.Generic;
 
-    public class Category : BaseModel<int>
+    public class Category : BaseDeletableModel<int>
     {
         public Category()
         {
@@ -13,6 +13,11 @@
         }
 
         public string Name { get; set; }
+        
+
+        public string Description { get; set; }
+        
+        public string ImageUrl { get; set; }
 
         public ICollection<Product> Products { get; set; }
     }

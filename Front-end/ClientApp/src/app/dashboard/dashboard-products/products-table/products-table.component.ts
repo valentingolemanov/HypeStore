@@ -47,7 +47,7 @@ export class ProductsTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.products);
+        this.dataSource = new MatTableDataSource(this.products);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

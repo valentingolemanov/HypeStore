@@ -28,6 +28,8 @@
                  new Brand { Id = 9, Name = "Puma"}
                  );
 
+       
+
             modelBuilder.Entity<ProductCollection>()
                 .HasKey(x => new { x.ProductId, x.CollectionId });
        

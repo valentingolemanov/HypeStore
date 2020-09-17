@@ -67,4 +67,5 @@
 
 mat-card-actions {
     margin-bottom: 5px;
+    object-position: inherit;
 }
