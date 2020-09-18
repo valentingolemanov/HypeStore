@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CollectionsService } from 'src/app/services/collections.service';
 import {MAT_DIALOG_DATA,} from "@angular/material/dialog";
 import { Inject } from '@angular/core';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { Router } from '@angular/router';
+import {MatTable} from '@angular/material/table';
 
 @Component({
   selector: 'app-collection-delete-dialog',

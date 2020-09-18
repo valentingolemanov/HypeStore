@@ -1,9 +1,10 @@
-<div class='home-collections-container' fxLayout="row wrap">
-    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class="collection-container">
-        <img class="collection-image" src="">
-    </div>
-    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class="collection-container">
-        <img class="collection-image" src="">
-
-    </div>
+<div class="collections-container">
+    <mat-grid-list cols="4" rowHeight="225px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+            <div class="img-wrapper">
+                <img src="{{tile.collection.ImageUrl}}">
+                <button mat-button class="centered">{{tile.collection.Name}}</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

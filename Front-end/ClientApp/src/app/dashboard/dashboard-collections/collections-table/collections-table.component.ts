@@ -10,6 +10,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {AlertifyService} from './../../../services/alertify.service';
 import {CollectionDeleteDialogComponent} from './collection-delete-dialog/collection-delete-dialog.component';
 import {SelectionModel} from '@angular/cdk/collections';
+import {MatTable} from '@angular/material/table';
 
 @Component({
   selector: 'app-collections-table',
@@ -31,7 +32,7 @@ export class CollectionsTableComponent implements OnInit {
 
  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
  @ViewChild(MatSort, {static: true}) sort: MatSort;
-
+ @ViewChild(MatTable) table: MatTable<any>;
 
  isExpansionDetailRow = (index, row) => row.hasOwnProperty('detailRow');
  @Input() collections: Array<Collection>;
@@ -84,6 +85,10 @@ export class CollectionsTableComponent implements OnInit {
       {data : {
         productId: id,
       }});
+  }
+
+  renderRows(){
+    this.table.renderRows();
   }
 }
 
