@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {AddCollectionComponent} from './add-collection/add-collection.component';
+
 import {ActivatedRoute} from '@angular/router';
 import { Collection } from 'src/app/models/Collection';
 
@@ -24,11 +24,5 @@ export class DashboardCollectionsComponent implements OnInit {
     );
   }
 
-  openAddCollectionDialog(){
-    const dialogRef = this.dialog.open(AddCollectionComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 }

@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {AddProductComponent} from './add-product/add-product.component';
 import {MatDialog} from '@angular/material/dialog';
 import {Brand} from './../../models/brand';
+import { Collection } from 'src/app/models/Collection';
 
 @Component({
   selector: 'app-dashboard-products',
@@ -14,6 +15,7 @@ export class DashboardProductsComponent implements OnInit {
 
   products: Array<Product> = [];
   brands: Array<Brand> = [];
+  collections: Array<Collection> = [];
 
   constructor(private route: ActivatedRoute,
     public dialog: MatDialog) { }
@@ -23,6 +25,7 @@ export class DashboardProductsComponent implements OnInit {
       (data: Product) => {
         this.products = data['prd_listing'];
         this.brands = data['brnd_listing'];
+        this.collections = data['cltn_listing'];
       }
     );
   }
@@ -31,7 +34,8 @@ export class DashboardProductsComponent implements OnInit {
     const dialogRef = this.dialog.open(AddProductComponent,
       {
         data: {
-          brands: this.brands
+          brands: this.brands,
+          collections: this.collections
         }
       });
 

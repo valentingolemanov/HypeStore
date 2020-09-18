@@ -1,6 +1,8 @@
 ﻿namespace StreetwearStore.Data.Entities
 {
-    public class ProductCollection
+    using StreetwearStore.Data.Common;
+
+    public class ProductCollection : BaseDeletableModel<int>
     {
         public int ProductId { get; set; }
 

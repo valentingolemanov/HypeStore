@@ -4,7 +4,7 @@ import {MAT_DIALOG_DATA,} from "@angular/material/dialog";
 import { Inject } from '@angular/core';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { Router } from '@angular/router';
-import {MatTable} from '@angular/material/table';
+
 
 @Component({
   selector: 'app-collection-delete-dialog',

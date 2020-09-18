@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {BrandsService} from '../../../services/brands.service';
 import {IBrand} from '../../../models/IBrand';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Collection} from './../../../models/Collection';
 
 @Component({
   selector: 'app-add-product',
@@ -26,8 +27,9 @@ export class AddProductComponent implements OnInit {
   isFormValid: boolean;
   selectedValue: string;
 
-   brands: IBrand[];
-
+  brands: IBrand[];
+  collectionsList: Collection[];
+  collections = new FormControl();
 
   constructor(private productsService: ProductsService,
     private brandsService: BrandsService,
@@ -42,6 +44,7 @@ export class AddProductComponent implements OnInit {
     this.createAddProductForm();
 
     this.brands = this.data['brands'];
+    this.collectionsList = this.data['collections'];
     this.isFormValid = this.addProductForm.valid;
   }
 

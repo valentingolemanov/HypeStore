@@ -37,7 +37,13 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-
+                    <br>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Add to collections:</mat-label>
+                        <mat-select [formControl]="collections" multiple>
+                            <mat-option *ngFor="let collection of collectionsList" [value]="collection">{{collection.Name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
             </mat-tab>
             <mat-tab label="Pricing">

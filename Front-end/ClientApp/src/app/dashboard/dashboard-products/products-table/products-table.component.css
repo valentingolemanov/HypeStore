@@ -27,6 +27,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-detail {
     overflow: hidden;
     display: flex;
+    height: fit-content;
 }
 
 .example-element-diagram {
@@ -67,14 +68,13 @@ mat-paginator {
 .img-wrapper {
     display: flex;
     justify-content: center;
-    margin: 0px;
     overflow: hidden;
+    height: 100%;
 }
 
 .product-image {
     max-height: 100%;
     max-width: 100%;
-    background-size: cover;
     object-fit: scale-down;
 }
 

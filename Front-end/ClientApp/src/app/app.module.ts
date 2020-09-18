@@ -30,6 +30,9 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDividerModule} from '@angular/material/divider';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -86,7 +89,8 @@ const appRoutes: Routes = [
     {path: 'dashboard-products',
      component: DashboardProductsComponent,
      resolve: {prd_listing : ProductListingResolverService,
-              brnd_listing : BrandsListingResolverService
+              brnd_listing : BrandsListingResolverService,
+              cltn_listing : CollectionsListingResolverService
     }},
 
 ]
@@ -149,7 +153,9 @@ const appRoutes: Routes = [
     IvyCarouselModule,
     FormsModule,
     MatProgressSpinnerModule,
-
+    MatBadgeModule,
+    MatChipsModule,
+    MatAutocompleteModule
 
   ],
   providers: [ProductsService,
