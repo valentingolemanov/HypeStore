@@ -27,17 +27,22 @@ export class HomeComponent implements OnInit {
     this.route.data.subscribe(
       (data: Collection) => {
        this.collections = data['cltn_listing'];
-       this.newProducts = data['prd_listing'].sort((a: Product, b: Product) => {
-         let aDate = Date.parse(a.ReleasedOn);
-         let bDate = Date.parse(b.ReleasedOn);
-         if(aDate > bDate ){
-           return -1;
-         }else if(aDate < bDate){
-           return 1;
-         }else{
-           return 0;
-         }
-       }).slice(0, 8);
+       this.newProducts = data['prd_listing'];
+       const compareFn = (a: Product, b: Product) => {
+        let aDate = Date.parse(a.ReleasedOn);
+        let bDate = Date.parse(b.ReleasedOn);
+
+        if(aDate > bDate ){
+          return -1;
+        }else if(aDate < bDate){
+          return 1;
+        }else{
+          return 0;
+        }
+      };
+        console.log(this.newProducts);
+        this.newProducts = this.newProducts.sort(compareFn);
+        this.newProducts.forEach(x => console.log(x.ReleasedOn));
        console.log(this.newProducts);
        this.tiles = [
         {

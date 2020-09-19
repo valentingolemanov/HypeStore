@@ -33,8 +33,8 @@
 }
 
 .product-name-label {
-    padding: 0%;
-    margin: 0%;
+    padding: auto;
+    margin: auto;
     text-align: center;
     color: rgb(55, 55, 56);
     font-family: 'Syne', sans-serif;
@@ -55,13 +55,9 @@
     padding: 0%;
 }
 
-.like-btn {
-    margin-left: 0%;
-}
+.like-btn {}
 
-.add-to-card-btn {
-    margin-right: 0%;
-}
+.add-to-card-btn {}
 
 .actions-wrapper {
     display: flex;

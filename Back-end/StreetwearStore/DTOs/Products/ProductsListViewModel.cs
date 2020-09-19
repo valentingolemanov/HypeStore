@@ -3,6 +3,7 @@
     using AutoMapper;
     using StreetwearStore.Data.Entities;
     using StreetwearStore.Services.Mapping;
+    using System.Globalization;
 
     public class ProductsListViewModel : IMapFrom<Product>, IHaveCustomMappings
 
@@ -26,7 +27,8 @@
             configuration.CreateMap<Product, ProductsListViewModel>()
                  .ForMember(x => x.Title, y => y.MapFrom(z => z.Name))
                  .ForMember(x => x.BrandName, y => y.MapFrom(z => z.Brand.Name))
-                 .ForMember(x => x.RealeasedOn, y => y.MapFrom(z => z.CreatedOn.ToString("dd-MMM-yyyy")));
+                 .ForMember(x => x.RealeasedOn, y => y.MapFrom(z => z.CreatedOn.ToString("dd MMM, yyyy",
+                 CultureInfo.InvariantCulture)));
         }
     }
 }

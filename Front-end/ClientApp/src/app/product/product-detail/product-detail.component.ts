@@ -3,7 +3,7 @@ import { IProduct } from '../IProduct.interface';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
-
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryLayout, NgxGalleryImageSize, NgxGalleryOrder } from 'ngx-gallery-9';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,20 +12,17 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product: IProduct;
+  product: Product;
 
-  slides = [
-    'https://image.goat.com/crop/500/attachments/product_template_additional_pictures/images/039/610/547/original/603678_01.jpg.jpeg?1595259268',
-   'https://image.goat.com/crop/500/attachments/product_template_additional_pictures/images/039/750/456/original/603678_03.jpg.jpeg?1595455218',
-  'https://gsr.dev/material2-carousel/assets/demo.png',
- 'https://gsr.dev/material2-carousel/assets/demo.png',
- 'https://gsr.dev/material2-carousel/assets/demo.png'
-];
+  galleryOptions: NgxGalleryOptions[];
+    galleryImages: NgxGalleryImage[];
 
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private productsService: ProductsService) { }
+    private productsService: ProductsService) {
+
+    }
 
 
 
@@ -35,6 +32,64 @@ export class ProductDetailComponent implements OnInit {
           this.product = data['prd_details'];
         }
       );
+      this.galleryOptions = [
+        {
+            width: '90%',
+            height: '90%',
+            thumbnailsColumns: 4,
+            imageAnimation: NgxGalleryAnimation.Slide,
+            imagePercent: 100,
+            imageSwipe: true,
+            imageSize: NgxGalleryImageSize.Contain,
+            imageInfinityMove: true,
+            imageBullets: true,
+            thumbnailsPercent: 23,
+            thumbnailMargin: 10,
+            thumbnailSize: NgxGalleryImageSize.Contain,
+            previewBullets: true,
+            arrowPrevIcon: 'fa fa-caret-left',
+            arrowNextIcon: 'fa fa-caret-right'
+
+        },
+        // max-width 800
+        {
+            breakpoint: 800,
+            width: '100%',
+            height: '600px',
+            imagePercent: 80,
+            thumbnailsPercent: 20,
+            thumbnailsMargin: 20,
+            thumbnailMargin: 20
+        },
+        // max-width 400
+        {
+            breakpoint: 400,
+            preview: false
+        }
+    ];
+
+    this.galleryImages = [
+      {
+          small: this.product.ImageUrl,
+          medium: this.product.ImageUrl,
+          big: this.product.ImageUrl
+      },
+      {
+          small: this.product.ImageUrl,
+          medium: this.product.ImageUrl,
+          big: this.product.ImageUrl
+      },
+      {
+          small:this.product.ImageUrl,
+          medium: this.product.ImageUrl,
+          big: this.product.ImageUrl
+      },
+      {
+        small:this.product.ImageUrl,
+        medium: this.product.ImageUrl,
+        big: this.product.ImageUrl
+    }
+  ];
   }
 
 }

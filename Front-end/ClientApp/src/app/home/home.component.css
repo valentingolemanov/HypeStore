@@ -53,6 +53,10 @@ mat-grid-list {}
     padding: 40px 40px;
 }
 
+.new-releases-container {
+    padding: 10px 80px;
+}
+
 .product-card {
     overflow: hidden;
     height: 250px;
