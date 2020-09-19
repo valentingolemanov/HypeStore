@@ -72,7 +72,8 @@ import {CollectionDeleteDialogComponent} from './dashboard/dashboard-collections
 const appRoutes: Routes = [
   {path: '',
       component: HomeComponent,
-      resolve: {cltn_listing : CollectionsListingResolverService}},
+      resolve: {cltn_listing : CollectionsListingResolverService,
+            prd_listing : ProductListingResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
   {path: 'catalog',

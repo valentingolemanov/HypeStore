@@ -10,4 +10,5 @@ export class Product implements IProduct{
   Price: number;
   BrandName: string;
   ReleasedOn: string;
+  CollectionIds: number[];
 }

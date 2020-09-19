@@ -28,9 +28,12 @@
 
     </mat-card-content>
     <mat-card-actions>
-        <button class="like-btn" mat-icon-button><mat-icon>
+        <div class="actions-wrapper">
+            <button class="like-btn" mat-icon-button><mat-icon>
           favorite_border
           </mat-icon></button>
-        <button class="add-to-card-btn" mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
+            <span class="price-label">{{product.Price.toFixed(2)}}$</span>
+            <button class="add-to-card-btn" mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
+        </div>
     </mat-card-actions>
 </mat-card>

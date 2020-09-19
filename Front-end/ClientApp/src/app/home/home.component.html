@@ -1,10 +1,33 @@
 <div class="collections-container">
     <mat-grid-list cols="4" rowHeight="225px">
         <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
-            <div class="img-wrapper">
+            <div class="collection-img-wrapper">
                 <img src="{{tile.collection.ImageUrl}}">
                 <button mat-button class="centered">{{tile.collection.Name}}</button>
             </div>
         </mat-grid-tile>
     </mat-grid-list>
+    <br>
+    <br>
+    <br>
+    <h1 class="new-releases-label"><span>New Releases</span></h1>
+    <div>
+        <carousel [dots]="false" [height]="270" [loop]="false" [cellsToShow]="5">
+            <div *ngFor="let product of newProducts" class="carousel-cell">
+                <mat-card class="product-card">
+                    <div class="product-img-wrapper">
+
+                        <img class="product-image" mat-card-image src="{{product.ImageUrl}}" alt="">
+                    </div>
+                    <mat-card-content class="card-content-wrapper">
+                        <p class="brand-label">{{product.BrandName}}</p>
+                        <a class="product-name-label" routerLink="/catalog/{{product.Id}}" style="text-decoration: none">
+                            <h4>{{product.Title}}</h4>
+                        </a>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </carousel>
+    </div>
 </div>

@@ -12,23 +12,21 @@
     display: flex;
     justify-content: center;
     margin: 0px;
-    overflow: hidden;
 }
 
 .product-image {
-    display: block;
     max-height: 100%;
     max-width: 100%;
     /* background-size: contain; */
     /* margin: -100%; */
     object-fit: scale-down;
-    transform: scale(1, 1);
+    transform: scale(0.8, 0.8);
     transition-duration: 500ms;
     transition-timing-function: ease-in-out;
 }
 
 .product-image:hover {
-    transform: scale(1.2, 1.2);
+    transform: scale(1.0, 1.0);
     transition-duration: 500ms;
     transition-timing-function: ease-in-out;
     opacity: .8;
@@ -40,14 +38,12 @@
     text-align: center;
     color: rgb(55, 55, 56);
     font-family: 'Syne', sans-serif;
-    ;
+    overflow: hidden;
 }
 
 .price-label {
     font-size: 20px;
-    float: right;
-    margin: 0%;
-    padding-bottom: 0%;
+    font-family: 'New Century Schoolbook', 'TeX Gyre Schola', serif;
 }
 
 .brand-label {
@@ -60,13 +56,14 @@
 }
 
 .like-btn {
-    float: left;
+    margin-left: 0%;
 }
 
 .add-to-card-btn {
-    float: right;
+    margin-right: 0%;
 }
 
-mat-card-actions {
-    margin-bottom: 5px;
+.actions-wrapper {
+    display: flex;
+    justify-content: space-between;
 }

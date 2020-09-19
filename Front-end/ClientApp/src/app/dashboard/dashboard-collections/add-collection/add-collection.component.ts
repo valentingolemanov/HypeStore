@@ -40,8 +40,8 @@ export class AddCollectionComponent implements OnInit {
 
   createAddCollectionForm(): void {
     this.addCollectionForm = this.fb.group({
-     name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-     description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(400)]],
+     name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+     description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
      imageUrl: [null, [Validators.required]]
     });
   }
