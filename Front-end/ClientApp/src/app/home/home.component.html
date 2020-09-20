@@ -11,9 +11,9 @@
 </section>
 <br>
 <br>
-
+<mat-divider></mat-divider>
 <section class="new-releases-container">
-    <h1 class="new-releases-label"><span>New Releases</span></h1>
+    <p class="new-releases-label"><span>New Drops</span></p>
 
     <carousel [dots]="false" [height]="270" [loop]="false" [cellsToShow]="5" [arrowsOutside]="true">
         <div *ngFor="let product of newProducts" class="carousel-cell">
@@ -33,3 +33,4 @@
         </div>
     </carousel>
 </section>
+<mat-divider></mat-divider>

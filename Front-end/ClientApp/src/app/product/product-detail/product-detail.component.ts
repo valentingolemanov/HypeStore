@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../IProduct.interface';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
@@ -13,6 +12,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryLayo
 export class ProductDetailComponent implements OnInit {
 
   product: Product;
+  relatedProducts: Product[];
 
   galleryOptions: NgxGalleryOptions[];
     galleryImages: NgxGalleryImage[];
@@ -30,6 +30,8 @@ export class ProductDetailComponent implements OnInit {
       this.route.data.subscribe(
         (data: Product) => {
           this.product = data['prd_details'];
+          this.relatedProducts = data['prd_listing'];
+          this.relatedProducts = this.relatedProducts.filter(x => x.BrandName === this.product.BrandName);
         }
       );
       this.galleryOptions = [

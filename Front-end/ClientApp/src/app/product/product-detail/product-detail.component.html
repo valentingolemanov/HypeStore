@@ -1,33 +1,63 @@
-<mat-card class="product-details-container" fxLayout="row wrap">
-    <!-- <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%" class="all-photos-container">
+<section class="product-details-section">
+    <a routerLink="/catalog" class="back-label">
+        <mat-icon>keyboard_return</mat-icon> Back
+    </a>
+    <mat-card class="product-details-container" fxLayout="row wrap">
+        <!-- <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%" class="all-photos-container">
 
     </div> -->
-    <!-- <div class="img-wrapper">
+        <!-- <div class="img-wrapper">
                     <img src="{{product.ImageUrl}}">
                 </div> -->
-    <div fxFlex="55%" fxFlex.xs="100%" fxFlex.sm="100%" class="main-photo-container">
-        <!-- <div class="carousel-wrapper">
+        <div fxFlex="55%" fxFlex.xs="100%" fxFlex.sm="100%" class="main-photo-container">
+            <!-- <div class="carousel-wrapper">
             <carousel [dots]="true" [height]="600" [loop]="true" [cellsToShow]="1" [arrowsOutside]="true">
                 <div class="img-wrapper" *ngFor="let image of slides" class="carousel-cell">
                     <img src="{{product.ImageUrl}}" alt="somethin">
                 </div>
             </carousel>
         </div> -->
-        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-    </div>
-    <div fxFlex="45%" fxFlex.xs="100%" fxFlex.sm="100%" class="product-menu-container">
-        <a>
-            <p class="product-brand-label">{{product.BrandName}}</p>
-        </a>
-        <br>
-        <p class="product-title-label">{{product.Title}}</p>
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+        </div>
+        <div fxFlex="45%" fxFlex.xs="100%" fxFlex.sm="100%" class="product-menu-container">
+            <a>
+                <p class="product-brand-label">{{product.BrandName}}</p>
+            </a>
+            <br>
+            <p class="product-title-label">{{product.Title}}</p>
 
-        <p class="product-description-label"><em>{{product.Description}}</em></p>
-        <br>
+            <p class="product-description-label"><em>{{product.Description}}</em></p>
+            <br>
 
-        <br>
-        <p class="product-price-label">{{product.Price.toFixed(2)}}$</p>
+            <br>
+            <p class="product-price-label">{{product.Price.toFixed(2)}}$</p>
 
-    </div>
+        </div>
 
-</mat-card>
+    </mat-card>
+</section>
+<br>
+<br>
+<mat-divider></mat-divider>
+<section class="related-products-container">
+    <p class="related-products-label"><span>Related Products</span></p>
+
+    <carousel [dots]="false" [height]="270" [loop]="false" [cellsToShow]="5" [arrowsOutside]="true">
+        <div *ngFor="let prd of relatedProducts" class="carousel-cell">
+            <mat-card class="product-card">
+                <div class="product-img-wrapper">
+
+                    <img class="product-image" mat-card-image src="{{prd.ImageUrl}}" alt="">
+                </div>
+                <mat-card-content class="card-content-wrapper">
+                    <p class="brand-label">{{prd.BrandName}}</p>
+                    <a class="product-name-label" routerLink="/catalog/{{prd.Id}}" style="text-decoration: none">
+                        <h4>{{prd.Title}}</h4>
+                    </a>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </carousel>
+</section>
+<mat-divider></mat-divider>

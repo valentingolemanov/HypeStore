@@ -4,13 +4,13 @@
     overflow: hidden;
 } */
 
-.new-releases-label {
-    font-family: 'Syne', sans-serif;
-}
+.new-releases-label {}
 
 .new-releases-label>span {
     border-bottom: 2px solid black;
     margin-left: 60px;
+    font-family: 'Syne', sans-serif;
+    font-size: 30px;
 }
 
 .collection-img-wrapper>img {
@@ -100,30 +100,7 @@ mat-grid-list {}
     ;
 }
 
-.price-label {
-    font-size: 20px;
-    float: right;
-    margin: 0%;
-    padding-bottom: 0%;
-}
-
 .brand-label {
     text-align: center;
     margin: 0%;
-}
-
-.card-content-wrapper {
-    padding: 0%;
-}
-
-.like-btn {
-    float: left;
-}
-
-.add-to-card-btn {
-    float: right;
-}
-
-mat-card-actions {
-    margin-bottom: 5px;
 }
