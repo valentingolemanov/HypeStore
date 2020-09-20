@@ -3,4 +3,6 @@ export interface ICreateProduct {
   Description: string;
   Price: Number;
   ImageUrl: string;
+  BrandId: string;
+  CollectionsIds: Number[];
 }

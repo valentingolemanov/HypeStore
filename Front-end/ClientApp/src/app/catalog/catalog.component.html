@@ -1,9 +1,9 @@
 <mat-sidenav-container fxLayout="row wrap" class="admin-panel-container" fullscreen>
     <mat-sidenav #sidenav class="admin-panel-sidenav" mode="side">
-        <app-catalog-sidenav [brands]="brands" [collections]="collections"></app-catalog-sidenav>
+        <app-catalog-sidenav (selectedBrandOptions)="brandFilterEventHandler($event)" (selectedCollectionOptions)="collectionFilterEventHandler($event)" [brands]="brands" [collections]="collections"></app-catalog-sidenav>
     </mat-sidenav>
     <mat-sidenav-content class="admin-content">
         <button mat-raised-button class="show-filters-btn" (click)="sidenav.toggle()">Show filters <mat-icon>tune</mat-icon></button>
-        <app-product-list [products]='products'></app-product-list>
+        <app-product-list [products]='filteredProducts'></app-product-list>
     </mat-sidenav-content>
 </mat-sidenav-container>

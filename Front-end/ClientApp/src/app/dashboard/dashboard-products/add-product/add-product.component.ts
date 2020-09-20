@@ -7,6 +7,7 @@ import {BrandsService} from '../../../services/brands.service';
 import {IBrand} from '../../../models/IBrand';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Collection} from './../../../models/Collection';
+import { ICreateProduct } from 'src/app/product/ICreateProduct.interface';
 
 @Component({
   selector: 'app-add-product',
@@ -25,8 +26,8 @@ export class AddProductComponent implements OnInit {
   files  = [];
   newProduct: any = {};
   isFormValid: boolean;
-  selectedValue: string;
-
+  selectedBrand: string;
+  selectedCollections: Number[];
   brands: IBrand[];
   collectionsList: Collection[];
   collections = new FormControl();
@@ -42,7 +43,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.createAddProductForm();
-
+    console.log(this.addProductForm);
     this.brands = this.data['brands'];
     this.collectionsList = this.data['collections'];
     this.isFormValid = this.addProductForm.valid;
@@ -66,6 +67,9 @@ export class AddProductComponent implements OnInit {
   get brandId(){
     return this.addProductForm.get('brand') as FormControl;
   }
+  get collectionIds(){
+    return this.addProductForm.get('collectionIds') as FormControl;
+  }
 
   createAddProductForm(): void {
     this.addProductForm = this.fb.group({
@@ -73,7 +77,8 @@ export class AddProductComponent implements OnInit {
      description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
      price: [null, [Validators.required]],
      imageUrl: [null, [Validators.required]],
-     brandId: [null, [Validators.required]]
+     brandId: [null, [Validators.required]],
+     collectionIds: [null, []],
     });
   }
 
@@ -84,7 +89,6 @@ export class AddProductComponent implements OnInit {
       let newProductId;
       this.productsService.createProduct(this.newProduct).subscribe(res => {
         newProductId = res;
-
       },
       (err) => console.log(err),
       () => {

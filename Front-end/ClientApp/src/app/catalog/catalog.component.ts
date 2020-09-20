@@ -17,6 +17,7 @@ export class CatalogComponent implements OnInit {
   showFiller = false;
   showSpinner = false;
   products: Array<Product> = [];
+  filteredProducts: Array<Product> = [];
   brands: Array<Brand> = [];
   collections: Array<Collection> = [];
 
@@ -28,6 +29,7 @@ export class CatalogComponent implements OnInit {
       (data: Product) => {
         this.showSpinner =true;
         this.products = data['prd_listing'];
+        this.filteredProducts = this.products;
         this.brands = data['brnd_listing'];
         this.collections = data['cltn_listing'];
       },
@@ -37,8 +39,27 @@ export class CatalogComponent implements OnInit {
       }
     );
 
+  }
+
+  collectionFilterEventHandler(valueEmitted){
 
 
+  }
+
+  brandFilterEventHandler(valueEmitted){
+    console.log(valueEmitted);
+    const selectedBrandNames: Array<string> = [];
+
+    for(let i of valueEmitted){
+      selectedBrandNames.push(i.value);
+    }
+    console.log(selectedBrandNames);
+    if(selectedBrandNames.length > 0){
+     this.filteredProducts = this.products.filter(x => selectedBrandNames.includes(x.BrandName));
+     console.log(this.products);
+    }else{
+      this.filteredProducts = this.products;
+    }
   }
 
 }

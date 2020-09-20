@@ -28,6 +28,7 @@
 
 .main-photo-container {
     /* height: auto; */
+    padding: 20px 20px;
 }
 
 ngx-gallery>>>.ngx-gallery-arrow {
@@ -71,6 +72,7 @@ ngx-gallery>>>.ngx-gallery-arrow {
     font-size: 30px;
     margin-top: 0%;
     text-align: center;
+    font-family: 'Syne', sans-serif;
 }
 
 .product-brand-label {

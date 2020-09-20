@@ -25,6 +25,7 @@
         [Required(ErrorMessage = "Product price is required.")]
         public decimal Price { get; set; }
 
-        public List<int> CollectionsIds { get; set; }
+        [Required]
+        public List<int> CollectionIds { get; set; }
     }
 }

@@ -1,9 +1,11 @@
 ﻿namespace StreetwearStore.Services.Products
 {
+    using Microsoft.EntityFrameworkCore.ChangeTracking;
     using Microsoft.EntityFrameworkCore.Metadata.Internal;
     using StreetwearStore.Data.Entities;
     using StreetwearStore.Data.Repository;
     using StreetwearStore.Services.Mapping;
+    using StreetwearStore.Services.ProductCollections;
     using System;
     using System.Collections.Generic;
 
@@ -13,13 +15,17 @@
     public class ProductsService : IProductsService
     {
         private readonly IDeletableEntityRepository<Product> repository;
+        private readonly IProductsCollectionsService productsCollectionsService;
 
-        public ProductsService(IDeletableEntityRepository<Product> repository)
+        public ProductsService(IDeletableEntityRepository<Product> repository,
+            IProductsCollectionsService service)
         {
             this.repository = repository;
+            this.productsCollectionsService = service;
         }
 
-        public async Task<int> CreateAsync(string name, string description, string imageUrl, decimal price, int brandId)
+        public async Task<int> CreateAsync(string name, string description, string imageUrl,
+            decimal price, int brandId, List<int> collectionIds)
         {
             var product = new Product
             {
@@ -31,7 +37,14 @@
                 CreatedOn = DateTime.UtcNow
             };
 
-
+            foreach(var collectionId in collectionIds)
+            {
+                var productCollection = this.productsCollectionsService.CreateAsync(product.Id, collectionId);
+                if(productCollection != null)
+                {
+                    product.ProductCollections.Add(productCollection);
+                }
+            }
 
             await this.repository.AddAsync(product);
             await this.repository.SaveChangesAsync();

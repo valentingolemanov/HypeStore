@@ -31,7 +31,7 @@
                     <br>
                     <mat-form-field appearance="standard">
                         <mat-label>Brand</mat-label>
-                        <mat-select formControlName="brandId" [(ngModel)]="selectedValue" name="brand">
+                        <mat-select formControlName="brandId" [(ngModel)]="selectedBrand" name="brand">
                             <mat-option *ngFor="let brand of brands" [value]="brand.Id">
                                 {{brand.Name}}
                             </mat-option>
@@ -40,8 +40,8 @@
                     <br>
                     <mat-form-field appearance="standard">
                         <mat-label>Add to collections:</mat-label>
-                        <mat-select [formControl]="collections" multiple>
-                            <mat-option *ngFor="let collection of collectionsList" [value]="collection">{{collection.Name}}</mat-option>
+                        <mat-select formControlName="collectionIds" multiple>
+                            <mat-option *ngFor="let collection of collectionsList" [value]="collection.Id">{{collection.Name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

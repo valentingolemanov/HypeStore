@@ -1,22 +1,18 @@
 <div class="sidenav-menu-content">
+
     <mat-expansion-panel class="filter-panel" (opened)="brandPanelOpenState = true" (closed)="brandPanelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title class="filter-label">
                 Brands
             </mat-panel-title>
         </mat-expansion-panel-header>
-
-        <mat-selection-list #shoes>
-
-            <mat-list-option *ngFor="let brand of brands">
+        <mat-selection-list #brandsList (selectionChange)="onBrandsSelectionChange(brandsList.selectedOptions.selected)">
+            <mat-list-option *ngFor="let brand of brands" [value]="brand.Name">
                 {{brand.Name}}
             </mat-list-option>
-
         </mat-selection-list>
-
-
-
     </mat-expansion-panel>
+
     <br>
     <mat-expansion-panel class="filter-panel" (opened)="collectionPanelOpenState = true" (closed)="collectionPanelOpenState = false">
         <mat-expansion-panel-header>
@@ -24,9 +20,8 @@
                 Collection
             </mat-panel-title>
         </mat-expansion-panel-header>
-
-        <mat-selection-list #shoes>
-            <mat-list-option *ngFor="let collection of collections">
+        <mat-selection-list #collectionsList (selectionChange)="onCollectionSelectionChange(collectionsList.selectedOptions.selected)">
+            <mat-list-option *ngFor="let collection of collections" [value]="collection.Id">
                 {{collection.Name}}
             </mat-list-option>
         </mat-selection-list>

@@ -8,19 +8,19 @@
 
     public class ProductsCollectionsService : IProductsCollectionsService
     {
-        private readonly IDeletableEntityRepository<ProductCollection> repository;
+        private readonly IRepository<ProductCollection> repository;
 
-        public ProductsCollectionsService(IDeletableEntityRepository<ProductCollection> repository)
+        public ProductsCollectionsService(IRepository<ProductCollection> repository )
         {
             this.repository = repository;
         }
 
-        public async Task<int> CreateAsync(int productId, int collectionId)
+        public ProductCollection CreateAsync(int productId, int collectionId)
         {
             var productCollection = this.GetByIds(productId, collectionId);
             if(productCollection != null)
             {
-                return -1;
+                return null;
             }
 
             productCollection = new ProductCollection
@@ -29,10 +29,10 @@
                 CollectionId = collectionId
             };
 
-            await this.repository.AddAsync(productCollection);
-            await this.repository.SaveChangesAsync();
+             this.repository.AddAsync(productCollection);
+             this.repository.SaveChangesAsync();
 
-            return productCollection.Id;
+            return productCollection;
         }
 
         public async Task Delete(int productId, int collectionId)

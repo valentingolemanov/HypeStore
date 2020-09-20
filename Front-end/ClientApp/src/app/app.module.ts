@@ -34,6 +34,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -159,7 +160,8 @@ const appRoutes: Routes = [
     MatBadgeModule,
     MatChipsModule,
     MatAutocompleteModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    ScrollingModule
   ],
   providers: [ProductsService,
     UsersService,

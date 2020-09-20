@@ -2,7 +2,7 @@
 {
     using StreetwearStore.Data.Common;
 
-    public class ProductCollection : BaseDeletableModel<int>
+    public class ProductCollection 
     {
         public int ProductId { get; set; }
 

@@ -20,7 +20,7 @@
     /* background-size: contain; */
     /* margin: -100%; */
     object-fit: scale-down;
-    transform: scale(0.8, 0.8);
+    transform: scale(0.9, 0.9);
     transition-duration: 500ms;
     transition-timing-function: ease-in-out;
 }

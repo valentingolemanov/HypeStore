@@ -1,5 +1,6 @@
 ﻿namespace StreetwearStore.Services.ProductCollections
 {
+    using StreetwearStore.Data.Entities;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -7,7 +8,7 @@
     {
         ICollection<TModel> GetProducts<TModel>();
 
-        Task<int> CreateAsync(int productId, int collectionId);
+        ProductCollection CreateAsync(int productId, int collectionId);
 
         TModel GetById<TModel>(int id, int collectionId);
 
