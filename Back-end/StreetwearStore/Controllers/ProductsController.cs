@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using StreetwearStore.Services.Products;
+    using StreetwearStore.Web.DTOs.Products;
     using StreetwearStore.Web.ViewModels.Products;
     using System;
     using System.Collections.Generic;
@@ -41,6 +42,25 @@
           
                 return this.Json(productId);
             
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Edit(EditProductRequestDTO dto)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest();
+            }
+
+            var editedProductId = await this.productsService.EditAsync(dto.Id,
+                dto.Title,
+                dto.Description,
+                dto.ImageUrl, 
+                dto.Price,
+                dto.BrandId,
+                dto.CollectionIds);
+
+            return this.Json(editedProductId);
         }
 
         [HttpGet]

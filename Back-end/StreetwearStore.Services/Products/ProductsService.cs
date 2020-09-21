@@ -84,5 +84,23 @@
         {
             return this.repository.All().FirstOrDefault(x => x.Id == id);
         }
+
+        public async Task<int> EditAsync(int id, string name, string description, string imageUrl, decimal price, int brandId, List<int> collectionIds)
+        {
+            var product = this.GetById(id);
+
+
+            product.Name = name;
+            product.Description = description;
+            product.ImageUrl = imageUrl;
+            product.Price = price;
+            product.BrandId = brandId;
+
+            this.repository.Update(product);
+            await this.repository.SaveChangesAsync();
+
+            return product.Id;
+
+        }
     }
 }

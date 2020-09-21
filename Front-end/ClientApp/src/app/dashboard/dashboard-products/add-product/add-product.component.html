@@ -31,7 +31,7 @@
                     <br>
                     <mat-form-field appearance="standard">
                         <mat-label>Brand</mat-label>
-                        <mat-select formControlName="brandId" [(ngModel)]="selectedBrand" name="brand">
+                        <mat-select formControlName="brandId" name="brand">
                             <mat-option *ngFor="let brand of brands" [value]="brand.Id">
                                 {{brand.Name}}
                             </mat-option>
@@ -70,6 +70,6 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button type="submit" (click)="onSubmit()" [mat-dialog-close]="addProductForm.valid" [disabled]="isFormValid" mat-button cdkFocusInitial>Save</button>
+        <button type="submit" (click)="onSubmit()" [mat-dialog-close]="addProductForm.valid" [disabled]="!addProductForm.valid" mat-button>Save</button>
     </mat-dialog-actions>
 </form>

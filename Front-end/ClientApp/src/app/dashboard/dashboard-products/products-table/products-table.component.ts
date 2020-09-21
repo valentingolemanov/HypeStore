@@ -11,6 +11,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {DeleteDialogContentComponent} from '../products-table/delete-dialog-content/delete-dialog-content.component'
 import { AddProductComponent } from '../add-product/add-product.component';
 import {SelectionModel} from '@angular/cdk/collections';
+import { Collection } from 'src/app/models/Collection';
+import {Brand} from './../../../models/Brand';
 
 @Component({
     selector: 'app-products-table',
@@ -37,6 +39,9 @@ export class ProductsTableComponent implements OnInit {
 
   isExpansionDetailRow = (index, row) => row.hasOwnProperty('detailRow');
   @Input() products: Array<Product>;
+  @Input() brands: Array<Brand>;
+  @Input() collections: Array<Collection>
+
 
   constructor(private service: ProductsService,
     private router: Router,
@@ -61,11 +66,21 @@ export class ProductsTableComponent implements OnInit {
       }});
   }
 
-  openAddProductDialog() {
-    const dialogRef = this.dialog.open(AddProductComponent);
+  // openAddProductDialog() {
+  //   const dialogRef = this.dialog.open(AddProductComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
+
+  openEditProductDialog(productId: number){
+    const dialogRef = this.dialog.open(AddProductComponent, {
+      data: {
+        productId: productId,
+        brands: this.brands,
+        collections: this.collections
+      }
     });
   }
 

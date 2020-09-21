@@ -1,9 +1,3 @@
-/* .img-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-} */
-
 .new-releases-label {}
 
 .new-releases-label>span {
@@ -37,6 +31,11 @@
     background-color: transparent;
     color: whitesmoke;
     border: 2px solid whitesmoke;
+}
+
+.collection-img-wrapper>button:hover {
+    background-color: grey;
+    opacity: 0.6;
 }
 
 mat-grid-list {}

@@ -8,6 +8,7 @@ import {IBrand} from '../../../models/IBrand';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Collection} from './../../../models/Collection';
 import { ICreateProduct } from 'src/app/product/ICreateProduct.interface';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-add-product',
@@ -25,12 +26,13 @@ export class AddProductComponent implements OnInit {
   showForm = false;
   files  = [];
   newProduct: any = {};
-  isFormValid: boolean;
+  existingProductId: number;
   selectedBrand: string;
   selectedCollections: Number[];
   brands: IBrand[];
   collectionsList: Collection[];
   collections = new FormControl();
+
 
   constructor(private productsService: ProductsService,
     private brandsService: BrandsService,
@@ -38,15 +40,19 @@ export class AddProductComponent implements OnInit {
     private alertify: AlertifyService,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-
+      this.existingProductId = data['productId'];
+      this.brands = this.data['brands'];
+      this.collectionsList = this.data['collections'];
      }
 
   ngOnInit() {
     this.createAddProductForm();
     console.log(this.addProductForm);
-    this.brands = this.data['brands'];
-    this.collectionsList = this.data['collections'];
-    this.isFormValid = this.addProductForm.valid;
+
+    if(this.existingProductId){
+        this.getProduct(this.existingProductId);
+    }
+
   }
 
   // -----------------------------------
@@ -73,29 +79,67 @@ export class AddProductComponent implements OnInit {
 
   createAddProductForm(): void {
     this.addProductForm = this.fb.group({
+     id: [null],
      title: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
      description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
      price: [null, [Validators.required]],
      imageUrl: [null, [Validators.required]],
      brandId: [null, [Validators.required]],
-     collectionIds: [null, []],
+     collectionIds: [[], []],
     });
   }
+
+  updateProduct(data: Product){
+    this.addProductForm.patchValue({
+      id: data.Id,
+     title: data.Title,
+     description: data.Description,
+     price: data.Price,
+     imageUrl: data.ImageUrl,
+     brandId: data.BrandId,
+     collectionIds: data.CollectionIds
+    });
+  }
+
+  getProduct(id: number){
+    this.productsService.getProduct(this.existingProductId).subscribe((data: Product) => {
+        this.updateProduct(data);
+    },
+    (err) => console.log(err),
+    () => {});
+  }
+
 
   onSubmit(){
     if(this.addProductForm.valid){
 
-      this.newProduct = Object.assign(this.newProduct, this.addProductForm.value);
-      let newProductId;
-      this.productsService.createProduct(this.newProduct).subscribe(res => {
-        newProductId = res;
-      },
-      (err) => console.log(err),
-      () => {
-        this.alertify.success("Congrats, you added a new product!");
-      this.addProductForm.reset();
-       this.router.navigate([`/dashboard-products`]);
-    });
+       this.newProduct = Object.assign(this.newProduct, this.addProductForm.value);
+
+       if(this.existingProductId){
+
+            this.productsService.updateProduct(this.newProduct).subscribe(res => {
+
+            },
+            (err) => console.log(err),
+            () => {
+              this.alertify.success("Congrats, you updated this product info!");
+              this.addProductForm.reset();
+              this.router.navigate([`/dashboard-products`]);
+
+            });
+          }
+          else{
+
+              this.productsService.createProduct(this.newProduct).subscribe(res => {
+
+              },
+               (err) => console.log(err),
+              () => {
+               this.alertify.success("Congrats, you added a new product!");
+               this.addProductForm.reset();
+               this.router.navigate([`/dashboard-products`]);
+              });
+            }
 
     }else{
       console.log(this.addProductForm);

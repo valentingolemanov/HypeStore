@@ -20,6 +20,8 @@
 
         public string BrandName { get; set; }
 
+        public int BrandId { get; set; }
+
         public string RealeasedOn { get; set; }
 
         public void CreateMappings(IProfileExpression configuration)

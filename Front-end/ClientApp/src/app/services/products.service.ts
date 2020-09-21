@@ -31,6 +31,10 @@ export class ProductsService{
     return this.http.post<ICreateProduct>('http://localhost:58341/api/products', product);
   }
 
+  updateProduct(product: Product){
+    return this.http.put<Product>('http://localhost:58341/api/products', product);
+  }
+
   getProduct(id: number) : Observable<Product>{
     return this.getAllProducts().pipe(
       map(propertiesArray => {

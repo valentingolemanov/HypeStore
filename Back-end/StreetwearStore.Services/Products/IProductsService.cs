@@ -11,6 +11,10 @@
 
       TModel GetById<TModel>(int id);
 
+      Task<int> EditAsync(int id, string name, string description, string imageUrl, decimal price, int brandId, List<int> collectionIds);
+
       Task Delete(int id);
+
+      
     }
 }

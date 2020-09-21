@@ -33,7 +33,10 @@ namespace StreetwearStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(
-              options => options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")));
+              options => { 
+                  options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")); 
+                 
+              }, ServiceLifetime.Transient);
 
           
 
