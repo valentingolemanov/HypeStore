@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryLayout, NgxGalleryImageSize, NgxGalleryOrder } from 'ngx-gallery-9';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryImageSize, NgxGalleryOrder } from 'ngx-gallery-9';
 
 @Component({
   selector: 'app-product-detail',
@@ -29,9 +29,10 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
       this.route.data.subscribe(
         (data: Product) => {
+          console.log(data);
           this.product = data['prd_details'];
-          this.relatedProducts = data['prd_listing'];
-          this.relatedProducts = this.relatedProducts.filter(x => x.BrandName === this.product.BrandName);
+          console.log(this.product);
+          this.relatedProducts = data['prd_listing'].filter((x: Product) => x.BrandName === this.product.BrandName);
         }
       );
       this.galleryOptions = [
@@ -44,14 +45,13 @@ export class ProductDetailComponent implements OnInit {
             imageSwipe: true,
             imageSize: NgxGalleryImageSize.Contain,
             imageInfinityMove: true,
-            imageBullets: true,
             thumbnailsPercent: 23,
             thumbnailMargin: 10,
             thumbnailSize: NgxGalleryImageSize.Contain,
             previewBullets: true,
             arrowPrevIcon: 'fa fa-caret-left',
-            arrowNextIcon: 'fa fa-caret-right'
-
+            arrowNextIcon: 'fa fa-caret-right',
+            thumbnailsArrows: false,
         },
         // max-width 800
         {
@@ -70,28 +70,13 @@ export class ProductDetailComponent implements OnInit {
         }
     ];
 
-    this.galleryImages = [
-      {
-          small: this.product.ImagesUrl[0],
-          medium: this.product.ImagesUrl[0],
-          big: this.product.ImagesUrl[0]
-      },
-      {
-          small: this.product.ImagesUrl[0],
-          medium: this.product.ImagesUrl[0],
-          big: this.product.ImagesUrl[0]
-      },
-      {
-          small:this.product.ImagesUrl[0],
-          medium: this.product.ImagesUrl[0],
-          big: this.product.ImagesUrl[0]
-      },
-      {
-        small:this.product.ImagesUrl[0],
-        medium: this.product.ImagesUrl[0],
-        big: this.product.ImagesUrl[0]
-    }
-  ];
+        this.galleryImages = this.product.ImagesUrl.map(x => new NgxGalleryImage(
+          {
+             small: x,
+             medium: x,
+             big: x
+        }
+          ));
   }
 
 }

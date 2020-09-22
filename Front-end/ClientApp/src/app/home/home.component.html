@@ -1,9 +1,9 @@
 <section class="collections-container">
     <mat-grid-list cols="4" rowHeight="225px">
-        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+        <mat-grid-tile *ngFor="let collection of homeDisplayCollections" [colspan]="collection.DisplayCols" [rowspan]="collection.DisplayRows">
             <div class="collection-img-wrapper">
-                <img src="{{tile.collection.ImageUrl}}">
-                <button mat-button class="centered">{{tile.collection.Name}}</button>
+                <img src="{{collection.ImageUrl}}">
+                <button mat-button class="centered">{{collection.Name}}</button>
             </div>
         </mat-grid-tile>
     </mat-grid-list>
@@ -20,7 +20,7 @@
             <mat-card class="product-card">
                 <div class="product-img-wrapper">
 
-                    <img class="product-image" mat-card-image src="{{product.ImageUrl}}" alt="">
+                    <img class="product-image" mat-card-image src="{{product.ImagesUrl[0]}}" alt="">
                 </div>
                 <mat-card-content class="card-content-wrapper">
                     <p class="brand-label">{{product.BrandName}}</p>

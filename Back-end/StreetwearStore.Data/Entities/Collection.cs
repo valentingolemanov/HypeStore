@@ -16,6 +16,14 @@
 
         public string ImageUrl { get; set; }
 
+        public bool HomeDisplay { get; set; }
+
+        public int DisplayRows { get; set; }
+
+        public int DisplayCols { get; set; }
+
+        public int DisplayPositionIndex { get; set; }
+
         public ICollection<ProductCollection> CollectionProducts { get; set; }
     }
 }

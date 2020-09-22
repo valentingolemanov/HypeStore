@@ -37,6 +37,8 @@ export class CollectionsTableComponent implements OnInit {
 
  isExpansionDetailRow = (index, row) => row.hasOwnProperty('detailRow');
  @Input() collections: Array<Collection>;
+
+
   constructor(private service: CollectionsService,
     private router: Router,
     private alertify: AlertifyService,
@@ -84,13 +86,18 @@ export class CollectionsTableComponent implements OnInit {
 
     this.dialog.open(CollectionDeleteDialogComponent,
       {data : {
-        productId: id,
+        collectionId: id,
       }});
 
   }
 
   openAddCollectionDialog(){
-    const dialogRef = this.dialog.open(AddCollectionComponent);
+    const dialogRef = this.dialog.open(AddCollectionComponent,
+      {
+        data: {
+          collectionsLength: this.collections.length
+        }
+      });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);

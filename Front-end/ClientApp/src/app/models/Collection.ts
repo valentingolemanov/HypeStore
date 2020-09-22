@@ -5,4 +5,8 @@ export class Collection{
     Name: string;
     ImageUrl: string;
     Description: string;
+    HomeDisplay: boolean;
+    DisplayRows: number;
+    DisplayCols: number;
+    DisplayPositionIndex: number;
 }

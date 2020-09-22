@@ -18,7 +18,7 @@
             this.repository = repository;
         }
 
-        public async Task<int> CreateAsync(string name, string description, string imageUrl)
+        public async Task<int> CreateAsync(string name, string description, string imageUrl, bool homeDisplay, int displayRows, int displayCols, int displayPositionIndex)
         {
             var collection = this.GetCollectionByName(name);
 
@@ -32,7 +32,11 @@
                 Name = name,
                 Description = description,
                 ImageUrl = imageUrl,
-                CreatedOn = DateTime.UtcNow
+                CreatedOn = DateTime.UtcNow,
+                HomeDisplay = homeDisplay, 
+                DisplayCols = displayCols, 
+                DisplayRows = displayRows,
+                DisplayPositionIndex = displayPositionIndex
             };
 
             await this.repository.AddAsync(collection);

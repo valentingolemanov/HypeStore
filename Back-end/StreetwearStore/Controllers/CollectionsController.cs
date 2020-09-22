@@ -34,7 +34,14 @@
                 return this.BadRequest();
             }
 
-            var productId = await this.collectionsService.CreateAsync(model.Name, model.Description, model.ImageUrl);
+            var productId = await this.collectionsService
+                .CreateAsync(model.Name,
+                model.Description,
+                model.ImageUrl,
+                model.HomeDisplay, 
+                model.DisplayRows,
+                model.DisplayCols,
+                model.DisplayPositionIndex);
 
             if (productId == -1)
             {

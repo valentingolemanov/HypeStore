@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StreetwearStore.Data;
 
 namespace StreetwearStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200922225937_random")]
+    partial class random
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 137, DateTimeKind.Utc).AddTicks(9982),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(6097),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nike"
@@ -60,7 +62,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1091),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7075),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Adidas"
@@ -68,7 +70,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1113),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7095),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Air Jordan"
@@ -76,7 +78,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1117),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7099),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Alexander McQueen"
@@ -84,7 +86,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1120),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7102),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Supreme"
@@ -92,7 +94,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1122),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7104),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dior"
@@ -100,7 +102,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1124),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7107),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Off-White"
@@ -108,7 +110,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1127),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7110),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Yeezy"
@@ -116,7 +118,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2020, 9, 22, 23, 46, 22, 138, DateTimeKind.Utc).AddTicks(1131),
+                            CreatedOn = new DateTime(2020, 9, 22, 22, 59, 36, 589, DateTimeKind.Utc).AddTicks(7112),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Puma"
@@ -172,13 +174,13 @@ namespace StreetwearStore.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DisplayCols")
+                    b.Property<int?>("DisplayCols")
                         .HasColumnType("int");
 
-                    b.Property<int>("DisplayPositionIndex")
+                    b.Property<int?>("DisplayPositionIndex")
                         .HasColumnType("int");
 
-                    b.Property<int>("DisplayRows")
+                    b.Property<int?>("DisplayRows")
                         .HasColumnType("int");
 
                     b.Property<bool>("HomeDisplay")

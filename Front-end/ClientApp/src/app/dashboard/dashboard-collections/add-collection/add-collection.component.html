@@ -17,6 +17,36 @@
             <input formControlName="imageUrl" matInput>
         </mat-form-field>
         <br>
+        <div class="home-display-options-container">
+            <mat-checkbox class="example-margin" formControlName="homeDisplay">Home Display</mat-checkbox>
+            <mat-form-field appearance="standard">
+                <mat-label>Grid Rows</mat-label>
+                <mat-select [disabled]="!homeDisplay.value" formControlName="displayRows" required>
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">1</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <mat-label>Grid Cols</mat-label>
+                <mat-select [disabled]="!homeDisplay.value" formControlName="displayCols" required>
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">1</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <mat-label>Position index</mat-label>
+                <mat-select [disabled]="!homeDisplay.value" formControlName="displayPositionIndex" required>
+                    <mat-option value="1">1</mat-option>
+                    <!-- <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">1</mat-option> -->
+                </mat-select>
+            </mat-form-field>
+        </div>
 
     </mat-dialog-content>
     <mat-dialog-actions align="end">

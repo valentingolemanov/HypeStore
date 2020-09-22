@@ -38,7 +38,9 @@
     opacity: 0.6;
 }
 
-mat-grid-list {}
+mat-grid-list {
+    height: 700px;
+}
 
 .centered {
     position: absolute;

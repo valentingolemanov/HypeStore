@@ -22,7 +22,7 @@ export class ProductsService{
             models.push(data[id]);
           }
         }
-        console.log(models);
+
         return models;
       })
     );
@@ -39,7 +39,7 @@ export class ProductsService{
   getProduct(id: number) : Observable<Product>{
     return this.getAllProducts().pipe(
       map(propertiesArray => {
-        return propertiesArray.find(p => p.Id === id);
+        return propertiesArray.find(p => p.Id == id);
       }))
   }
 

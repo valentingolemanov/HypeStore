@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import {Router} from '@angular/router';
 import {CollectionsService} from './../../../services/collections.service';
 import {AlertifyService} from './../../../services/alertify.service';
 import { Collection } from 'src/app/models/Collection';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-collection',
@@ -15,14 +16,20 @@ export class AddCollectionComponent implements OnInit {
   addCollectionForm: FormGroup;
   newCollection: any = {};
 
+  collectionsLength: number;
+
   constructor(private fb: FormBuilder,
     private collectionsService: CollectionsService,
     private alertify: AlertifyService,
-    private router: Router) { }
+    private router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      this.collectionsLength = data['collectionsLength'];
+    }
 
 
   ngOnInit() {
     this.createAddCollectionForm();
+
   }
 
  // -----------------------------------
@@ -37,12 +44,19 @@ export class AddCollectionComponent implements OnInit {
   get imageUrl(){
     return this.addCollectionForm.get('imageUrl') as FormControl;
   }
+  get homeDisplay(){
+    return this.addCollectionForm.get('homeDisplay') as FormControl;
+  }
 
   createAddCollectionForm(): void {
     this.addCollectionForm = this.fb.group({
      name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
      description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
-     imageUrl: [null, [Validators.required]]
+     imageUrl: [null, [Validators.required]],
+     homeDisplay: [false, [Validators.required]],
+     displayRows: [null ],
+     displayCols: [null  ],
+     displayPositionIndex: [null ]
     });
   }
 

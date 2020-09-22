@@ -20,7 +20,7 @@ export class CollectionDeleteDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) data,
     private alertify: AlertifyService,
     private router: Router) {
-      this.collectionId = data.productId;
+      this.collectionId = data.collectionId;
      }
 
   ngOnInit() {

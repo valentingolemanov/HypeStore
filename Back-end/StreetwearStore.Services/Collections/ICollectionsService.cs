@@ -7,7 +7,7 @@
     {
         ICollection<TModel> GetCollections<TModel>();
 
-        Task<int> CreateAsync(string name, string description, string imageUrl);
+        Task<int> CreateAsync(string name, string description, string imageUrl, bool homeDisplay, int displayRows, int displayCols, int displayPositionIndex);
 
         TModel GetById<TModel>(int id);
 

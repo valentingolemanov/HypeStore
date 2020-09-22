@@ -15,12 +15,14 @@ constructor(private http: HttpClient) { }
 getAllCollections(){
   return this.http.get('http://localhost:58341/api/collections').pipe(
     map(data => {
+
       const models: Array<Collection> = [];
       for(const id in data){
         if(data.hasOwnProperty(id)){
           models.push(data[id]);
         }
       }
+
       return models;
     })
   );

@@ -78,7 +78,7 @@ const appRoutes: Routes = [
   {path: '',
       component: HomeComponent,
       resolve: {cltn_listing : CollectionsListingResolverService,
-            prd_listing : ProductListingResolverService}},
+                prd_listing : ProductListingResolverService}},
   {path: 'login', component: UserLoginComponent},
   {path: 'register', component: UserRegisterComponent},
   {path: 'catalog',

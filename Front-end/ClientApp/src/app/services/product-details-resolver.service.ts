@@ -17,6 +17,7 @@ resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
 Observable<Product> | Product {
   const productId = route.params['id'];
   return this.productsService.getProduct(+productId).pipe(
+
     catchError(err => {
       this.router.navigate(['/']);
       return of(null);

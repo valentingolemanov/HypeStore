@@ -8,8 +8,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import {Router} from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import {MatDialog} from '@angular/material/dialog';
-import {DeleteDialogContentComponent} from '../products-table/delete-dialog-content/delete-dialog-content.component'
-import { AddProductComponent } from '../add-product/add-product.component';
+
 import {SelectionModel} from '@angular/cdk/collections';
 import { Collection } from 'src/app/models/Collection';
 import {Brand} from './../../../models/Brand';
@@ -59,14 +58,7 @@ export class ProductsTableComponent implements OnInit {
         this.dataSource.sort = this.sort;
   }
 
-  openDeleteDialog(id: number) {
 
-    this.dialog.open(DeleteDialogContentComponent,
-      {data : {
-        productId: id,
-      }});
-      this.table.renderRows();
-  }
 
   // openAddProductDialog() {
   //   const dialogRef = this.dialog.open(AddProductComponent);
