@@ -1,33 +1,33 @@
 
-using System.Reflection;
-
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using StreetwearStore.Data;
-using StreetwearStore.Data.Repository;
-using StreetwearStore.Services.Brands;
-using StreetwearStore.Services.Collections;
-using StreetwearStore.Services.Mapping;
-using StreetwearStore.Services.ProductCollections;
-using StreetwearStore.Services.Products;
-using StreetwearStore.Web.ViewModels;
-
 namespace StreetwearStore
 {
-    public class Startup
+    using System.Reflection;
+
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+
+    using StreetwearStore.Data;
+    using StreetwearStore.Data.Repository;
+    using StreetwearStore.Services.Brands;
+    using StreetwearStore.Services.Collections;
+    using StreetwearStore.Services.Mapping;
+    using StreetwearStore.Services.ProductCollections;
+    using StreetwearStore.Services.ProductImages;
+    using StreetwearStore.Services.Products;
+    using StreetwearStore.Web.ViewModels;
+
+    public class Startup 
     {
         private readonly IConfiguration configuration;
         public Startup(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
-
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -36,9 +36,8 @@ namespace StreetwearStore
               options => { 
                   options.UseSqlServer(this.configuration.GetConnectionString("DefaultConnection")); 
                  
-              }, ServiceLifetime.Transient);
+              });
 
-          
 
             services.AddControllers().AddJsonOptions(options =>
                 {
@@ -68,6 +67,7 @@ namespace StreetwearStore
             services.AddTransient<IBrandsService, BrandsService>();
             services.AddTransient<ICollectionsService, CollectionsService>();
             services.AddTransient<IProductsCollectionsService, ProductsCollectionsService>();
+            services.AddTransient<IProductImageService, ProductImageService>();
         }
           
 

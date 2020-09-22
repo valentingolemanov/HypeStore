@@ -20,19 +20,21 @@
         [HttpGet]
         public IActionResult GetCollections()
         {
-            var collections = this.collectionsService.GetCollections<CollectionsResponseModel>();
+            var collections = this.collectionsService.GetCollections<CollectionsResponseDTO>();
             return this.Json(collections);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(CollectionReqestModel model)
+        public async Task<IActionResult> Create(CollectionReqestDTO model)
         {
-            var productId = -1;
-            if (ModelState.IsValid)
+           
+            if (!ModelState.IsValid)
             {
-                productId = await this.collectionsService.CreateAsync(model.Name, model.Description, model.ImageUrl);
+                return this.BadRequest();
             }
+
+            var productId = await this.collectionsService.CreateAsync(model.Name, model.Description, model.ImageUrl);
 
             if (productId == -1)
             {

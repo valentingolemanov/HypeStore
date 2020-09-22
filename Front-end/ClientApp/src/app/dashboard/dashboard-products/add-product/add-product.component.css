@@ -19,5 +19,13 @@
 }
 
 .imageurl-input {
-    width: 70%;
+    width: 80%;
+}
+
+.media-container>mat-form-field {
+    width: 100%;
+}
+
+.add-image-btn {
+    float: right;
 }

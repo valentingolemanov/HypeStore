@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace StreetwearStore.Web.ViewModels.Collections
 {
-    public class CollectionReqestModel
+    public class CollectionReqestDTO
     {
         public string Name { get; set; }
 

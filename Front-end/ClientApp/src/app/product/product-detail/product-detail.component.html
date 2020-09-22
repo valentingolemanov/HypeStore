@@ -1,7 +1,7 @@
 <section class="product-details-section">
-    <a routerLink="/catalog" class="back-label">
+    <!-- <a routerLink="/catalog" class="back-label">
         <mat-icon>keyboard_return</mat-icon> Back
-    </a>
+    </a> -->
     <mat-card class="product-details-container" fxLayout="row wrap">
         <!-- <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%" class="all-photos-container">
 
@@ -40,14 +40,14 @@
 <br>
 <mat-divider></mat-divider>
 <section class="related-products-container">
-    <p class="related-products-label"><span>Related Products</span></p>
+    <p class="related-products-label"><span>Some more {{product.BrandName}}</span></p>
 
     <carousel [dots]="false" [height]="270" [loop]="false" [cellsToShow]="5" [arrowsOutside]="true">
         <div *ngFor="let prd of relatedProducts" class="carousel-cell">
             <mat-card class="product-card">
                 <div class="product-img-wrapper">
 
-                    <img class="product-image" mat-card-image src="{{prd.ImageUrl}}" alt="">
+                    <img class="product-image" mat-card-image src="{{prd.ImagesUrl[0]}}" alt="">
                 </div>
                 <mat-card-content class="card-content-wrapper">
                     <p class="brand-label">{{prd.BrandName}}</p>

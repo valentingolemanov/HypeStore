@@ -1,7 +1,9 @@
 <nav class="nav-bar">
     <ul class="nav-items-wrapper">
         <li class="nav-item">
-            <a routerLinkActive="active" routerLink="/" class="nav-item-btn" mat-button>Home</a>
+            <button routerLinkActive="active" routerLink="/" class="nav-item-btn float-left home-btn" mat-icon-button>
+                <mat-icon class="icon-size-29">home</mat-icon>
+            </button>
         </li>
 
         <li class="nav-item">
@@ -10,6 +12,14 @@
                 <a mat-menu-item>Item 1</a>
                 <a mat-menu-item>Item 2</a>
             </mat-menu> -->
+        </li>
+
+        <li class="nav-item">
+            <a routerLinkActive="active" routerLink="/sell" class="nav-item-btn" mat-button>Sell</a>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+                <a mat-menu-item>Item 1</a>
+                <a mat-menu-item>Item 2</a>
+            </mat-menu>
         </li>
 
         <li class="nav-item">

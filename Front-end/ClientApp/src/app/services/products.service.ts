@@ -22,6 +22,7 @@ export class ProductsService{
             models.push(data[id]);
           }
         }
+        console.log(models);
         return models;
       })
     );

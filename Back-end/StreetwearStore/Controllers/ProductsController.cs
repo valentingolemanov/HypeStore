@@ -6,6 +6,7 @@
     using StreetwearStore.Web.ViewModels.Products;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -21,26 +22,29 @@
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult Get()
         {
-            return this.Json(this.productsService.GetProducts<ProductsListViewModel>());
+            return this.Json(this.productsService.GetProducts<ProductDetailsDTO>());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateInputViewModel model)
+        public async Task<IActionResult> Create(CreateProductDTO model)
         {
-            var productId = -1;
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                productId = await this.productsService.CreateAsync(model.Title, model.Description, model.ImageUrl, model.Price, model.BrandId, model.CollectionIds);
+                return this.BadRequest();
             }
 
-            if(productId == -1)
+            var imageUrls = model.ImagesUrl.Select(x => x.Url).ToList();
+
+            var productId = await this.productsService.CreateAsync(model.Title, model.Description, imageUrls, model.Price, model.BrandId, model.CollectionIds);
+
+            if (productId == 0)
             {
                 return this.BadRequest();
             }
           
-                return this.Json(productId);
+            return this.Json(productId);
             
         }
 
@@ -55,7 +59,7 @@
             var editedProductId = await this.productsService.EditAsync(dto.Id,
                 dto.Title,
                 dto.Description,
-                dto.ImageUrl, 
+                dto.ImagesUrl, 
                 dto.Price,
                 dto.BrandId,
                 dto.CollectionIds);
@@ -65,9 +69,9 @@
 
         [HttpGet]
         [Route("{id:int}")]
-        public IActionResult Details(int id)
+        public IActionResult Get(int id)
         {
-            var product = this.productsService.GetById<DetailsViewModel>(id);
+            var product = this.productsService.GetById<ProductDetailsDTO>(id);
 
             if(product == null)
             {

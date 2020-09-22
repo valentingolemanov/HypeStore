@@ -1,6 +1,5 @@
 ﻿namespace StreetwearStore.Data.Entities
 {
-    using StreetwearStore.Data.Common;
 
     public class ProductCollection 
     {

@@ -10,8 +10,8 @@ using StreetwearStore.Data;
 namespace StreetwearStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200910092817_randomMigration2")]
-    partial class randomMigration2
+    [Migration("20200922172405_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(5479),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nike"
@@ -62,7 +62,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6175),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Adidas"
@@ -70,7 +70,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6192),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Air Jordan"
@@ -78,7 +78,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6194),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Alexander McQueen"
@@ -86,7 +86,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6196),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Supreme"
@@ -94,7 +94,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6198),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dior"
@@ -102,7 +102,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6266),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Off-White"
@@ -110,10 +110,18 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6268),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Yeezy"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedOn = new DateTime(2020, 9, 22, 17, 24, 4, 824, DateTimeKind.Utc).AddTicks(6270),
+                            IsDeleted = false,
+                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Puma"
                         });
                 });
 
@@ -126,6 +134,18 @@ namespace StreetwearStore.Data.Migrations
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -151,6 +171,12 @@ namespace StreetwearStore.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -172,17 +198,17 @@ namespace StreetwearStore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BrandId")
+                    b.Property<int>("BrandId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CollectionId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Condition")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -191,15 +217,6 @@ namespace StreetwearStore.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EUSize")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -217,10 +234,7 @@ namespace StreetwearStore.Data.Migrations
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int>("UKSize")
-                        .HasColumnType("int");
-
-                    b.Property<int>("USSize")
+                    b.Property<int?>("SizeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -229,24 +243,142 @@ namespace StreetwearStore.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("CollectionId");
+                    b.HasIndex("SizeId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("StreetwearStore.Data.Entities.ProductCollection", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CollectionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CollectionId");
+
+                    b.HasIndex("CollectionId");
+
+                    b.ToTable("ProductCollections");
+                });
+
+            modelBuilder.Entity("StreetwearStore.Data.Entities.ProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImages");
+                });
+
+            modelBuilder.Entity("StreetwearStore.Data.Entities.Size", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CM")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ClothSize")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("EU")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Inches")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("UK")
+                        .HasColumnType("float");
+
+                    b.Property<double>("US")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sizes");
                 });
 
             modelBuilder.Entity("StreetwearStore.Data.Entities.Product", b =>
                 {
                     b.HasOne("StreetwearStore.Data.Entities.Brand", "Brand")
                         .WithMany("Products")
-                        .HasForeignKey("BrandId");
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("StreetwearStore.Data.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("StreetwearStore.Data.Entities.Collection", null)
+                    b.HasOne("StreetwearStore.Data.Entities.Size", "Size")
                         .WithMany("Products")
-                        .HasForeignKey("CollectionId");
+                        .HasForeignKey("SizeId");
+                });
+
+            modelBuilder.Entity("StreetwearStore.Data.Entities.ProductCollection", b =>
+                {
+                    b.HasOne("StreetwearStore.Data.Entities.Collection", "Collection")
+                        .WithMany("CollectionProducts")
+                        .HasForeignKey("CollectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StreetwearStore.Data.Entities.Product", "Product")
+                        .WithMany("ProductCollections")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("StreetwearStore.Data.Entities.ProductImage", b =>
+                {
+                    b.HasOne("StreetwearStore.Data.Entities.Product", "Product")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

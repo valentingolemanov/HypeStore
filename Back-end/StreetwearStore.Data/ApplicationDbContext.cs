@@ -2,9 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore;
     using StreetwearStore.Data.Entities;
-    using System.Net;
-    using System.Net.Http.Headers;
-    using System.Security.Cryptography.X509Certificates;
+    using StreetwearStore.Data.Entities.Enums;
+    using System;
 
     public class ApplicationDbContext : DbContext
     {
@@ -17,21 +16,23 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Brand>().HasData(
-                 new Brand { Id = 1, Name="Nike" },
-                 new Brand { Id =2 , Name = "Adidas" },
-                 new Brand { Id = 3, Name = "Air Jordan" },
-                 new Brand { Id = 4, Name = "Alexander McQueen" },
-                 new Brand { Id = 5, Name = "Supreme" },
-                 new Brand { Id = 6, Name = "Dior" },
-                 new Brand { Id = 7, Name = "Off-White" },
-                 new Brand { Id = 8, Name = "Yeezy" },
-                 new Brand { Id = 9, Name = "Puma"}
+                 new Brand { Id = 1, Name="Nike", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id =2 , Name = "Adidas", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 3, Name = "Air Jordan", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 4, Name = "Alexander McQueen", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 5, Name = "Supreme", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 6, Name = "Dior", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 7, Name = "Off-White", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 8, Name = "Yeezy", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 9, Name = "Puma", CreatedOn = DateTime.UtcNow }
                  );
 
             modelBuilder.Entity<ProductCollection>()
                 .HasKey(x => new { x.ProductId, x.CollectionId });
-       
+
+         
         }
+
 
         public DbSet<Product> Products { get; set; }
 
@@ -43,6 +44,8 @@
 
         public DbSet<Category> Categories { get; set; }
 
-      
+        public DbSet<Size> Sizes { get; set; }
+
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }

@@ -1,0 +1,12 @@
+.sell-section {
+    padding: 50px;
+}
+
+.sell-section>mat-horizontal-stepper {
+    width: 70%;
+    margin: auto;
+}
+
+.choose-product-container {}
+
+.choose-product-form-field {}

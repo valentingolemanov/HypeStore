@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormControl, FormArray } from '@angular/forms';
 import { ProductsService } from '../../../services/products.service';
 import { AlertifyService } from '../../../services/alertify.service';
 import {Router} from '@angular/router';
@@ -67,27 +67,45 @@ export class AddProductComponent implements OnInit {
   get price(){
     return this.addProductForm.get('price') as FormControl;
   }
-  get imageUrl(){
-    return this.addProductForm.get('imageUrl') as FormControl;
-  }
   get brandId(){
     return this.addProductForm.get('brand') as FormControl;
   }
   get collectionIds(){
     return this.addProductForm.get('collectionIds') as FormControl;
   }
+  get imagesUrl(){
+    return this.addProductForm.get('imagesUrl') as FormArray;
+  }
+  get imagesControls(){
+    return this.addProductForm.get('imagesUrl')['controls'];
+  }
+
 
   createAddProductForm(): void {
     this.addProductForm = this.fb.group({
-     id: [null],
      title: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
      description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
      price: [null, [Validators.required]],
-     imageUrl: [null, [Validators.required]],
      brandId: [null, [Validators.required]],
      collectionIds: [[], []],
+     imagesUrl: this.fb.array([ this.newImage() ])
     });
   }
+
+  newImage(): FormGroup{
+    return this.fb.group({
+      url: ''
+    });
+  }
+
+  addImage(){
+    this.imagesUrl.push(this.newImage());
+  }
+
+  removeImage(i:number){
+    this.imagesUrl.removeAt(i);
+  }
+
 
   updateProduct(data: Product){
     this.addProductForm.patchValue({
@@ -95,7 +113,7 @@ export class AddProductComponent implements OnInit {
      title: data.Title,
      description: data.Description,
      price: data.Price,
-     imageUrl: data.ImageUrl,
+     imagesUrl: data.ImagesUrl,
      brandId: data.BrandId,
      collectionIds: data.CollectionIds
     });
@@ -142,7 +160,7 @@ export class AddProductComponent implements OnInit {
             }
 
     }else{
-      console.log(this.addProductForm);
+
       this.alertify.error("Please provide valid information in all fields!");
     }
 

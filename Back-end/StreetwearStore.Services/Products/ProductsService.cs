@@ -6,6 +6,7 @@
     using StreetwearStore.Data.Repository;
     using StreetwearStore.Services.Mapping;
     using StreetwearStore.Services.ProductCollections;
+    using StreetwearStore.Services.ProductImages;
     using System;
     using System.Collections.Generic;
 
@@ -16,15 +17,18 @@
     {
         private readonly IDeletableEntityRepository<Product> repository;
         private readonly IProductsCollectionsService productsCollectionsService;
+        private readonly IProductImageService productImagesService;
 
         public ProductsService(IDeletableEntityRepository<Product> repository,
-            IProductsCollectionsService service)
+            IProductsCollectionsService productCollectionsService,
+            IProductImageService productImagesService)
         {
             this.repository = repository;
-            this.productsCollectionsService = service;
+            this.productsCollectionsService = productCollectionsService;
+            this.productImagesService = productImagesService;
         }
 
-        public async Task<int> CreateAsync(string name, string description, string imageUrl,
+        public async Task<int> CreateAsync(string name, string description, List<string> imagesUrl,
             decimal price, int brandId, List<int> collectionIds)
         {
             var product = new Product
@@ -32,21 +36,23 @@
                 Name = name,
                 Description = description,
                 Price = price,
-                ImageUrl = imageUrl,
                 BrandId = brandId,
                 CreatedOn = DateTime.UtcNow
             };
 
-            foreach(var collectionId in collectionIds)
+            await this.repository.AddAsync(product);
+            await this.repository.SaveChangesAsync();
+
+            foreach (var collectionId in collectionIds)
             {
-                var productCollection = this.productsCollectionsService.CreateAsync(product.Id, collectionId);
-                if(productCollection != null)
-                {
-                    product.ProductCollections.Add(productCollection);
-                }
+                await this.productsCollectionsService.CreateAsync(product.Id, collectionId);
             }
 
-            await this.repository.AddAsync(product);
+            foreach (var imageUrl in imagesUrl)
+            {
+                await this.productImagesService.CreateAsync(product.Id, imageUrl);
+            }
+
             await this.repository.SaveChangesAsync();
 
             return product.Id;
@@ -85,14 +91,13 @@
             return this.repository.All().FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<int> EditAsync(int id, string name, string description, string imageUrl, decimal price, int brandId, List<int> collectionIds)
+        public async Task<int> EditAsync(int id, string name, string description, List<string> imagesUrl, decimal price, int brandId, List<int> collectionIds)
         {
             var product = this.GetById(id);
 
 
             product.Name = name;
             product.Description = description;
-            product.ImageUrl = imageUrl;
             product.Price = price;
             product.BrandId = brandId;
 

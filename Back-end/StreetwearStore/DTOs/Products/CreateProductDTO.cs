@@ -1,10 +1,10 @@
 ﻿namespace StreetwearStore.Web.ViewModels.Products
 {
-
+    using StreetwearStore.Web.DTOs;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class CreateInputViewModel
+    public class CreateProductDTO
     {
         [Required(ErrorMessage = "Product title is required.")]
         [MinLength(5, ErrorMessage = "Product title must be at least 5 characters.")]
@@ -16,16 +16,17 @@
         [MaxLength(1000, ErrorMessage = "Product description must be at most 400 characters.")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Product images are required.")]
-        public string ImageUrl { get; set; }
-
         [Required(ErrorMessage = "Product brand is required.")]
         public int BrandId { get; set; }
 
         [Required(ErrorMessage = "Product price is required.")]
         public decimal Price { get; set; }
 
-        [Required]
         public List<int> CollectionIds { get; set; }
+
+        [Required(ErrorMessage = "Product images are required.")]
+        public List<ImageDTO> ImagesUrl { get; set; }
+
+
     }
 }

@@ -57,7 +57,14 @@
                         {{collection.description}}
                     </div>
                     <div fxFlex="5%" fxFlex.xs="100%" fxFlex.sm="50%" class="admin-product-actions">
-                        <button (click)="openDeleteDialog(collection.Id)" mat-icon-button #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon></button>
+
+                        <button class="options-menu-btn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button (click)="openDeleteDialog(collection.Id)" mat-menu-item #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon>&#32;Delete</button>
+
+                        </mat-menu>
                     </div>
                 </div>
 

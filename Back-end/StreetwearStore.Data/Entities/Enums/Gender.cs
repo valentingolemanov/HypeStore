@@ -6,8 +6,8 @@ namespace StreetwearStore.Data.Entities.Enums
 {
     public enum Gender
     {
-        Male = 1,
-        Female = 2,
-        
+        Unisex = 0, 
+        Male = 1, 
+        Female = 2
     }
 }

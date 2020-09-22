@@ -8,7 +8,7 @@
     {
         ICollection<TModel> GetProducts<TModel>();
 
-        ProductCollection CreateAsync(int productId, int collectionId);
+        Task<ProductCollection> CreateAsync(int productId, int collectionId);
 
         TModel GetById<TModel>(int id, int collectionId);
 

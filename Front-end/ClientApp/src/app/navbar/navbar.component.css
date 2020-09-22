@@ -24,6 +24,10 @@
     float: right;
 }
 
+.float-left {
+    float: left;
+}
+
 .example-sidenav-content {
     display: flex;
     height: 100%;
@@ -33,4 +37,8 @@
 
 .example-sidenav {
     padding: 20px;
+}
+
+.home-btn> {
+    font-size: 24px;
 }

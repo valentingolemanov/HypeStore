@@ -1,0 +1,66 @@
+<form [formGroup]="editProductForm" class="add-product-form" fxLayout="row wrap" fxLayoutGap="30px grid">
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="100%" class="images-container">
+
+    </div>
+    <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <mat-form-field hintLabel="Max 50 characters" appearance="standard">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" class="title-input" matInput #titleInput placeholder="Ex. Supreme Winter Hoodie">
+            <mat-hint align="end">{{titleInput.value?.length || 0}}/50</mat-hint>
+            <!-- <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)" class="alert alert-danger">
+
+                    <div *ngIf="titleInput.errors.required">
+                        Name is required.
+                    </div>
+                    <div *ngIf="titleInput.errors.minlength">
+                        Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="titleInput.errors.forbiddenName">
+                        Name cannot be Bob.
+                    </div>
+                </div> -->
+        </mat-form-field>
+        <br>
+        <mat-form-field hintLabel="Max 400 characters" appearance="standard">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" #descriptionInput matInput></textarea>
+            <mat-hint align="end">{{descriptionInput.value?.length || 0}}/400</mat-hint>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="standard">
+            <mat-label>Brand</mat-label>
+            <mat-select formControlName="brandId" name="brand">
+                <mat-option *ngFor="let brand of brands" [value]="brand.Id">
+                    {{brand.Name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="standard">
+            <mat-label>Add to collections:</mat-label>
+            <mat-select formControlName="collectionIds" multiple>
+                <mat-option *ngFor="let collection of collectionsList" [value]="collection.Id">{{collection.Name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <div class="pricing-fields-container">
+            <br>
+            <mat-form-field appearance="standard">
+                <mat-label>Price</mat-label>
+                <input formControlName="price" matInput type="number" class="example-right-align">
+                <span matPrefix>$&nbsp;</span>
+                <span matSuffix>.00</span>
+            </mat-form-field>
+        </div>
+
+        <br>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button type="submit" (click)="onSubmit()" [mat-dialog-close]="editProductForm.valid" [disabled]="!editProductForm.valid" mat-button>Save</button>
+        <button (click)="openDeleteDialog(product.Id)" mat-icon-button #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon>&#32;Delete</button>
+    </div>
+
+
+
+</form>

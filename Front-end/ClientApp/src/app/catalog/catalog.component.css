@@ -1,4 +1,4 @@
-.admin-panel-container {
+.catalog-container {
     top: 64px !important;
 }
 
@@ -8,13 +8,16 @@
     }
 }
 
-.admin-panel-sidenav {
+
+/* .catalog-sidenav {
     width: 15%;
-}
+} */
 
 .admin-content {}
 
 .show-filters-btn {
     margin-top: 20px;
     margin-left: 20px;
+    position: fixed;
+    z-index: 10;
 }

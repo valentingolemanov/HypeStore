@@ -4,7 +4,7 @@ using StreetwearStore.Services.Mapping;
 
 namespace StreetwearStore.Web.DTOs.Categories
 {
-    public class CategoriesResponseModel : IMapTo<Category>
+    public class CategoriesResponseDTO : IMapTo<Category>
     {
         public int Id { get; set; }
 

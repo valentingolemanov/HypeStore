@@ -35,6 +35,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatStepperModule} from '@angular/material/stepper';
+
 
 import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -68,7 +70,8 @@ import {CollectionsTableComponent} from './dashboard/dashboard-collections/colle
 import {CollectionsListingResolverService} from './services/collections-listing-resolver.service';
 import {BrandsListingResolverService} from './services/brands-listing-resolver.service';
 import {CollectionDeleteDialogComponent} from './dashboard/dashboard-collections/collections-table/collection-delete-dialog/collection-delete-dialog.component';
-
+import { SellComponent } from './sell/sell.component';
+import {EditProductComponent} from './dashboard/dashboard-products/products-table/edit-product/edit-product.component';
 
 
 const appRoutes: Routes = [
@@ -87,6 +90,9 @@ const appRoutes: Routes = [
       component: ProductDetailComponent,
       resolve: {prd_details: ProductDetailsResolverService,
                prd_listing : ProductListingResolverService}},
+  {path: 'sell',
+     component: SellComponent,
+     resolve: {prd_listing : ProductListingResolverService}},
   {path: 'dashboard-collections',
      component: DashboardCollectionsComponent,
      resolve: {cltn_listing : CollectionsListingResolverService}},
@@ -123,7 +129,9 @@ const appRoutes: Routes = [
       DashboardCollectionsComponent,
       AddCollectionComponent,
       CollectionsTableComponent,
-      CollectionDeleteDialogComponent
+      CollectionDeleteDialogComponent,
+      SellComponent,
+      EditProductComponent
    ],
   imports: [
     BrowserModule,
@@ -161,7 +169,8 @@ const appRoutes: Routes = [
     MatChipsModule,
     MatAutocompleteModule,
     NgxGalleryModule,
-    ScrollingModule
+    ScrollingModule,
+    MatStepperModule
   ],
   providers: [ProductsService,
     UsersService,

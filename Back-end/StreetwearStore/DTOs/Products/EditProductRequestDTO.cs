@@ -19,7 +19,7 @@
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Product images are required.")]
-        public string ImageUrl { get; set; }
+        public List<string> ImagesUrl { get; set; }
 
         [Required(ErrorMessage = "Product brand is required.")]
         public int BrandId { get; set; }

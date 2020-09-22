@@ -6,7 +6,7 @@ export class Product implements IProduct{
   Id: number;
   Title: string;
   Description: string;
-  ImageUrl: string;
+  ImagesUrl: string[];
   Price: number;
   BrandName: string;
   BrandId: number;

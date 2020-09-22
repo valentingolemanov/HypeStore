@@ -13,6 +13,7 @@ import { AddProductComponent } from '../add-product/add-product.component';
 import {SelectionModel} from '@angular/cdk/collections';
 import { Collection } from 'src/app/models/Collection';
 import {Brand} from './../../../models/Brand';
+import { MatTable } from '@angular/material/table';
 
 @Component({
     selector: 'app-products-table',
@@ -35,7 +36,7 @@ export class ProductsTableComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-
+  @ViewChild(MatTable, {static: true}) table: MatTable<any>;
 
   isExpansionDetailRow = (index, row) => row.hasOwnProperty('detailRow');
   @Input() products: Array<Product>;
@@ -64,6 +65,7 @@ export class ProductsTableComponent implements OnInit {
       {data : {
         productId: id,
       }});
+      this.table.renderRows();
   }
 
   // openAddProductDialog() {
@@ -74,15 +76,6 @@ export class ProductsTableComponent implements OnInit {
   //   });
   // }
 
-  openEditProductDialog(productId: number){
-    const dialogRef = this.dialog.open(AddProductComponent, {
-      data: {
-        productId: productId,
-        brands: this.brands,
-        collections: this.collections
-      }
-    });
-  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

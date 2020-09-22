@@ -14,13 +14,12 @@ export class FilterPipe implements PipeTransform {
     }
 
     for(const item of value){
-      if(item.Title.toLowerCase().includes(filterString.toLowerCase())){
-        resultArr.push(item);
-      }else if(item.BrandName.toLowerCase().includes(filterString.toLowerCase())){
+      if(item.Title.toLowerCase().includes(filterString.toLowerCase()) ||
+             item.BrandName.toLowerCase().includes(filterString.toLowerCase())){
         resultArr.push(item);
       }
-    }
-    return resultArr;
-  }
 
+      return resultArr;
+    }
+  }
 }

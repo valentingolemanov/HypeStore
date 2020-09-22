@@ -72,24 +72,24 @@ export class ProductDetailComponent implements OnInit {
 
     this.galleryImages = [
       {
-          small: this.product.ImageUrl,
-          medium: this.product.ImageUrl,
-          big: this.product.ImageUrl
+          small: this.product.ImagesUrl[0],
+          medium: this.product.ImagesUrl[0],
+          big: this.product.ImagesUrl[0]
       },
       {
-          small: this.product.ImageUrl,
-          medium: this.product.ImageUrl,
-          big: this.product.ImageUrl
+          small: this.product.ImagesUrl[0],
+          medium: this.product.ImagesUrl[0],
+          big: this.product.ImagesUrl[0]
       },
       {
-          small:this.product.ImageUrl,
-          medium: this.product.ImageUrl,
-          big: this.product.ImageUrl
+          small:this.product.ImagesUrl[0],
+          medium: this.product.ImagesUrl[0],
+          big: this.product.ImagesUrl[0]
       },
       {
-        small:this.product.ImageUrl,
-        medium: this.product.ImageUrl,
-        big: this.product.ImageUrl
+        small:this.product.ImagesUrl[0],
+        medium: this.product.ImagesUrl[0],
+        big: this.product.ImagesUrl[0]
     }
   ];
   }

@@ -15,7 +15,7 @@
             this.repository = repository;
         }
 
-        public ProductCollection CreateAsync(int productId, int collectionId)
+        public async Task<ProductCollection> CreateAsync(int productId, int collectionId)
         {
             var productCollection = this.GetByIds(productId, collectionId);
             if(productCollection != null)
@@ -29,8 +29,8 @@
                 CollectionId = collectionId
             };
 
-             this.repository.AddAsync(productCollection);
-             this.repository.SaveChangesAsync();
+             await this.repository.AddAsync(productCollection);
+             await this.repository.SaveChangesAsync();
 
             return productCollection;
         }
