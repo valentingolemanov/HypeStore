@@ -13,7 +13,7 @@
     {
         private IDeletableEntityRepository<Collection> repository;
 
-        public CollectionsService(IDeletableEntityRepository<Collection> repository) 
+        public CollectionsService(IDeletableEntityRepository<Collection> repository)
         {
             this.repository = repository;
         }
@@ -22,7 +22,7 @@
         {
             var collection = this.GetCollectionByName(name);
 
-            if(collection != null)
+            if (collection != null)
             {
                 return -1;
             }
@@ -33,8 +33,8 @@
                 Description = description,
                 ImageUrl = imageUrl,
                 CreatedOn = DateTime.UtcNow,
-                HomeDisplay = homeDisplay, 
-                DisplayCols = displayCols, 
+                HomeDisplay = homeDisplay,
+                DisplayCols = displayCols,
                 DisplayRows = displayRows,
                 DisplayPositionIndex = displayPositionIndex
             };

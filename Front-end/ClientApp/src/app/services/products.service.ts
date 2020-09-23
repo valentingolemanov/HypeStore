@@ -28,8 +28,8 @@ export class ProductsService{
     );
   }
 
-  createProduct(product: ICreateProduct){
-    return this.http.post<ICreateProduct>('http://localhost:58341/api/products', product);
+  createProduct(product: Product){
+    return this.http.post<Product>('http://localhost:58341/api/products', product);
   }
 
   updateProduct(product: Product){
@@ -39,7 +39,7 @@ export class ProductsService{
   getProduct(id: number) : Observable<Product>{
     return this.getAllProducts().pipe(
       map(propertiesArray => {
-        return propertiesArray.find(p => p.Id == id);
+        return propertiesArray.find(p => Number(p.Id) === id);
       }))
   }
 

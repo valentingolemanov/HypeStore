@@ -1,40 +1,24 @@
-<section class="product-details-section">
-    <!-- <a routerLink="/catalog" class="back-label">
-        <mat-icon>keyboard_return</mat-icon> Back
-    </a> -->
-    <mat-card class="product-details-container" fxLayout="row wrap">
-        <!-- <div fxFlex="15%" fxFlex.xs="100%" fxFlex.sm="100%" class="all-photos-container">
+<section class="page-header">
+    <h1 class="product-title-label">{{product.Title}}</h1>
 
-    </div> -->
-        <!-- <div class="img-wrapper">
-                    <img src="{{product.ImageUrl}}">
-                </div> -->
-        <div fxFlex="55%" fxFlex.xs="100%" fxFlex.sm="100%" class="main-photo-container">
-            <!-- <div class="carousel-wrapper">
-            <carousel [dots]="true" [height]="600" [loop]="true" [cellsToShow]="1" [arrowsOutside]="true">
-                <div class="img-wrapper" *ngFor="let image of slides" class="carousel-cell">
-                    <img src="{{product.ImageUrl}}" alt="somethin">
-                </div>
-            </carousel>
-        </div> -->
-            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-        </div>
-        <div fxFlex="45%" fxFlex.xs="100%" fxFlex.sm="100%" class="product-menu-container">
-            <a>
-                <p class="product-brand-label">{{product.BrandName}}</p>
-            </a>
-            <br>
-            <p class="product-title-label">{{product.Title}}</p>
+    <p class="product-description-label"><em>{{product.Description}}</em></p>
+</section>
+<section class="product-details-section" fxLayout="row wrap" fxLayoutGap="30px">
 
-            <p class="product-description-label"><em>{{product.Description}}</em></p>
-            <br>
+    <div class="product-image-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
 
-            <br>
-            <p class="product-price-label">{{product.Price.toFixed(2)}}$</p>
-
+        <!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery> -->
+        <div class="image-wrapper">
+            <img *ngFor="let image of product.ImagesUrl" src="{{image}}" alt="product image">
         </div>
 
-    </mat-card>
+    </div>
+    <div fxFlex="10%" fxFlex.xs="100%" fxFlex.sm="70%">
+
+    </div>
+    <div class="product-details-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
+        <p class="product-details-label">Details</p>
+    </div>
 </section>
 <br>
 <br>

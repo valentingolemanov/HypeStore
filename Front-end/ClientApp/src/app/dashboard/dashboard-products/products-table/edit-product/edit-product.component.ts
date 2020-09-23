@@ -4,9 +4,10 @@ import { Brand } from 'src/app/models/brand';
 import { Collection } from 'src/app/models/Collection';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import {MatDialog} from '@angular/material/dialog';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DeleteDialogContentComponent} from './../delete-dialog-content/delete-dialog-content.component';
 import { Product } from 'src/app/models/Product';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -18,15 +19,18 @@ export class EditProductComponent implements OnInit {
   editProductForm: FormGroup;
   selectedBrand: string;
   selectedCollections: Number[];
-  brands: Brand[];
-  collectionsList: Collection[];
-  collections = new FormControl();
+
 
   @Input() product: Product;
+  @Input() brands: Brand[];
+  @Input() collections: Collection[];
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private productsService: ProductsService,
+    private router: Router,
+    private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.createEditProductForm();
@@ -34,13 +38,12 @@ export class EditProductComponent implements OnInit {
 
   createEditProductForm(): void {
     this.editProductForm = this.fb.group({
-     id: [null],
-     title: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-     description: [null, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
-     price: [null, [Validators.required]],
-     imageUrl: [null, [Validators.required]],
-     brandId: [null, [Validators.required]],
-     collectionIds: [[], []],
+     id: [this.product.Id],
+     title: [this.product.Title, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+     description: [this.product.Description, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
+     price: [this.product.Price, [Validators.required]],
+     brandId: [this.product.BrandId, [Validators.required]],
+     collectionIds: [[this.product.CollectionIds], []],
     });
   }
 
@@ -54,7 +57,18 @@ export class EditProductComponent implements OnInit {
   }
 
   onSubmit(){
+    this.product = Object.assign(this.product, this.editProductForm.value);
+    console.log(this.product);
+    this.productsService.updateProduct(this.product).subscribe(res => {
+      console.log(this.product);
+    },
+    (err) => console.log(err),
+    () => {
+      this.alertify.success("Congrats, you updated this product info!");
+      this.editProductForm.reset();
+      this.router.navigate([`/dashboard-products`]);
 
+    });
   }
 
 }

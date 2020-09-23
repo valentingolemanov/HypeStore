@@ -36,8 +36,8 @@ export class HomeComponent implements OnInit {
 
        this.newProducts = data['prd_listing'];
        const compareFn = (a: Product, b: Product) => {
-        let aDate = Date.parse(a.ReleasedOn);
-        let bDate = Date.parse(b.ReleasedOn);
+        const aDate = Date.parse(a.AddedOn);
+        const bDate = Date.parse(b.AddedOn);
 
         if(aDate > bDate ){
           return -1;

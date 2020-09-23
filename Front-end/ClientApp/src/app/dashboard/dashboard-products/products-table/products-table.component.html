@@ -37,14 +37,17 @@
             <td mat-cell *matCellDef="let row"> {{row.Title}}</td>
         </ng-container>
 
-
         <!-- Price Column -->
-        <ng-container matColumnDef="Price">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-            <td mat-cell *matCellDef="let row"> {{row.Price.toFixed(2)}}$ </td>
+        <ng-container matColumnDef="AddedOn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Added On </th>
+            <td mat-cell *matCellDef="let row"> {{row.AddedOn}} </td>
         </ng-container>
 
-
+        <!-- Price Column -->
+        <ng-container matColumnDef="LastModified">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Modified </th>
+            <td mat-cell *matCellDef="let row"> {{row.LastModified}} </td>
+        </ng-container>
 
         <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
         <ng-container matColumnDef="expandedDetail">
@@ -70,7 +73,7 @@
                         </mat-menu>
 
                     </div> -->
-                    <app-edit-product [product]="expandedElement"></app-edit-product>
+                    <app-edit-product [collections]="collections" [brands]="brands" [product]="product"></app-edit-product>
                 </div>
             </td>
         </ng-container>

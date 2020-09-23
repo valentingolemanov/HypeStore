@@ -1,7 +1,7 @@
 import {IProduct} from './../product/IProduct.interface';
 
 
-export class Product implements IProduct{
+export class Product {
 
   Id: number;
   Title: string;
@@ -10,6 +10,8 @@ export class Product implements IProduct{
   Price: number;
   BrandName: string;
   BrandId: number;
-  ReleasedOn: string;
   CollectionIds: number[];
+  AddedOn: string;
+  LastModified: string;
+
 }

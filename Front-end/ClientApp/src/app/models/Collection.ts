@@ -3,8 +3,8 @@
 export class Collection{
     Id: number;
     Name: string;
-    ImageUrl: string;
     Description: string;
+    ImageUrl: string;
     HomeDisplay: boolean;
     DisplayRows: number;
     DisplayCols: number;

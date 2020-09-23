@@ -23,13 +23,13 @@
 
         public bool HomeDisplay { get; set; }
 
-        public int? DisplayRows { get; set; }
+        public int DisplayRows { get; set; }
 
-        public int? DisplayCols { get; set; }
+        public int DisplayCols { get; set; }
 
-        public int? DisplayPositionIndex { get; set; }
+        public int DisplayPositionIndex { get; set; }
 
-        public List<ProductListingDTO> Products { get; set; }
+        public List<ProductDetailsDTO> Products{ get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {

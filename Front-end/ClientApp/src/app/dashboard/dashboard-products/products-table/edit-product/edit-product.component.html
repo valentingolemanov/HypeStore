@@ -23,29 +23,30 @@
         <br>
         <mat-form-field hintLabel="Max 400 characters" appearance="standard">
             <mat-label>Description</mat-label>
-            <textarea formControlName="description" #descriptionInput matInput></textarea>
+            <textarea formControlName="description" #descriptionInput matInput rows="7"></textarea>
             <mat-hint align="end">{{descriptionInput.value?.length || 0}}/400</mat-hint>
         </mat-form-field>
         <br>
-        <mat-form-field appearance="standard">
-            <mat-label>Brand</mat-label>
-            <mat-select formControlName="brandId" name="brand">
-                <mat-option *ngFor="let brand of brands" [value]="brand.Id">
-                    {{brand.Name}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="standard">
-            <mat-label>Add to collections:</mat-label>
-            <mat-select formControlName="collectionIds" multiple>
-                <mat-option *ngFor="let collection of collectionsList" [value]="collection.Id">{{collection.Name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+
 
     </div>
     <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
         <div class="pricing-fields-container">
+            <mat-form-field appearance="standard">
+                <mat-label>Brand</mat-label>
+                <mat-select formControlName="brandId" name="brand">
+                    <mat-option *ngFor="let brand of brands" [value]="brand.Id">
+                        {{brand.Name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="standard">
+                <mat-label>Collections</mat-label>
+                <mat-select formControlName="collectionIds" multiple>
+                    <mat-option *ngFor="let collection of collections" [value]="collection.Id">{{collection.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
             <br>
             <mat-form-field appearance="standard">
                 <mat-label>Price</mat-label>
@@ -56,6 +57,7 @@
         </div>
 
         <br>
+
         <button mat-button mat-dialog-close>Cancel</button>
         <button type="submit" (click)="onSubmit()" [mat-dialog-close]="editProductForm.valid" [disabled]="!editProductForm.valid" mat-button>Save</button>
         <button (click)="openDeleteDialog(product.Id)" mat-icon-button #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon>&#32;Delete</button>

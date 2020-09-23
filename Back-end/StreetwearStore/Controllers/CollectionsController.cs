@@ -3,6 +3,7 @@
     using Microsoft.AspNetCore.Mvc;
     using StreetwearStore.Services.Collections;
     using StreetwearStore.Web.ViewModels.Collections;
+    using System;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -28,28 +29,29 @@
         [HttpPost]
         public async Task<IActionResult> Create(CollectionReqestDTO model)
         {
-           
+
             if (!ModelState.IsValid)
             {
+
                 return this.BadRequest();
             }
-
             var productId = await this.collectionsService
-                .CreateAsync(model.Name,
-                model.Description,
-                model.ImageUrl,
-                model.HomeDisplay, 
-                model.DisplayRows,
-                model.DisplayCols,
-                model.DisplayPositionIndex);
+                  .CreateAsync(model.Name,
+                  model.Description,
+                  model.ImageUrl,
+                  model.HomeDisplay,
+                  int.Parse(model.DisplayRows),
+                  int.Parse(model.DisplayCols),
+                  int.Parse(model.DisplayPositionIndex));
 
             if (productId == -1)
             {
                 return this.BadRequest();
             }
-           
+
+
             return this.Json(productId);
-            
+
         }
 
         [HttpDelete]

@@ -28,7 +28,7 @@ import { MatTable } from '@angular/material/table';
     })
 
 export class ProductsTableComponent implements OnInit {
-   columnsToDisplay : string[] = ['select', 'Id', 'Title',  'Price', ];
+   columnsToDisplay : string[] = ['select', 'Id', 'Title',  'AddedOn', 'LastModified'];
    dataSource: MatTableDataSource<Product>;
    expandedElement: Product | null;
    selection = new SelectionModel<Product>(true, []);
