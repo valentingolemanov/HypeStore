@@ -51,7 +51,7 @@ import { UsersService } from './services/users.service';
 import {AlertifyService} from './services/alertify.service';
 import {AuthService} from './services/auth.service';
 import { CatalogComponent } from './catalog/catalog.component';
-import {AddProductComponent} from './dashboard/dashboard-products/add-product/add-product.component';
+import {AddProductComponent} from './dashboard/dashboard-products/products-table/add-product/add-product.component';
 import {CatalogSidenavComponent} from './catalog/catalog-sidenav/catalog-sidenav.component';
 import {CatalogFilterMenuComponent} from './catalog/catalog-filter-menu/catalog-filter-menu.component';
 import {DeleteDialogContentComponent} from './dashboard/dashboard-products/products-table/delete-dialog-content/delete-dialog-content.component';
@@ -73,6 +73,7 @@ import {CollectionDeleteDialogComponent} from './dashboard/dashboard-collections
 import { SellComponent } from './sell/sell.component';
 import {EditProductComponent} from './dashboard/dashboard-products/products-table/edit-product/edit-product.component';
 import {DashboardSidenavComponent} from './dashboard/dashboard-sidenav/dashboard-sidenav.component';
+import {EditCollectionComponent} from './dashboard/dashboard-collections/collections-table/edit-collection/edit-collection.component';
 
 const appRoutes: Routes = [
   {path: '',
@@ -132,7 +133,8 @@ const appRoutes: Routes = [
       CollectionDeleteDialogComponent,
       SellComponent,
       EditProductComponent,
-      DashboardSidenavComponent
+      DashboardSidenavComponent,
+      EditCollectionComponent
    ],
   imports: [
     BrowserModule,

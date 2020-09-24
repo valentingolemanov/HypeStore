@@ -8,7 +8,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import {Router} from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import {MatDialog} from '@angular/material/dialog';
-
+import {AddProductComponent} from './../products-table/add-product/add-product.component'
 import {SelectionModel} from '@angular/cdk/collections';
 import { Collection } from 'src/app/models/Collection';
 import {Brand} from './../../../models/Brand';
@@ -59,14 +59,25 @@ export class ProductsTableComponent implements OnInit {
   }
 
 
+  refreshTable(){
+    this.table.renderRows();
+  }
 
-  // openAddProductDialog() {
-  //   const dialogRef = this.dialog.open(AddProductComponent);
+  openAddProductDialog() {
+    const dialogRef = this.dialog.open(AddProductComponent,
+      {
+        data: {
+          brands: this.brands,
+          collections: this.collections,
+          refreshTable: this.refreshTable,
+          table: this.table,
+        }
+      });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 
   applyFilter(event: Event) {

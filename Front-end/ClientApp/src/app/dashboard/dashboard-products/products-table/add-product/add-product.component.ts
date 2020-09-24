@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Output, EventEmitter } from '@angular/core';
 import {
   FormGroup,
   Validators,
@@ -6,15 +6,15 @@ import {
   FormControl,
   FormArray,
 } from '@angular/forms';
-import { ProductsService } from '../../../services/products.service';
-import { AlertifyService } from '../../../services/alertify.service';
+import { ProductsService } from '../../../../services/products.service';
+import { AlertifyService } from '../../../../services/alertify.service';
 import { Router } from '@angular/router';
-import { BrandsService } from '../../../services/brands.service';
-import { IBrand } from '../../../models/IBrand';
+import { BrandsService } from '../../../../services/brands.service';
+import { IBrand } from '../../../../models/IBrand';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Collection } from './../../../models/Collection';
-import { ICreateProduct } from 'src/app/product/ICreateProduct.interface';
-import { Product } from 'src/app/models/Product';
+import { Collection } from './../../../../models/Collection';
+import { Product } from './../../../../models/Product';
+import {MatTable} from '@angular/material/table';
 
 @Component({
   selector: 'app-add-product',
@@ -33,6 +33,8 @@ export class AddProductComponent implements OnInit {
   brands: IBrand[];
   collectionsList: Collection[];
   collections = new FormControl();
+  table: MatTable<any>;
+
 
   constructor(
     private productsService: ProductsService,
@@ -45,6 +47,7 @@ export class AddProductComponent implements OnInit {
 
     this.brands = this.data['brands'];
     this.collectionsList = this.data['collections'];
+    this.table = this.data['table'];
   }
 
   ngOnInit() {
@@ -144,7 +147,9 @@ export class AddProductComponent implements OnInit {
         this.addProductForm.value
       );
       this.productsService.createProduct(this.newProduct).subscribe(
-        (res) => {},
+        (res) => {
+         this.table.renderRows();
+        },
         (err) => console.log(err),
         () => {
           this.alertify.success('Congrats, you added a new product!');

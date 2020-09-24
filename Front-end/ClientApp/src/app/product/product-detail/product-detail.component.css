@@ -138,3 +138,28 @@ box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.75); */
     text-align: center;
     margin: 0%;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: black;
+}

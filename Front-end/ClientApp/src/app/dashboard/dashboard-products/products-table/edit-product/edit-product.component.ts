@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { Brand } from 'src/app/models/brand';
 import { Collection } from 'src/app/models/Collection';
@@ -24,6 +24,8 @@ export class EditProductComponent implements OnInit {
   @Input() product: Product;
   @Input() brands: Brand[];
   @Input() collections: Collection[];
+
+  @Output("refreshTable") refreshTable: EventEmitter<any> = new EventEmitter();
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -64,6 +66,7 @@ export class EditProductComponent implements OnInit {
     console.log(this.product);
     this.productsService.updateProduct(this.product).subscribe(res => {
       console.log(this.product);
+      this.refreshTable.emit();
     },
     (err) => console.log(err),
     () => {

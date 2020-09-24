@@ -3,7 +3,6 @@
         <app-dashboard-sidenav></app-dashboard-sidenav>
     </mat-sidenav>
     <mat-sidenav-content>
-        <button class="add-product-btn" (click)="openAddProductDialog()" mat-button><mat-icon>add</mat-icon>  Add Product</button>
         <app-products-table [brands]="brands" [collections]="collections" [products]="products"></app-products-table>
     </mat-sidenav-content>
 </mat-sidenav-container>
