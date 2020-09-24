@@ -12,12 +12,23 @@
             </mat-list-option>
         </mat-selection-list>
     </mat-expansion-panel>
-
-    <br>
     <mat-expansion-panel class="filter-panel" (opened)="collectionPanelOpenState = true" (closed)="collectionPanelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title class="filter-label">
                 Collection
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-selection-list #collectionsList (selectionChange)="onCollectionSelectionChange(collectionsList.selectedOptions.selected)">
+            <mat-list-option *ngFor="let collection of collections" [value]="collection.Id">
+                {{collection.Name}}
+            </mat-list-option>
+        </mat-selection-list>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel class="filter-panel" (opened)="collectionPanelOpenState = true" (closed)="collectionPanelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="filter-label">
+                Condition
             </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-selection-list #collectionsList (selectionChange)="onCollectionSelectionChange(collectionsList.selectedOptions.selected)">

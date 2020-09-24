@@ -63,9 +63,7 @@ export class AddProductComponent implements OnInit {
   get description() {
     return this.addProductForm.get('description') as FormControl;
   }
-  get price() {
-    return this.addProductForm.get('price') as FormControl;
-  }
+
   get brandId() {
     return this.addProductForm.get('brand') as FormControl;
   }
@@ -97,7 +95,6 @@ export class AddProductComponent implements OnInit {
           Validators.maxLength(1000),
         ],
       ],
-      price: [null, [Validators.required]],
       brandId: [null, [Validators.required]],
       collectionIds: [[], []],
       imagesUrl: this.fb.array([this.newImage()]),

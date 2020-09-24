@@ -7,6 +7,7 @@
 @import '../node_modules/quill/dist/quill.bubble.css';
 @import '../node_modules/quill/dist/quill.snow.css';
 @import '../node_modules/font-awesome/css/font-awesome.css';
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 mat-sidenav-container,
 mat-sidenav-content,
 mat-tab-body-content {

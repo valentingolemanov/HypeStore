@@ -40,10 +40,7 @@
             <mat-form-field appearance="standard">
                 <mat-label>Position index</mat-label>
                 <mat-select [disabled]="!homeDisplay.value" formControlName="displayPositionIndex" required>
-                    <mat-option value="1">1</mat-option>
-                    <!-- <mat-option value="2">2</mat-option>
-                    <mat-option value="3">3</mat-option>
-                    <mat-option value="4">1</mat-option> -->
+                    <mat-option *ngFor="let i of homeDisplayPositions" value="{{i}}">{{i}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

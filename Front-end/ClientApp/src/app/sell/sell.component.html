@@ -4,15 +4,22 @@
 <section class="sell-section">
     <mat-horizontal-stepper linear #stepper>
         <mat-step [stepControl]="firstFormGroup" [editable]="true">
-            <div class="choose-product-container">
+            <div class="choose-product-form-container">
                 <form [formGroup]="firstFormGroup">
                     <ng-template matStepLabel>Choose a product</ng-template>
                     <mat-form-field class="choose-product-form-field">
                         <input matInput placeholder="Choose a product:" aria-label="Product" [matAutocomplete]="auto" #productInput required>
                         <mat-autocomplete #auto="matAutocomplete">
-                            <mat-option *ngFor="let product of products | filter: productInput.value " [value]="product.Title">
-                                <img class="example-option-img" aria-hidden [src]="product.ImageUrl" height="25">
-                                <span>{{product.Title}}</span>
+                            <mat-option *ngFor="let product of products | filter: productInput.value " [value]="product.Name">
+                                <div class="product-option-container">
+                                    <div class="img-wrapper">
+                                        <img class="example-option-img" aria-hidden [src]="product.ImagesUrl[0]"> &#32;
+
+                                    </div>
+                                    <div class="product-title-wrapper">
+                                        <span>{{product.Title}}</span>
+                                    </div>
+                                </div>
                             </mat-option>
                         </mat-autocomplete>
                     </mat-form-field>

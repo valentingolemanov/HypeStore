@@ -3,10 +3,10 @@
 
     </div>
     <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
-        <mat-form-field hintLabel="Max 50 characters" appearance="standard">
-            <mat-label>Title</mat-label>
+        <mat-form-field hintLabel="Max 100 characters" appearance="standard">
+            <mat-label>Title*</mat-label>
             <input formControlName="title" class="title-input" matInput #titleInput placeholder="Ex. Supreme Winter Hoodie">
-            <mat-hint align="end">{{titleInput.value?.length || 0}}/50</mat-hint>
+            <mat-hint align="end">{{titleInput.value?.length || 0}}/100</mat-hint>
             <!-- <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)" class="alert alert-danger">
 
                     <div *ngIf="titleInput.errors.required">
@@ -21,10 +21,10 @@
                 </div> -->
         </mat-form-field>
         <br>
-        <mat-form-field hintLabel="Max 400 characters" appearance="standard">
-            <mat-label>Description</mat-label>
+        <mat-form-field hintLabel="Max 1000 characters" appearance="standard">
+            <mat-label>Description*</mat-label>
             <textarea formControlName="description" #descriptionInput matInput rows="7"></textarea>
-            <mat-hint align="end">{{descriptionInput.value?.length || 0}}/400</mat-hint>
+            <mat-hint align="end">{{descriptionInput.value?.length || 0}}/1000</mat-hint>
         </mat-form-field>
         <br>
 
@@ -33,27 +33,22 @@
     <div fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
         <div class="pricing-fields-container">
             <mat-form-field appearance="standard">
-                <mat-label>Brand</mat-label>
-                <mat-select formControlName="brandId" name="brand">
+                <mat-label>Brand*</mat-label>
+                <mat-select formControlName="brandId" name="brand" [value]="product.BrandId">
                     <mat-option *ngFor="let brand of brands" [value]="brand.Id">
                         {{brand.Name}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <br>
+
             <mat-form-field appearance="standard">
                 <mat-label>Collections</mat-label>
-                <mat-select formControlName="collectionIds" multiple>
+                <mat-select formControlName="collectionIds" multiple [value]="product.CollectionIds">
                     <mat-option *ngFor="let collection of collections" [value]="collection.Id">{{collection.Name}}</mat-option>
                 </mat-select>
             </mat-form-field>
-            <br>
-            <mat-form-field appearance="standard">
-                <mat-label>Price</mat-label>
-                <input formControlName="price" matInput type="number" class="example-right-align">
-                <span matPrefix>$&nbsp;</span>
-                <span matSuffix>.00</span>
-            </mat-form-field>
+
+
         </div>
 
         <br>

@@ -24,10 +24,6 @@
         [Required(ErrorMessage = "Product brand is required.")]
         public int BrandId { get; set; }
 
-        [Required(ErrorMessage = "Product price is required.")]
-        public decimal Price { get; set; }
-
-
         public List<int> CollectionIds { get; set; }
     }
 }

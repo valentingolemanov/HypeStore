@@ -72,7 +72,7 @@ import {BrandsListingResolverService} from './services/brands-listing-resolver.s
 import {CollectionDeleteDialogComponent} from './dashboard/dashboard-collections/collections-table/collection-delete-dialog/collection-delete-dialog.component';
 import { SellComponent } from './sell/sell.component';
 import {EditProductComponent} from './dashboard/dashboard-products/products-table/edit-product/edit-product.component';
-
+import {DashboardSidenavComponent} from './dashboard/dashboard-sidenav/dashboard-sidenav.component';
 
 const appRoutes: Routes = [
   {path: '',
@@ -131,7 +131,8 @@ const appRoutes: Routes = [
       CollectionsTableComponent,
       CollectionDeleteDialogComponent,
       SellComponent,
-      EditProductComponent
+      EditProductComponent,
+      DashboardSidenavComponent
    ],
   imports: [
     BrowserModule,

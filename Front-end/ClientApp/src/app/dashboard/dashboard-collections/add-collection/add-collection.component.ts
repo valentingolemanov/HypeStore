@@ -21,6 +21,7 @@ export class AddCollectionComponent implements OnInit {
   newCollection: any = {};
 
   collectionsLength: number;
+  homeDisplayPositions: Array<number>;
 
   constructor(
     private fb: FormBuilder,
@@ -30,6 +31,7 @@ export class AddCollectionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.collectionsLength = data['collectionsLength'];
+    this.homeDisplayPositions = Array.from({length: this.collectionsLength+1}, (_, i) => i + 1);
   }
 
   ngOnInit() {
@@ -84,6 +86,7 @@ export class AddCollectionComponent implements OnInit {
         this.newCollection,
         this.addCollectionForm.value
       );
+
       let newCollectionId;
       this.collectionsService.createCollection(this.newCollection).subscribe(
         (res) => {

@@ -7,7 +7,6 @@ export class Product {
   Title: string;
   Description: string;
   ImagesUrl: string[];
-  Price: number;
   BrandName: string;
   BrandId: number;
   CollectionIds: number[];

@@ -34,16 +34,18 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit() {
     this.createEditProductForm();
+    console.log(this.product);
+    console.log(this.editProductForm);
   }
 
   createEditProductForm(): void {
     this.editProductForm = this.fb.group({
-     id: [this.product.Id],
+     id: [Number(this.product.Id)],
      title: [this.product.Title, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
      description: [this.product.Description, [Validators.required, Validators.minLength(40), Validators.maxLength(1000)]],
-     price: [this.product.Price, [Validators.required]],
+
      brandId: [this.product.BrandId, [Validators.required]],
-     collectionIds: [[this.product.CollectionIds], []],
+     collectionIds: [this.product.CollectionIds, []],
     });
   }
 
@@ -58,6 +60,7 @@ export class EditProductComponent implements OnInit {
 
   onSubmit(){
     this.product = Object.assign(this.product, this.editProductForm.value);
+    this.product.Id = Number(this.product.Id);
     console.log(this.product);
     this.productsService.updateProduct(this.product).subscribe(res => {
       console.log(this.product);
@@ -65,7 +68,7 @@ export class EditProductComponent implements OnInit {
     (err) => console.log(err),
     () => {
       this.alertify.success("Congrats, you updated this product info!");
-      this.editProductForm.reset();
+
       this.router.navigate([`/dashboard-products`]);
 
     });

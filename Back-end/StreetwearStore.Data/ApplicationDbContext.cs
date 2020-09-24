@@ -24,7 +24,8 @@
                  new Brand { Id = 6, Name = "Dior", CreatedOn = DateTime.UtcNow },
                  new Brand { Id = 7, Name = "Off-White", CreatedOn = DateTime.UtcNow },
                  new Brand { Id = 8, Name = "Yeezy", CreatedOn = DateTime.UtcNow },
-                 new Brand { Id = 9, Name = "Puma", CreatedOn = DateTime.UtcNow }
+                 new Brand { Id = 9, Name = "Puma", CreatedOn = DateTime.UtcNow },
+                 new Brand { Id = 10,  Name = "Palm Angels", CreatedOn = DateTime.UtcNow}
                  );
 
             modelBuilder.Entity<ProductCollection>()
@@ -47,5 +48,7 @@
         public DbSet<Size> Sizes { get; set; }
 
         public DbSet<ProductImage> ProductImages { get; set; }
+
+        public DbSet<Listing> Offers { get; set; }
     }
 }

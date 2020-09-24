@@ -17,7 +17,6 @@ namespace StreetwearStore
     using StreetwearStore.Services.Collections;
     using StreetwearStore.Services.Mapping;
     using StreetwearStore.Services.ProductCollections;
-    using StreetwearStore.Services.ProductImages;
     using StreetwearStore.Services.Products;
     using StreetwearStore.Web.ViewModels;
 
@@ -66,8 +65,7 @@ namespace StreetwearStore
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IBrandsService, BrandsService>();
             services.AddTransient<ICollectionsService, CollectionsService>();
-            services.AddTransient<IProductsCollectionsService, ProductsCollectionsService>();
-            services.AddTransient<IProductImageService, ProductImageService>();
+            services.AddTransient<IProductCollectionsService, ProductCollectionsService>();
         }
           
 

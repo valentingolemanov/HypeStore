@@ -31,8 +31,16 @@ export class HomeComponent implements OnInit {
     this.route.data.subscribe(
       (data: Collection) => {
        this.homeDisplayCollections = data['cltn_listing'];
-       console.log(this.homeDisplayCollections);
-
+       const collectionsCompareFn = (a: Collection, b: Collection) => {
+         if(a.DisplayPositionIndex > b.DisplayPositionIndex){
+           return 1;
+         }else if(a.DisplayPositionIndex < b.DisplayPositionIndex){
+           return -1;
+         }else{
+           return 0;
+         }
+       };
+       this.homeDisplayCollections = this.homeDisplayCollections.sort(collectionsCompareFn);
 
        this.newProducts = data['prd_listing'];
        const compareFn = (a: Product, b: Product) => {

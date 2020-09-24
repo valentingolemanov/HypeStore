@@ -37,7 +37,7 @@
 
             var imageUrls = model.ImagesUrl.Select(x => x.Url).ToList();
 
-            var productId = await this.productsService.CreateAsync(model.Title, model.Description, imageUrls, model.Price, model.BrandId, model.CollectionIds);
+            var productId = await this.productsService.CreateAsync(model.Title, model.Description, imageUrls, model.BrandId, model.CollectionIds);
 
             if (productId == 0)
             {
@@ -59,8 +59,7 @@
             var editedProductId = await this.productsService.EditAsync(dto.Id,
                 dto.Title,
                 dto.Description,
-                dto.ImagesUrl, 
-                dto.Price,
+                dto.ImagesUrl,
                 dto.BrandId,
                 dto.CollectionIds);
 

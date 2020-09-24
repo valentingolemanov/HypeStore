@@ -18,9 +18,11 @@ namespace StreetwearStore.Web.ViewModels.Products
 
         public List<string> ImagesUrl { get; set; }
 
-        public decimal Price { get; set; }
+        public int BrandId { get; set; }
 
         public string BrandName { get; set; }
+
+        public List<int> CollectionIds { get; set; }
 
         public string AddedOn { get; set; }
 
@@ -33,7 +35,8 @@ namespace StreetwearStore.Web.ViewModels.Products
                 .ForMember(x => x.BrandName, y => y.MapFrom(z => z.Brand.Name))
                 .ForMember(x => x.ImagesUrl, y => y.MapFrom(z => z.ProductImages.Select(q => q.Path)))
                 .ForMember(x => x.AddedOn, y => y.MapFrom(z => z.CreatedOn.ToString("MMM dd, yyyy")))
-                .ForMember(x => x.LastModified, y => y.MapFrom(z => z.ModifiedOn.ToString("MMM dd, yyyy")));
+                .ForMember(x => x.LastModified, y => y.MapFrom(z => z.ModifiedOn.ToString("MMM dd, yyyy")))
+                .ForMember(x => x.CollectionIds, y => y.MapFrom(z => z.ProductCollections.Select(w => w.CollectionId)));
         }
     }
 }
