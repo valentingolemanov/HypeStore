@@ -23,24 +23,24 @@
             <mat-form-field appearance="standard">
                 <mat-label>Rows</mat-label>
                 <mat-select [disabled]="!editCollectionForm.value['homeDisplay']" formControlName="displayRows" required>
-                    <mat-option value="1">1</mat-option>
-                    <mat-option value="2">2</mat-option>
-                    <mat-option value="3">3</mat-option>
-                    <mat-option value="4">1</mat-option>
+                    <mat-option [value]="1">1</mat-option>
+                    <mat-option [value]="2">2</mat-option>
+                    <mat-option [value]="3">3</mat-option>
+                    <mat-option [value]="4">1</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field appearance="standard">
                 <mat-label>Cols</mat-label>
                 <mat-select [disabled]="!editCollectionForm.value['homeDisplay']" formControlName="displayCols" required>
-                    <mat-option value="1">1</mat-option>
-                    <mat-option value="2">2</mat-option>
-                    <mat-option value="3">3</mat-option>
-                    <mat-option value="4">1</mat-option>
+                    <mat-option [value]="1">1</mat-option>
+                    <mat-option [value]="2">2</mat-option>
+                    <mat-option [value]="3">3</mat-option>
+                    <mat-option [value]="4">1</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field appearance="standard">
                 <mat-label>Position</mat-label>
-                <mat-select [disabled]="!editCollectionForm.value['homeDisplay']" formControlName="displayPositionIndex" required>
+                <mat-select [value]="editCollectionForm.value['homeDisplayPositions']" [disabled]="!editCollectionForm.value['homeDisplay']" formControlName="displayPositionIndex" required>
                     <!-- <mat-option *ngFor="let i of homeDisplayPositions" value="{{i}}">{{i}}</mat-option> -->
                 </mat-select>
             </mat-form-field>
