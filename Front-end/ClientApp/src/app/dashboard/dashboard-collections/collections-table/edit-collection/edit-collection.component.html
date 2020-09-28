@@ -21,8 +21,8 @@
         <div class="home-display-options-container">
             <mat-checkbox class="example-margin" formControlName="homeDisplay">Home Display</mat-checkbox>
             <mat-form-field appearance="standard">
-                <mat-label>Grid Rows</mat-label>
-                <mat-select [disabled]="!collection.HomeDisplay" formControlName="displayRows" required>
+                <mat-label>Rows</mat-label>
+                <mat-select [disabled]="!editCollectionForm.value['homeDisplay']" formControlName="displayRows" required>
                     <mat-option value="1">1</mat-option>
                     <mat-option value="2">2</mat-option>
                     <mat-option value="3">3</mat-option>
@@ -30,8 +30,8 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field appearance="standard">
-                <mat-label>Grid Cols</mat-label>
-                <mat-select [disabled]="!collection.HomeDisplay" formControlName="displayCols" required>
+                <mat-label>Cols</mat-label>
+                <mat-select [disabled]="!editCollectionForm.value['homeDisplay']" formControlName="displayCols" required>
                     <mat-option value="1">1</mat-option>
                     <mat-option value="2">2</mat-option>
                     <mat-option value="3">3</mat-option>
@@ -39,11 +39,15 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field appearance="standard">
-                <mat-label>Position index</mat-label>
-                <mat-select [disabled]="!!collection.HomeDisplay" formControlName="displayPositionIndex" required>
+                <mat-label>Position</mat-label>
+                <mat-select [disabled]="!editCollectionForm.value['homeDisplay']" formControlName="displayPositionIndex" required>
                     <!-- <mat-option *ngFor="let i of homeDisplayPositions" value="{{i}}">{{i}}</mat-option> -->
                 </mat-select>
             </mat-form-field>
         </div>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button type="submit" (click)="onSubmit()" [mat-dialog-close]="editCollectionForm.valid" [disabled]="!editCollectionForm.valid" mat-button>Save</button>
+        <button (click)="openDeleteDialog(collection.Id)" mat-icon-button #tooltip="matTooltip" matTooltip="Delete" matTooltipPosition="above"><mat-icon class="delete-icon">delete_forever</mat-icon>&#32;Delete</button>
+
     </div>
 </form>

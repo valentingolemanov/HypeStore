@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertifyService} from '../../../../services/alertify.service';
 import {MatDialog} from '@angular/material/dialog';
@@ -15,6 +15,7 @@ export class DeleteDialogContentComponent implements OnInit {
 
   productId: number;
 
+  @Output("refreshTable") refreshTable: EventEmitter<any> = new EventEmitter();
 
   constructor(private service: ProductsService,
     private router: Router,

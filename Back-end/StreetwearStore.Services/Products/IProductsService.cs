@@ -11,7 +11,7 @@
 
       TModel GetById<TModel>(int id);
 
-      Task<int> EditAsync(int id, string name, string description, List<string> imagesUrl, int brandId, List<int> collectionIds);
+      Task Update(int id, string name, string description, List<string> imagesUrl, int brandId, List<int> collectionIds);
 
       Task Delete(int id);
 

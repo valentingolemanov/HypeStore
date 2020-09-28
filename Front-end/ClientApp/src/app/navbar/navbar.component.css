@@ -9,15 +9,12 @@
 
 .nav-item {
     display: inline;
+    border-radius: 0%;
 }
 
 .nav-item>a {
     font-family: 'Syne', sans-serif;
-    font-size: 18px;
-}
-
-.nav-item>button {
-    margin-right: 15px;
+    font-size: 1.125rem;
 }
 
 .float-right {
@@ -36,9 +33,9 @@
 }
 
 .example-sidenav {
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .home-btn> {
-    font-size: 24px;
+    font-size: 1.5rem;
 }

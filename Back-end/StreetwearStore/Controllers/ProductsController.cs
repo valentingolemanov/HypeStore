@@ -24,7 +24,7 @@
         [HttpGet]
         public IActionResult Get()
         {
-            return this.Json(this.productsService.GetProducts<ProductDetailsDTO>());
+            return this.Ok(this.productsService.GetProducts<ProductDetailsDTO>());
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@
                 return this.BadRequest();
             }
           
-            return this.Json(productId);
+            return this.Ok(productId);
             
         }
 
@@ -56,14 +56,14 @@
                 return this.BadRequest();
             }
 
-            var editedProductId = await this.productsService.EditAsync(dto.Id,
+            await this.productsService.Update(dto.Id,
                 dto.Title,
                 dto.Description,
                 dto.ImagesUrl,
                 dto.BrandId,
                 dto.CollectionIds);
 
-            return this.Json(editedProductId);
+            return this.Ok();
         }
 
         [HttpGet]
@@ -77,7 +77,7 @@
                 return this.NotFound();
             }
 
-            return this.Json(product);
+            return this.Ok(product);
         }
 
         [HttpDelete]

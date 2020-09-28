@@ -100,7 +100,7 @@
             return this.repository.All().FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task<int> EditAsync(int id, string name, string description, List<string> imagesUrl, int brandId, List<int> collectionIds)
+        public async Task Update(int id, string name, string description, List<string> imagesUrl, int brandId, List<int> collectionIds)
         {
             var product = this.GetById(id);
 
@@ -118,7 +118,6 @@
             this.repository.Update(product);
             await this.repository.SaveChangesAsync();
 
-            return product.Id;
 
         }
     }

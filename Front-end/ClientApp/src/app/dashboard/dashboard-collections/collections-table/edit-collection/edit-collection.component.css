@@ -8,10 +8,10 @@
 
 .home-display-options-container>mat-form-field {
     width: 20%;
-    margin-right: 10px;
 }
 
 mat-form-field {
     margin: auto;
     width: 90%;
+    margin-left: 0.9375rem;
 }

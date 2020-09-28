@@ -4,7 +4,10 @@
 
 
     public class CollectionReqestDTO
+        
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage ="Collection name is required.")]
         public string Name { get; set; }
 
@@ -17,10 +20,10 @@
         [Required(ErrorMessage = "Home display option is required.")]
         public bool HomeDisplay { get; set; }
 
-        public string DisplayRows { get; set; }
+        public int DisplayRows { get; set; }
 
-        public string DisplayCols { get; set; }
+        public int DisplayCols { get; set; }
 
-        public string DisplayPositionIndex { get; set; }
+        public int DisplayPositionIndex { get; set; }
     }
 }

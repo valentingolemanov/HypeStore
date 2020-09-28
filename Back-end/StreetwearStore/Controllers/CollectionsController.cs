@@ -3,7 +3,6 @@
     using Microsoft.AspNetCore.Mvc;
     using StreetwearStore.Services.Collections;
     using StreetwearStore.Web.ViewModels.Collections;
-    using System;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -19,10 +18,10 @@
         }
 
         [HttpGet]
-        public IActionResult GetCollections()
+        public IActionResult Get()
         {
             var collections = this.collectionsService.GetCollections<CollectionsResponseDTO>();
-            return this.Json(collections);
+            return this.Ok(collections);
         }
 
 
@@ -40,9 +39,9 @@
                   model.Description,
                   model.ImageUrl,
                   model.HomeDisplay,
-                  int.Parse(model.DisplayRows),
-                  int.Parse(model.DisplayCols),
-                  int.Parse(model.DisplayPositionIndex));
+                  model.DisplayRows,
+                  model.DisplayCols,
+                  model.DisplayPositionIndex);
 
             if (productId == -1)
             {
@@ -50,7 +49,7 @@
             }
 
 
-            return this.Json(productId);
+            return this.Ok(productId);
 
         }
 
@@ -63,6 +62,27 @@
                 await this.collectionsService.Delete(id);
             }
             catch
+            {
+                return this.BadRequest();
+            }
+
+            return this.Ok();
+        }
+
+        public async Task<IActionResult> Update(CollectionReqestDTO dto)
+        {
+            try
+            {
+                await this.collectionsService.Update(dto.Id,
+                    dto.Name,
+                    dto.Description,
+                    dto.ImageUrl,
+                    dto.HomeDisplay,
+                    dto.DisplayRows,
+                    dto.DisplayCols,
+                    dto.DisplayPositionIndex);
+            }
+            catch 
             {
                 return this.BadRequest();
             }

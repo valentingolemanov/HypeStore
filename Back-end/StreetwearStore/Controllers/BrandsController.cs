@@ -25,11 +25,11 @@ namespace StreetwearStore.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult Get()
         {
             var brands = this.brandsService.GetBrands<BrandsResponseDTO>();
 
-            return this.Json(brands);
+            return this.Ok(brands);
         }
 
     }

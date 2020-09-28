@@ -22,10 +22,10 @@ namespace StreetwearStore.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetCategories()
+        public IActionResult Get()
         {
             var categories = this.categoriesService.GetCategories<CategoriesResponseDTO>();
-            return this.Json(categories);
+            return this.Ok(categories);
         }
 
         

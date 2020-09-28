@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.EntityFrameworkCore.ChangeTracking;
     using StreetwearStore.Data.Entities;
     using StreetwearStore.Data.Repository;
     using StreetwearStore.Services.Mapping;
@@ -43,6 +43,26 @@
             await this.repository.SaveChangesAsync();
 
             return collection.Id;
+        }
+
+ 
+        public async Task Update(int id, string name, string description, string imageUrl, bool homeDisplay, 
+            int displayRows, int displayCols, int displayPositionIndex)
+        {
+
+            var collection = this.GetCollectionById(id);
+
+            collection.Name = name;
+            collection.Description = description;
+            collection.ImageUrl = imageUrl;
+            collection.HomeDisplay = homeDisplay;
+            collection.DisplayRows = displayRows;
+            collection.DisplayCols = displayCols;
+            collection.DisplayPositionIndex = displayPositionIndex;
+
+            this.repository.Update(collection);
+            await this.repository.SaveChangesAsync();
+
         }
 
         public async Task Delete(int id)
@@ -84,5 +104,7 @@
             return this.repository.All()
                 .FirstOrDefault(x => x.Id == id);
         }
+
+    
     }
 }

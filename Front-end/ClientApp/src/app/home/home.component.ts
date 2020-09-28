@@ -40,7 +40,9 @@ export class HomeComponent implements OnInit {
            return 0;
          }
        };
-       this.homeDisplayCollections = this.homeDisplayCollections.sort(collectionsCompareFn);
+       this.homeDisplayCollections = this.homeDisplayCollections
+       .filter(x => x.HomeDisplay)
+       .sort(collectionsCompareFn);
 
        this.newProducts = data['prd_listing'];
        const compareFn = (a: Product, b: Product) => {
@@ -56,10 +58,7 @@ export class HomeComponent implements OnInit {
         }
       };
 
-
         this.newProducts = this.newProducts.sort(compareFn);
-
-
 
     }
     )

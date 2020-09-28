@@ -32,6 +32,10 @@ export class CollectionsService {
     );
   }
 
+  updateCollection(collection: Collection){
+    return this.http.put('http://localhost:58341/api/collections', collection);
+  }
+
   getCollection(id: number): Observable<Collection> {
     return this.getAllCollections().pipe(
       map((propertiesArray) => {

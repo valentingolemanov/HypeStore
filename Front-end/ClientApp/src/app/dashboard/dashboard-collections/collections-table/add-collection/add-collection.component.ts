@@ -6,11 +6,11 @@ import {
   FormControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CollectionsService } from './../../../services/collections.service';
-import { AlertifyService } from './../../../services/alertify.service';
-import { Collection } from 'src/app/models/Collection';
+import { CollectionsService } from './../../../../services/collections.service';
+import { AlertifyService } from './../../../../services/alertify.service';
+import { Collection } from './../../../../models/Collection';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import {MatTable} from '@angular/material/table';
 @Component({
   selector: 'app-add-collection',
   templateUrl: './add-collection.component.html',
@@ -22,6 +22,7 @@ export class AddCollectionComponent implements OnInit {
 
   collectionsLength: number;
   homeDisplayPositions: Array<number>;
+  table: MatTable<any>;
 
   constructor(
     private fb: FormBuilder,
@@ -31,11 +32,14 @@ export class AddCollectionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.collectionsLength = data['collectionsLength'];
+    this.table = data['table'];
+    console.log(this.table);
     this.homeDisplayPositions = Array.from({length: this.collectionsLength+1}, (_, i) => i + 1);
   }
 
   ngOnInit() {
     this.createAddCollectionForm();
+
   }
 
   // -----------------------------------
@@ -74,9 +78,9 @@ export class AddCollectionComponent implements OnInit {
       ],
       imageUrl: [null, [Validators.required]],
       homeDisplay: [false, [Validators.required]],
-      displayRows: [null, []],
-      displayCols: [null, []],
-      displayPositionIndex: [null, []],
+      displayRows: [null],
+      displayCols: [null],
+      displayPositionIndex: [null],
     });
   }
 
@@ -87,16 +91,15 @@ export class AddCollectionComponent implements OnInit {
         this.addCollectionForm.value
       );
 
-      let newCollectionId;
       this.collectionsService.createCollection(this.newCollection).subscribe(
         (res) => {
-          newCollectionId = res;
+
         },
         (err) => console.log(err),
         () => {
           this.alertify.success('Congrats, you added a new collection!');
           this.addCollectionForm.reset();
-          this.router.navigate([`/dashboard-collections`]);
+
         }
       );
     } else {

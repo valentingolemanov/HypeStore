@@ -12,5 +12,7 @@
         TModel GetById<TModel>(int id);
 
         Task Delete(int id);
+
+        Task Update(int id, string name, string description, string imageUrl, bool homeDisplay, int displayRows, int displayCols, int displayPositionIndex);
     }
 }

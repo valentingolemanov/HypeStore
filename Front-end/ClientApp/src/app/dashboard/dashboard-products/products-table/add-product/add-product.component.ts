@@ -157,7 +157,7 @@ export class AddProductComponent implements OnInit {
           this.router.navigate([`/dashboard-products`]);
         }
       );
-
+    }else{
       this.alertify.error('Please provide valid information in all fields!');
 
       console.log(this.addProductForm);

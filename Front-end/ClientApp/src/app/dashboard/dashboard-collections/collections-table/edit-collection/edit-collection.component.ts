@@ -10,6 +10,8 @@ import { CollectionsService } from './../../../../services/collections.service';
 import { AlertifyService } from './../../../../services/alertify.service';
 import { Collection } from 'src/app/models/Collection';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {CollectionDeleteDialogComponent} from './../collection-delete-dialog/collection-delete-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-collection',
@@ -22,10 +24,22 @@ export class EditCollectionComponent implements OnInit {
   @Input() collection: Collection;
 
   constructor(private fb: FormBuilder,
-    ) { }
+    private dialog: MatDialog,
+    private collectionsService: CollectionsService,
+    private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.createAddCollectionForm();
+  }
+
+
+  openDeleteDialog(id: number) {
+
+    this.dialog.open(CollectionDeleteDialogComponent,
+      {data : {
+        collectionId: id,
+      }});
+
   }
 
   createAddCollectionForm(): void {
@@ -53,4 +67,20 @@ export class EditCollectionComponent implements OnInit {
       displayPositionIndex: [this.collection.DisplayPositionIndex, []],
     });
   }
+
+  onSubmit(){
+    this.collection = Object.assign(this.collection, this.editCollectionForm.value);
+    this.collection.Id = Number(this.collection.Id);
+    console.log(this.collection);
+    this.collectionsService.updateCollection(this.collection).subscribe(res => {
+      console.log(this.collection);
+      // this.refreshTable.emit();
+    },
+    (err) => console.log(err),
+    () => {
+      this.alertify.success("Congrats, you updated this collection info!");
+
+    });
+  }
 }
+

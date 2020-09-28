@@ -47,11 +47,7 @@
                     <mat-option *ngFor="let collection of collections" [value]="collection.Id">{{collection.Name}}</mat-option>
                 </mat-select>
             </mat-form-field>
-
-
         </div>
-
-        <br>
 
         <button mat-button mat-dialog-close>Cancel</button>
         <button type="submit" (click)="onSubmit()" [mat-dialog-close]="editProductForm.valid" [disabled]="!editProductForm.valid" mat-button>Save</button>

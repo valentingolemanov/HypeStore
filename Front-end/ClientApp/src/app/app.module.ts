@@ -64,7 +64,7 @@ import {ProductListingResolverService} from './services/product-listing-resolver
 import {DashboardProductsComponent} from './dashboard/dashboard-products/dashboard-products.component';
 import {ProductsTableComponent} from './dashboard/dashboard-products/products-table/products-table.component';
 import {DashboardCollectionsComponent} from './dashboard/dashboard-collections/dashboard-collections.component';
-import {AddCollectionComponent} from './dashboard/dashboard-collections/add-collection/add-collection.component'
+import {AddCollectionComponent} from './dashboard/dashboard-collections/collections-table/add-collection/add-collection.component'
 import {CollectionsService} from './services/collections.service';
 import {CollectionsTableComponent} from './dashboard/dashboard-collections/collections-table/collections-table.component';
 import {CollectionsListingResolverService} from './services/collections-listing-resolver.service';

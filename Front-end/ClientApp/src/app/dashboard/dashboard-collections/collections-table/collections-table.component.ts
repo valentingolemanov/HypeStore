@@ -11,7 +11,7 @@ import {AlertifyService} from './../../../services/alertify.service';
 import {CollectionDeleteDialogComponent} from './collection-delete-dialog/collection-delete-dialog.component';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTable} from '@angular/material/table';
-import {AddCollectionComponent} from './../add-collection/add-collection.component';
+import {AddCollectionComponent} from './add-collection/add-collection.component';
 
 @Component({
   selector: 'app-collections-table',
@@ -82,14 +82,6 @@ export class CollectionsTableComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.Id + 1}`;
   }
 
-  openDeleteDialog(id: number) {
-
-    this.dialog.open(CollectionDeleteDialogComponent,
-      {data : {
-        collectionId: id,
-      }});
-
-  }
 
   openAddCollectionDialog(){
     const dialogRef = this.dialog.open(AddCollectionComponent,
