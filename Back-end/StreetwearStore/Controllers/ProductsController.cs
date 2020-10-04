@@ -4,8 +4,7 @@
     using StreetwearStore.Services.Products;
     using StreetwearStore.Web.DTOs.Products;
     using StreetwearStore.Web.ViewModels.Products;
-    using System;
-    using System.Collections.Generic;
+
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -24,32 +23,36 @@
         [HttpGet]
         public IActionResult Get()
         {
-            return this.Ok(this.productsService.GetProducts<ProductDetailsDTO>());
+            return this.Ok(this.productsService.GetProducts<GetProductDTO>());
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateProductDTO model)
+        public async Task<IActionResult> Post(CreateProductDTO model)
         {
             if (!ModelState.IsValid)
             {
                 return this.BadRequest();
             }
-
+   
+            int productId;
             var imageUrls = model.ImagesUrl.Select(x => x.Url).ToList();
 
-            var productId = await this.productsService.CreateAsync(model.Title, model.Description, imageUrls, model.BrandId, model.CollectionIds);
-
-            if (productId == 0)
+            try
+            {
+                productId = await this.productsService.CreateAsync(model.Title, model.Description, imageUrls, model.BrandId, model.CollectionIds);
+            }
+            catch
             {
                 return this.BadRequest();
             }
+
           
             return this.Ok(productId);
             
         }
 
         [HttpPut]
-        public async Task<IActionResult> Edit(EditProductRequestDTO dto)
+        public async Task<IActionResult> Put(EditProductRequestDTO dto)
         {
             if (!this.ModelState.IsValid)
             {
@@ -70,7 +73,7 @@
         [Route("{id:int}")]
         public IActionResult Get(int id)
         {
-            var product = this.productsService.GetById<ProductDetailsDTO>(id);
+            var product = this.productsService.GetById<GetProductDTO>(id);
 
             if(product == null)
             {

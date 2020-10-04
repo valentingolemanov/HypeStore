@@ -5,20 +5,20 @@
 </section>
 <section class="product-details-section" fxLayout="row wrap" fxLayoutGap="30px">
 
-    <div class="product-image-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
+    <article class="product-image-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
 
         <!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery> -->
         <div class="image-wrapper">
             <img *ngFor="let image of product.ImagesUrl" src="{{image}}" alt="product image">
         </div>
 
-    </div>
-    <div fxFlex="10%" fxFlex.xs="100%" fxFlex.sm="70%">
+    </article>
+    <article fxFlex="10%" fxFlex.xs="100%" fxFlex.sm="70%">
 
-    </div>
-    <div class="product-details-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
+    </article>
+    <article class="product-details-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
         <p class="product-details-label">Details</p>
-    </div>
+    </article>
 </section>
 <br>
 <br>

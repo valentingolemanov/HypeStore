@@ -29,7 +29,7 @@
 
         public int DisplayPositionIndex { get; set; }
 
-        public List<ProductDetailsDTO> Products{ get; set; }
+        public List<GetProductDTO> Products{ get; set; }
 
         public void CreateMappings(IProfileExpression configuration)
         {

@@ -26,28 +26,31 @@
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(CollectionReqestDTO model)
+        public async Task<IActionResult> Post(CollectionReqestDTO model)
         {
 
             if (!ModelState.IsValid)
             {
-
                 return this.BadRequest();
             }
-            var productId = await this.collectionsService
-                  .CreateAsync(model.Name,
-                  model.Description,
-                  model.ImageUrl,
-                  model.HomeDisplay,
-                  model.DisplayRows,
-                  model.DisplayCols,
-                  model.DisplayPositionIndex);
 
-            if (productId == -1)
+            int productId;
+
+            try
+            {
+                productId = await this.collectionsService
+                .CreateAsync(model.Name,
+                model.Description,
+                model.ImageUrl,
+                model.HomeDisplay,
+                model.DisplayRows,
+                model.DisplayCols,
+                model.DisplayPositionIndex);
+            }
+            catch
             {
                 return this.BadRequest();
             }
-
 
             return this.Ok(productId);
 
@@ -69,7 +72,7 @@
             return this.Ok();
         }
 
-        public async Task<IActionResult> Update(CollectionReqestDTO dto)
+        public async Task<IActionResult> Put(CollectionReqestDTO dto)
         {
             try
             {

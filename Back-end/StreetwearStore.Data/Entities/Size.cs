@@ -9,7 +9,7 @@
     {
         public Size()
         {
-            this.Products = new HashSet<Product>();
+            this.Listings = new HashSet<Listing>();
         }
 
         public double EU { get; set; }
@@ -26,7 +26,7 @@
 
         public ClothSize ClothSize { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Listing> Listings { get; set; }
 
     }
 }

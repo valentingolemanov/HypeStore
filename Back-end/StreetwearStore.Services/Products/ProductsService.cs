@@ -1,7 +1,5 @@
 ﻿namespace StreetwearStore.Services.Products
 {
-    using Microsoft.EntityFrameworkCore.ChangeTracking;
-    using Microsoft.EntityFrameworkCore.Metadata.Internal;
     using StreetwearStore.Data.Entities;
     using StreetwearStore.Data.Repository;
     using StreetwearStore.Services.Mapping;
@@ -40,7 +38,7 @@
 
             foreach (var collectionId in collectionIds)
             {
-                //await this.productsCollectionsService.CreateAsync(product.Id, collectionId);
+        
                 var productCollection = new ProductCollection
                 {
                     CollectionId = collectionId,

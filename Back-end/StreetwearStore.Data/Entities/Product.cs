@@ -9,7 +9,7 @@
         {
             this.ProductCollections = new HashSet<ProductCollection>();
             this.ProductImages = new HashSet<ProductImage>();
-            this.Offers = new HashSet<Listing>();
+            this.Listings = new HashSet<Listing>();
         }
 
         public string Name { get; set; }
@@ -32,7 +32,9 @@
 
         public ICollection<ProductCollection> ProductCollections { get; set; }
 
-        public ICollection<Listing> Offers { get; set; }
+        public ICollection<Listing> Listings { get; set; }
+
+   
 
     }
 }

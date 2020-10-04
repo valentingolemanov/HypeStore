@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StreetwearStore.Data;
 
 namespace StreetwearStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200929191541_addedSizesData")]
+    partial class addedSizesData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8061),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6814),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nike"
@@ -60,7 +62,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8151),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6859),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Adidas"
@@ -68,7 +70,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8155),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6862),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Air Jordan"
@@ -76,7 +78,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8159),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6864),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Alexander McQueen"
@@ -84,7 +86,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8161),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6865),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Supreme"
@@ -92,7 +94,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8163),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6867),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dior"
@@ -100,7 +102,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8166),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6869),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Off-White"
@@ -108,7 +110,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8168),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6871),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Yeezy"
@@ -116,7 +118,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8171),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6873),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Puma"
@@ -124,7 +126,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8173),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 650, DateTimeKind.Utc).AddTicks(6874),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Palm Angels"
@@ -222,17 +224,8 @@ namespace StreetwearStore.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("NumberOfPairs")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -395,7 +388,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 1,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(7665),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 648, DateTimeKind.Utc).AddTicks(9477),
                             EU = 38.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -409,7 +402,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 2,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8861),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(204),
                             EU = 39.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -423,7 +416,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 3,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8903),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(227),
                             EU = 40.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -437,7 +430,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 4,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8906),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(229),
                             EU = 41.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -451,7 +444,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 5,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8909),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(230),
                             EU = 42.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -465,7 +458,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 6,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8912),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(232),
                             EU = 42.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -479,7 +472,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 7,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8916),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(234),
                             EU = 43.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -493,7 +486,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 8,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9023),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(236),
                             EU = 44.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -507,7 +500,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 9,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9025),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(238),
                             EU = 44.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -521,7 +514,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 10,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9028),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(239),
                             EU = 45.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -535,7 +528,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 11,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9030),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(241),
                             EU = 45.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -549,7 +542,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 12,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9032),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(243),
                             EU = 46.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -563,7 +556,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 13,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9035),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(245),
                             EU = 47.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -577,7 +570,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 14,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9037),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(247),
                             EU = 47.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -591,7 +584,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 15,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9039),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(249),
                             EU = 48.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -605,7 +598,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 16,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9042),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(250),
                             EU = 48.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -619,7 +612,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 17,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9045),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(252),
                             EU = 49.0,
                             Gender = 0,
                             Inches = 0.0,
@@ -633,7 +626,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 18,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9047),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(254),
                             EU = 49.5,
                             Gender = 0,
                             Inches = 0.0,
@@ -647,7 +640,7 @@ namespace StreetwearStore.Data.Migrations
                             Id = 19,
                             CM = 0.0,
                             ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9049),
+                            CreatedOn = new DateTime(2020, 9, 29, 19, 15, 40, 649, DateTimeKind.Utc).AddTicks(256),
                             EU = 50.5,
                             Gender = 0,
                             Inches = 0.0,

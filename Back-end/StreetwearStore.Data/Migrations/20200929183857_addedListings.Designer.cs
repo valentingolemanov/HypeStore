@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StreetwearStore.Data;
 
 namespace StreetwearStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200929183857_addedListings")]
+    partial class addedListings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8061),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 494, DateTimeKind.Utc).AddTicks(9329),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nike"
@@ -60,7 +62,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8151),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(337),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Adidas"
@@ -68,7 +70,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8155),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(355),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Air Jordan"
@@ -76,7 +78,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8159),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(357),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Alexander McQueen"
@@ -84,7 +86,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8161),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(359),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Supreme"
@@ -92,7 +94,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8163),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(361),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dior"
@@ -100,7 +102,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8166),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(363),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Off-White"
@@ -108,7 +110,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8168),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(364),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Yeezy"
@@ -116,7 +118,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8171),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(367),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Puma"
@@ -124,7 +126,7 @@ namespace StreetwearStore.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 15, DateTimeKind.Utc).AddTicks(8173),
+                            CreatedOn = new DateTime(2020, 9, 29, 18, 38, 56, 495, DateTimeKind.Utc).AddTicks(369),
                             IsDeleted = false,
                             ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Palm Angels"
@@ -222,17 +224,8 @@ namespace StreetwearStore.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("NumberOfPairs")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -388,274 +381,6 @@ namespace StreetwearStore.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sizes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(7665),
-                            EU = 38.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 5.5,
-                            US = 6.0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8861),
-                            EU = 39.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 6.0,
-                            US = 6.5
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8903),
-                            EU = 40.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 6.5,
-                            US = 7.5
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8906),
-                            EU = 41.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 7.0,
-                            US = 8.0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8909),
-                            EU = 42.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 7.5,
-                            US = 8.5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8912),
-                            EU = 42.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 8.0,
-                            US = 9.0
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(8916),
-                            EU = 43.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 8.5,
-                            US = 9.5
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9023),
-                            EU = 44.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 9.0,
-                            US = 10.0
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9025),
-                            EU = 44.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 9.5,
-                            US = 10.5
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9028),
-                            EU = 45.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 10.0,
-                            US = 11.0
-                        },
-                        new
-                        {
-                            Id = 11,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9030),
-                            EU = 45.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 10.5,
-                            US = 11.5
-                        },
-                        new
-                        {
-                            Id = 12,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9032),
-                            EU = 46.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 11.0,
-                            US = 12.0
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9035),
-                            EU = 47.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 11.5,
-                            US = 12.5
-                        },
-                        new
-                        {
-                            Id = 14,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9037),
-                            EU = 47.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 12.0,
-                            US = 13.0
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9039),
-                            EU = 48.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 12.5,
-                            US = 13.5
-                        },
-                        new
-                        {
-                            Id = 16,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9042),
-                            EU = 48.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 13.0,
-                            US = 14.0
-                        },
-                        new
-                        {
-                            Id = 17,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9045),
-                            EU = 49.0,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 13.5,
-                            US = 14.5
-                        },
-                        new
-                        {
-                            Id = 18,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9047),
-                            EU = 49.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 14.0,
-                            US = 15.0
-                        },
-                        new
-                        {
-                            Id = 19,
-                            CM = 0.0,
-                            ClothSize = 0,
-                            CreatedOn = new DateTime(2020, 10, 1, 16, 13, 35, 12, DateTimeKind.Utc).AddTicks(9049),
-                            EU = 50.5,
-                            Gender = 0,
-                            Inches = 0.0,
-                            IsDeleted = false,
-                            ModifiedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UK = 15.0,
-                            US = 16.0
-                        });
                 });
 
             modelBuilder.Entity("StreetwearStore.Data.Entities.Listing", b =>

@@ -1,45 +1,45 @@
-<!-- <button mat-raised-button (click)="isEditable = !isEditable">
-  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-</button> -->
 <section class="sell-section">
-    <mat-horizontal-stepper linear #stepper>
-        <mat-step [stepControl]="firstFormGroup" [editable]="true">
-            <div class="choose-product-form-container">
-                <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Choose a product</ng-template>
-                    <mat-form-field class="choose-product-form-field">
-                        <input matInput placeholder="Choose a product:" aria-label="Product" [matAutocomplete]="auto" #productInput required>
-                        <mat-autocomplete #auto="matAutocomplete">
-                            <mat-option *ngFor="let product of products | filter: productInput.value " [value]="product.Name">
-                                <div class="product-option-container">
-                                    <div class="img-wrapper">
-                                        <img class="example-option-img" aria-hidden [src]="product.ImagesUrl[0]"> &#32;
 
-                                    </div>
-                                    <div class="product-title-wrapper">
-                                        <span>{{product.Title}}</span>
-                                    </div>
-                                </div>
-                            </mat-option>
-                        </mat-autocomplete>
-                    </mat-form-field>
-                    <div>
-                        <button mat-button matStepperNext>Next</button>
-                    </div>
-                </form>
-            </div>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-            <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Fill out your address</ng-template>
-                <mat-form-field>
-                    <mat-label>Address</mat-label>
-                    <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+    <mat-horizontal-stepper #stepper linear>
+        <mat-step [stepControl]="chooseProductFormGroup">
+            <form [formGroup]="chooseProductFormGroup" class="choose-product-form">
+                <ng-template matStepLabel>Choose a product</ng-template>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Choose a product" aria-label="State" formControlName="productId" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="getProductName.bind(this)">
+                        <mat-option *ngFor="let product of products" [value]="product.Id">
+                            <img class=" example-option-img " aria-hidden src="{{product.ImagesUrl[0]}} " height="30">
+                            <span>{{product.Title}}</span>
+                            <!-- <small>Population:</small> -->
+                        </mat-option>
+                    </mat-autocomplete>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button [disabled]="!chooseProductFormGroup.valid" (click)="next() " mat-button matStepperNext>Next</button>
                 </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="productDetailsFormGroup ">
+            <form [formGroup]="productDetailsFormGroup ">
+                <ng-template matStepLabel>Select Product Details</ng-template>
+                <section fxLayout="row wrap" fxLayoutGap="1.875rem">
+                    <article fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
+                        <div *ngIf="chosenProduct" class="image-wrapper">
+                            <img *ngFor="let image of chosenProduct.ImagesUrl" src="{{image}}" alt="product image">
+                        </div>
+                    </article>
+                    <article fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
+
+                    </article>
+                    <!-- <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Ex. 1 Main St, New York, NY " required>
+                </mat-form-field> -->
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </section>
             </form>
         </mat-step>
         <mat-step>
@@ -47,8 +47,9 @@
             <p>You are now done.</p>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+                <button mat-button (click)="stepper.reset() ">Reset</button>
             </div>
         </mat-step>
     </mat-horizontal-stepper>
+
 </section>

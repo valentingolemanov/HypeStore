@@ -31,7 +31,7 @@ namespace StreetwearStore.Web.Controllers
         
         [HttpGet]
         [Route("{id:int}")]
-        public IActionResult Details(int id)
+        public IActionResult Get(int id)
         {
             return View();
         }
@@ -39,7 +39,7 @@ namespace StreetwearStore.Web.Controllers
 
        
         [HttpPost]
-        public async Task<IActionResult> Create(IFormCollection collection)
+        public async Task<IActionResult> Post(IFormCollection collection)
         {
             try
             {

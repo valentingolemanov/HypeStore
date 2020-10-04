@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StreetwearStore.Web.ViewModels.Products
 {
-    public class ProductDetailsDTO : IMapFrom<Product>, IHaveCustomMappings
+    public class GetProductDTO : IMapFrom<Product>, IHaveCustomMappings
     {
         public string Id { get; set; }
 
@@ -30,7 +30,7 @@ namespace StreetwearStore.Web.ViewModels.Products
 
         public void CreateMappings(IProfileExpression configuration)
         {
-            configuration.CreateMap<Product, ProductDetailsDTO>()
+            configuration.CreateMap<Product, GetProductDTO>()
                 .ForMember(x => x.Title, y => y.MapFrom(z => z.Name))
                 .ForMember(x => x.BrandName, y => y.MapFrom(z => z.Brand.Name))
                 .ForMember(x => x.ImagesUrl, y => y.MapFrom(z => z.ProductImages.Select(q => q.Path)))

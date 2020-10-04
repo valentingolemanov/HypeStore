@@ -3,7 +3,7 @@
     using StreetwearStore.Data.Common;
     using StreetwearStore.Data.Entities.Enums;
 
-    public class Listing : BaseModel<int>
+    public class Listing : BaseDeletableModel<int>
     {
         public int ProductId { get; set; }
 
@@ -16,5 +16,7 @@
         public Condition Condition { get; set; }
 
         public decimal Price { get; set; }
+
+        public int NumberOfPairs { get; set; }
     }
 }

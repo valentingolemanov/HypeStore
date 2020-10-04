@@ -91,6 +91,8 @@ export class AddCollectionComponent implements OnInit {
         this.addCollectionForm.value
       );
 
+      console.log(this.newCollection);
+
       this.collectionsService.createCollection(this.newCollection).subscribe(
         (res) => {
 
