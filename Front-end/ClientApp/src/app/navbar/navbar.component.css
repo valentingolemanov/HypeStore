@@ -1,41 +1,28 @@
-.nav-bar {
-    text-align: center;
-    background-color: white;
-}
-
-.nav-items-wrapper {
-    list-style-type: none;
-}
-
 .nav-item {
-    display: inline;
-    border-radius: 0%;
-}
-
-.nav-item>a {
     font-family: 'Syne', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
 }
 
-.float-right {
-    float: right;
+.logo {
+    text-decoration: none;
+    color: black;
 }
 
-.float-left {
-    float: left;
+.logo>h1 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 2rem;
 }
 
-.example-sidenav-content {
+mat-toolbar {
+    background-color: transparent;
+}
+
+.nav-first-line {
     display: flex;
-    height: 100%;
-    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-second-row {
+    display: flex;
     justify-content: center;
-}
-
-.example-sidenav {
-    padding: 1.25rem;
-}
-
-.home-btn> {
-    font-size: 1.5rem;
 }

@@ -1,19 +1,19 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import {Product} from './../models/Product';
+import {Product} from './../../models/Product';
 import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { MatStepper } from '@angular/material/stepper';
-import { ProductsService } from '../services/products.service';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-sell',
-  templateUrl: './sell.component.html',
-  styleUrls: ['./sell.component.css']
+  templateUrl: './add-listing.component.html',
+  styleUrls: ['./add-listing.component.css']
 })
 
-export class SellComponent implements OnInit {
+export class AddListingComponent implements OnInit {
 
   sellForm: FormGroup;
   chooseProductFormGroup: FormGroup;

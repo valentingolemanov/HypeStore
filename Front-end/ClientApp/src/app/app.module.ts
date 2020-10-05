@@ -39,27 +39,22 @@ import {MatStepperModule} from '@angular/material/stepper';
 
 
 import { AppComponent } from './app.component';
-import { ProductDetailComponent } from './product/product-detail/product-detail.component';
-import { ProductCardListingComponent } from './product/product-card-listing/product-card-listing.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ProductCardComponent } from './product/product-card/product-card.component';
-import {ProductsService} from './services/products.service';
+import { ProductsService } from './services/products.service';
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UsersService } from './services/users.service';
-import {AlertifyService} from './services/alertify.service';
-import {AuthService} from './services/auth.service';
+import { AlertifyService } from './services/alertify.service';
+import { AuthService } from './services/auth.service';
 import { CatalogComponent } from './catalog/catalog.component';
-import {AddProductComponent} from './dashboard/dashboard-products/products-table/add-product/add-product.component';
-import {CatalogSidenavComponent} from './catalog/catalog-sidenav/catalog-sidenav.component';
-import {CatalogFilterMenuComponent} from './catalog/catalog-filter-menu/catalog-filter-menu.component';
-import {DeleteDialogContentComponent} from './dashboard/dashboard-products/products-table/delete-dialog-content/delete-dialog-content.component';
-import {ProductDetailsResolverService} from './services/product-details-resolver.service';
-import {CollectionCardComponent} from './collection/collection-card/collection-card.component';
-import {CollectionCardListingComponent} from './collection/collection-card-listing/collection-card-listing.component';
-import {FilterPipe} from './pipes/filter.pipe';
-import {SortPipe} from './pipes/sort.pipe';
+import { AddProductComponent } from './dashboard/dashboard-products/products-table/add-product/add-product.component';
+import { CatalogSidenavComponent } from './catalog/catalog-sidenav/catalog-sidenav.component';
+import { CatalogFilterMenuComponent } from './catalog/catalog-filter-menu/catalog-filter-menu.component';
+import { DeleteDialogContentComponent } from './dashboard/dashboard-products/products-table/delete-dialog-content/delete-dialog-content.component';
+import { ProductDetailsResolverService } from './services/product-details-resolver.service';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 import {ProductListingResolverService} from './services/product-listing-resolver.service';
 import {DashboardProductsComponent} from './dashboard/dashboard-products/dashboard-products.component';
 import {ProductsTableComponent} from './dashboard/dashboard-products/products-table/products-table.component';
@@ -70,10 +65,13 @@ import {CollectionsTableComponent} from './dashboard/dashboard-collections/colle
 import {CollectionsListingResolverService} from './services/collections-listing-resolver.service';
 import {BrandsListingResolverService} from './services/brands-listing-resolver.service';
 import {CollectionDeleteDialogComponent} from './dashboard/dashboard-collections/collections-table/collection-delete-dialog/collection-delete-dialog.component';
-import { SellComponent } from './sell/sell.component';
+import {AddListingComponent } from './listing/add-listing/add-listing.component';
 import {EditProductComponent} from './dashboard/dashboard-products/products-table/edit-product/edit-product.component';
 import {DashboardSidenavComponent} from './dashboard/dashboard-sidenav/dashboard-sidenav.component';
 import {EditCollectionComponent} from './dashboard/dashboard-collections/collections-table/edit-collection/edit-collection.component';
+import {ListingCardComponent} from './listing/listing-card/listing-card.component';
+import {ListingCardListComponent} from './listing/listing-card-list/listing-card-list.component';
+import {ListingDetailsComponent} from './listing/listing-details/listing-details.component';
 
 const appRoutes: Routes = [
   {path: '',
@@ -88,11 +86,11 @@ const appRoutes: Routes = [
             brnd_listing : BrandsListingResolverService,
             cltn_listing : CollectionsListingResolverService}},
   {path:'catalog/:id',
-      component: ProductDetailComponent,
+      component: ListingDetailsComponent,
       resolve: {prd_details: ProductDetailsResolverService,
                prd_listing : ProductListingResolverService}},
   {path: 'sell',
-     component: SellComponent,
+     component: AddListingComponent,
      resolve: {prd_listing : ProductListingResolverService,
       prd_details: ProductDetailsResolverService}},
   {path: 'dashboard-collections',
@@ -110,10 +108,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductDetailComponent,
-    ProductCardListingComponent,
     NavbarComponent,
-    ProductCardComponent,
     AddProductComponent,
     HomeComponent,
     UserLoginComponent,
@@ -123,8 +118,6 @@ const appRoutes: Routes = [
       CatalogSidenavComponent,
       CatalogFilterMenuComponent,
       DeleteDialogContentComponent,
-      CollectionCardComponent,
-      CollectionCardListingComponent,
       FilterPipe,
       SortPipe,
       DashboardProductsComponent,
@@ -132,10 +125,13 @@ const appRoutes: Routes = [
       AddCollectionComponent,
       CollectionsTableComponent,
       CollectionDeleteDialogComponent,
-      SellComponent,
+      AddListingComponent,
       EditProductComponent,
       DashboardSidenavComponent,
-      EditCollectionComponent
+      EditCollectionComponent,
+      ListingCardComponent,
+      ListingCardListComponent,
+      ListingDetailsComponent
    ],
   imports: [
     BrowserModule,

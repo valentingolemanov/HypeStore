@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {ICreateProduct} from '../product/ICreateProduct.interface';
 import {Observable} from 'rxjs';
 import { Product } from '../models/Product';
 

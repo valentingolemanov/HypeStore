@@ -1,5 +1,3 @@
-import {IProduct} from './../product/IProduct.interface';
-
 
 export class Product {
 
