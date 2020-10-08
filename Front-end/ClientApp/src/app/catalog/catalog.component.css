@@ -1,5 +1,6 @@
 .catalog-container {
-    top: 64px !important;
+    top: 9.375rem !important;
+    background-color: transparent;
 }
 
 @media(max-width: 599px) {

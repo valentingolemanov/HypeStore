@@ -1,9 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import {Product} from './../../models/Product';
-import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Product } from './../../models/Product';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { MatStepper } from '@angular/material/stepper';
 import { ProductsService } from '../../services/products.service';
 
@@ -18,6 +17,7 @@ export class AddListingComponent implements OnInit {
   sellForm: FormGroup;
   chooseProductFormGroup: FormGroup;
   productDetailsFormGroup: FormGroup;
+
   isEditable = false;
   products: Array<Product>;
 
@@ -44,20 +44,18 @@ export class AddListingComponent implements OnInit {
       this.products = data['prd_listing'];
     })
 
-
   }
 
   next(){
 
     console.log(this.sellForm);
     console.log(this.products);
-    console.log(this.chooseProductFormGroup['productId']);
+    console.log(this.chooseProductFormGroup['productId'].value);
     this.chosenProduct = this.products.find(x => x.Id === this.chooseProductFormGroup['productId']);
     console.log(this.chosenProduct);
   }
 
   createSellForm(): void {
-
 
     this.chooseProductFormGroup = this.fb.group({
       productId: [null, Validators.required]

@@ -1,11 +1,13 @@
 ﻿namespace StreetwearStore.Data
 {
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using StreetwearStore.Data.Entities;
+    using StreetwearStore.Data.Entities.Authentication;
     using StreetwearStore.Data.Entities.Enums;
     using System;
 
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -15,6 +17,7 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Size>().HasData(
                 new Size { Id = 1, UK = 5.5, EU = 38.5, US = 6, CreatedOn = DateTime.UtcNow },
                 new Size { Id = 2, UK = 6, EU = 39, US = 6.5, CreatedOn = DateTime.UtcNow },

@@ -4,6 +4,7 @@ import {Product} from './../models/Product';
 import {ActivatedRoute} from '@angular/router';
 import { Brand } from '../models/brand';
 import { Collection } from '../models/Collection';
+import { SneakersService } from '../services/sneakers.service';
 
 
 
@@ -21,7 +22,8 @@ export class CatalogComponent implements OnInit {
   brands: Array<Brand> = [];
   collections: Array<Collection> = [];
 
-  constructor(private route: ActivatedRoute, private productsService: ProductsService) { }
+  constructor(private route: ActivatedRoute, private productsService: ProductsService,
+    private sneakersService: SneakersService) { }
 
   ngOnInit() {
 
@@ -38,6 +40,8 @@ export class CatalogComponent implements OnInit {
 
       }
     );
+
+      this.sneakersService.getAllSneakers();
 
   }
 

@@ -72,6 +72,8 @@ import {EditCollectionComponent} from './dashboard/dashboard-collections/collect
 import {ListingCardComponent} from './listing/listing-card/listing-card.component';
 import {ListingCardListComponent} from './listing/listing-card-list/listing-card-list.component';
 import {ListingDetailsComponent} from './listing/listing-details/listing-details.component';
+import {SneakersService} from './services/sneakers.service';
+
 
 const appRoutes: Routes = [
   {path: '',
@@ -180,7 +182,8 @@ const appRoutes: Routes = [
       ProductListingResolverService,
       CollectionsService,
       CollectionsListingResolverService,
-      BrandsListingResolverService
+      BrandsListingResolverService,
+      SneakersService
       ],
   bootstrap: [AppComponent]
 })

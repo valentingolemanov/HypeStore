@@ -1,26 +1,40 @@
 <mat-toolbar>
     <mat-toolbar-row class="nav-first-line">
-        <button routerLinkActive="active" routerLink="/" class="nav-item-btn float-left home-btn" mat-icon-button>
+        <div>
+            <button routerLinkActive="active" routerLink="/" class="nav-item-btn float-left home-btn" mat-icon-button>
         <mat-icon class="icon-size-29">home</mat-icon>
     </button>
-        <a routerLink="/" class="logo">
-            <h1>HypeFlip</h1>
-        </a>
-        <div *ngIf="loggedIn()" class="nav-item float-right">
-            <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+        </div>
+        <div>
+            <a routerLink="/" class="logo">
+                <h1>HypeFlip</h1>
+            </a>
+        </div>
+        <div class="login-register-container">
+            <span *ngIf="!loggedIn()" class="nav-item float-right">
+                <a routerLinkActive="active" routerLink="/login" class="nav-item-btn" mat-button>Login</a>
+
+            </span>
+            <span *ngIf="!loggedIn()" class="nav-item float-right">
+                <a routerLinkActive="active" routerLink="/register" class="nav-item-btn" mat-button>Register</a>
+            </span>
+
+            <div *ngIf="loggedIn()" class="nav-item float-right">
+                <button mat-icon-button [matMenuTriggerFor]="accountMenu">
       <mat-icon class="icon-size-29">person</mat-icon>
           </button>
-            <mat-menu #accountMenu="matMenu">
-                <button routerLink="/dashboard-products" mat-menu-item>
+                <mat-menu #accountMenu="matMenu">
+                    <button routerLink="/dashboard-products" mat-menu-item>
         Admin
             </button>
-                <button (click)="onLogout()" mat-menu-item>
+                    <button (click)="onLogout()" mat-menu-item>
       <mat-icon>exit_to_app</mat-icon>
       <span>Logout</span>
          </button>
-            </mat-menu>
+                </mat-menu>
 
 
+            </div>
         </div>
     </mat-toolbar-row>
 

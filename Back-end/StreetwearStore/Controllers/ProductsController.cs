@@ -1,6 +1,8 @@
 ﻿namespace StreetwearStore.Web.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using StreetwearStore.Data.Entities.Authentication;
     using StreetwearStore.Services.Products;
     using StreetwearStore.Web.DTOs.Products;
     using StreetwearStore.Web.ViewModels.Products;
@@ -8,6 +10,8 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+
+    
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
