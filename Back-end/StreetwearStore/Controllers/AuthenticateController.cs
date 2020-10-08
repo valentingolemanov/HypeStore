@@ -33,7 +33,7 @@ namespace StreetwearStore.Web.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] LoginDTO model)
+        public async Task<IActionResult> Login(LoginDTO model)
         {
             var user = await userManager.FindByEmailAsync(model.Email);
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
@@ -56,7 +56,7 @@ namespace StreetwearStore.Web.Controllers
                 var token = new JwtSecurityToken(
                     issuer: _configuration["JWT:ValidIssuer"],
                     audience: _configuration["JWT:ValidAudience"],
-                    expires: DateTime.Now.AddHours(3),
+                    expires: DateTime.Now.AddHours(2),
                     claims: authClaims,
                     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                     );
@@ -65,7 +65,7 @@ namespace StreetwearStore.Web.Controllers
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo
-                });
+                }) ;
             }
             return Unauthorized();
         }
@@ -74,7 +74,7 @@ namespace StreetwearStore.Web.Controllers
         [Route("register")]
         public async Task<IActionResult> Register(RegisterDTO model)
         {
-            var userExists = await userManager.FindByNameAsync(model.Email);
+            var userExists = await userManager.FindByEmailAsync(model.Email);
 
             if (userExists != null )
                 return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDTO { Status = "Error", Message = "User already exists!" });
@@ -84,7 +84,7 @@ namespace StreetwearStore.Web.Controllers
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username,
-             
+                
             };
             var result = await userManager.CreateAsync(user, model.Password);
             

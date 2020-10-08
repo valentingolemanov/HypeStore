@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import {Router} from '@angular/router';
 import { AlertifyService } from 'src/app/services/alertify.service';
-
+import * as moment from "moment";
 
 @Component({
   selector: 'app-user-login',
@@ -41,7 +41,7 @@ export class UserLoginComponent implements OnInit {
                 (data) => {
 
                   if(data['token']){
-                    localStorage.setItem('token', data['token']);
+                   this.setSession(data);
                   }
 
                   this.alertify.success("User is logged in");
@@ -57,15 +57,14 @@ export class UserLoginComponent implements OnInit {
 
             );
     }
-      // const token = this.authService.authUser(this.loginForm.value);
 
-      // if(token){
-      //   localStorage.setItem('token', token.username);
-      //   this.alertify.success('Login successful')
-      //   this.router.navigateByUrl('/');
-      // }else{
-      //   this.alertify.error('Invalid login credentials!');
-      // }
+  }
+
+  private setSession(authResult) {
+    const expiresAt = moment().add(authResult.expiration,'second');
+
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
 }

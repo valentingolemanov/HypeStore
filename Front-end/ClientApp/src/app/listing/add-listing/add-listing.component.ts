@@ -34,11 +34,12 @@ export class AddListingComponent implements OnInit {
       //   startWith(''),
       //   map(product => product ? this._filterProducts(product) : this.products.slice())
       // );
+      this.createSellForm();
     }
 
   ngOnInit() {
 
-    this.createSellForm();
+
 
     this.route.data.subscribe(data => {
       this.products = data['prd_listing'];
@@ -48,10 +49,8 @@ export class AddListingComponent implements OnInit {
 
   next(){
 
-    console.log(this.sellForm);
-    console.log(this.products);
-    console.log(this.chooseProductFormGroup['productId'].value);
-    this.chosenProduct = this.products.find(x => x.Id === this.chooseProductFormGroup['productId']);
+    const productId = this.sellForm.value.chooseProductForm.productId;
+    this.chosenProduct = this.products.find(x => x.Id === productId);
     console.log(this.chosenProduct);
   }
 

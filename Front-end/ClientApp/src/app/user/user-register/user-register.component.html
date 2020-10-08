@@ -1,38 +1,30 @@
-<div class='register-user-container' fxLayout="row wrap">
-    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='left-container' rowHeight="fit">
+<div class='register-user-container'>
+
+    <div class="header">
+        <h2 class="animation a1">Welcome!</h2>
+        <h4 class="animation a2">If you already hava an account, please proceed with
+            <span><a routerLink="/login">Login</a></span>!
+        </h4>
 
     </div>
-    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="66%" class='right-container'>
-        <div class="header">
-            <h2 class="animation a1">Welcome!</h2>
-            <h4 class="animation a2">If you already hava an account, please proceed with
-                <span><a routerLink="/login">Login</a></span>!
-            </h4>
+    <form [formGroup]="registrationForm" class="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="example@example.com">
+        </mat-form-field>
+        <mat-form-field class="form-field " appearance="standard">
+            <mat-label>Username</mat-label>
+            <input formControlName="username" type="text" matInput>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" type="password" matInput>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="standard">
+            <mat-label>Confirm Password</mat-label>
+            <input formControlName="confirmPassword" type="password" matInput>
+        </mat-form-field>
 
-        </div>
-        <form [formGroup]="registrationForm" class="form" (ngSubmit)="onSubmit()">
-            <mat-form-field class="form-field" appearance="standard">
-                <mat-label>Email</mat-label>
-                <input formControlName="email" type="email" matInput placeholder="example@example.com">
-            </mat-form-field>
-            <mat-form-field class="form-field " appearance="standard">
-                <mat-label>Username</mat-label>
-                <input formControlName="username" type="text" matInput>
-            </mat-form-field>
-            <mat-form-field class="form-field" appearance="standard">
-                <mat-label>Password</mat-label>
-                <input formControlName="password" type="password" matInput>
-            </mat-form-field>
-            <mat-form-field class="form-field" appearance="standard">
-                <mat-label>Confirm Password</mat-label>
-                <input formControlName="confirmPassword" type="password" matInput>
-            </mat-form-field>
-
-            <button type="submit" value="submit" mat-flat-button>Sign up</button>
-        </form>
-    </div>
-
-
-
-
+        <button type="submit" value="submit" mat-flat-button>Sign up</button>
+    </form>
 </div>

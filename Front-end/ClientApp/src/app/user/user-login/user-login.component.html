@@ -23,34 +23,25 @@
     <div class="right"></div>
 </div> -->
 
-<div class='register-user-container' fxLayout="row wrap">
-    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class='left-container' rowHeight="fit">
+<div class='register-user-container'>
+
+    <div class="login-header">
+        <h2>Welcome Back</h2>
+        <h4>Log in to your account using email and password or
+            <span><a routerLink="/register">Sign up</a></span>!
+        </h4>
 
     </div>
-    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" class='right-container'>
-
-        <div class="header">
-            <h2>Welcome Back</h2>
-            <h4>Log in to your account using email and password or
-                <span><a routerLink="/register">Sign up</a></span>!
-            </h4>
-
-        </div>
-        <form [formGroup]="loginForm" class="form" (ngSubmit)="onLogin()">
-            <mat-form-field class="form-field animation a3" appearance="standard">
-                <mat-label>Email</mat-label>
-                <input formControlName="email" type="email" matInput placeholder="example@example.com">
-            </mat-form-field>
-            <mat-form-field class="form-field animation a4" appearance="standard">
-                <mat-label>Password</mat-label>
-                <input formControlName="password" type="password" matInput>
-            </mat-form-field>
-            <p class="animation a5"><a href="#">Forgot Password</a></p>
-            <button type="submit" mat-flat-button>LOGIN</button>
-        </form>
-    </div>
-
-
-
-
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onLogin()">
+        <mat-form-field class="form-field animation a3" appearance="standard">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="example@example.com">
+        </mat-form-field>
+        <mat-form-field class="form-field animation a4" appearance="standard">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" type="password" matInput>
+        </mat-form-field>
+        <p class="animation a5"><a href="#">Forgot Password</a></p>
+        <button type="submit" mat-flat-button>LOGIN</button>
+    </form>
 </div>

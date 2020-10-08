@@ -3,6 +3,7 @@ import {UsersService} from '../../services/users.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import {Router} from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class UserRegisterComponent implements OnInit {
   constructor(private service: UsersService,
      private fb: FormBuilder,
      private alertify: AlertifyService,
-     private router: Router) {}
+     private router: Router,
+     private authService: AuthService) {}
 
   ngOnInit(): void {
    this.createRegistrationForm();
@@ -60,18 +62,19 @@ export class UserRegisterComponent implements OnInit {
 
 
   onSubmit(){
-    if(this.registrationForm.valid){
-      this.user = Object.assign(this.user, this.registrationForm.value);
-      this.service.addUser(this.user);
-      this.registrationForm.reset();
-      this.alertify.success("Congrats, you can now log in to your account!")
-      this.router.navigateByUrl('/login');
-    }else{
-      this.alertify.error("Please provide valid credentials!")
-    }
 
+      this.authService.register(this.email.value, this.password.value, this.userName.value).subscribe(
+        (data) => {
+
+          this.alertify.success("Congrats, you can now log in to your account!")
+          this.router.navigateByUrl('/login');
+          this.registrationForm.reset();
+        },
+        error => {
+          this.alertify.error("Invalid credentials")
+        }
+      )
   }
-
 
 
 }
