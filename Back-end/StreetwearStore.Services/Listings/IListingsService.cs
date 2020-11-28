@@ -1,19 +1,20 @@
-﻿namespace StreetwearStore.Services.Listings
+﻿namespace StreetwearStore.Services.Products
 {
+    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     public interface IListingsService
     {
-        ICollection<TModel> GetListings<TModel>();
+      ICollection<TModel> GetProducts<TModel>();
 
-        Task<int> CreateAsync(int productId, int sizeId, int condition, decimal price);
+      Task<int> CreateAsync(string name, string description, int brandId);
 
-        TModel GetById<TModel>(int id);
+      TModel GetById<TModel>(int id);
 
-        Task<int> EditAsync(int id, int productId, int sizeId, int condition, decimal price);
+      Task Update(int id, string name, string description, List<string> imagesUrl, int brandId, List<int> collectionIds);
 
-        Task Delete(int id);
-    
+      Task Delete(int id);
+
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace StreetwearStore.Data.Entities
 {
-    using System.Collections.Generic;
-
+    
     using StreetwearStore.Data.Common;
     using StreetwearStore.Data.Entities.Enums;
 
@@ -9,7 +8,7 @@
     {
         public Size()
         {
-            this.Listings = new HashSet<Listing>();
+           
         }
 
         public double EU { get; set; }
@@ -26,7 +25,7 @@
 
         public ClothSize ClothSize { get; set; }
 
-        public ICollection<Listing> Listings { get; set; }
+       
 
     }
 }

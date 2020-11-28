@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using StreetwearStore.Data.Entities.Authentication;
@@ -84,7 +83,7 @@ namespace StreetwearStore.Web.Controllers
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username,
-                
+                PasswordHash = model.Password
             };
             var result = await userManager.CreateAsync(user, model.Password);
             
@@ -98,7 +97,7 @@ namespace StreetwearStore.Web.Controllers
             [Route("register-admin")]
             public async Task<IActionResult> RegisterAdmin(RegisterDTO model)
             {
-                var userExists = await userManager.FindByNameAsync(model.Username);
+                var userExists = await userManager.FindByNameAsync(model.Email);
                 if (userExists != null)
                     return StatusCode(StatusCodes.Status500InternalServerError, new ResponseDTO { Status = "Error", Message = "User already exists!" });
 

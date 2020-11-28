@@ -34,11 +34,11 @@
                 return this.BadRequest();
             }
 
-            int productId;
+           
 
             try
             {
-                productId = await this.collectionsService
+                int productId = await this.collectionsService
                 .CreateAsync(model.Name,
                 model.Description,
                 model.ImageUrl,
@@ -46,13 +46,15 @@
                 model.DisplayRows,
                 model.DisplayCols,
                 model.DisplayPositionIndex);
+
+                return this.Ok(productId);
             }
             catch
             {
                 return this.BadRequest();
             }
 
-            return this.Ok(productId);
+        
 
         }
 

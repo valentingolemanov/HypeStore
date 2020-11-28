@@ -9,13 +9,13 @@ namespace StreetwearStore.Data.Entities
     {
         public Brand()
         {
-            this.Products = new HashSet<Product>();
+            this.Products = new HashSet<Listing>();
         }
 
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Listing> Products { get; set; }
     }
 }

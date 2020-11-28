@@ -53,27 +53,29 @@
                  new Brand { Id = 10, Name = "Palm Angels", CreatedOn = DateTime.UtcNow }
                  );
 
-            modelBuilder.Entity<ProductCollection>()
+            modelBuilder.Entity<ListingsCollections>()
                 .HasKey(x => new { x.ProductId, x.CollectionId });
 
 
         }
 
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Listing> Products { get; set; }
 
         public DbSet<Brand> Brands { get; set; }
 
         public DbSet<Collection> Collections { get; set; }
 
-        public DbSet<ProductCollection> ProductCollections { get; set; }
+        public DbSet<ListingsCollections> ListingsCollections { get; set; }
+
+        public DbSet<ListingImage> ListingImages { get; set; }
 
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Size> Sizes { get; set; }
 
-        public DbSet<ProductImage> ProductImages { get; set; }
 
-        public DbSet<Listing> Listings { get; set; }
+
+
     }
 }

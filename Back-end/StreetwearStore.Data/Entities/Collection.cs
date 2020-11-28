@@ -7,7 +7,7 @@
     {
         public Collection()
         {
-            this.CollectionProducts = new HashSet<ProductCollection>();
+            this.CollectionProducts = new HashSet<ListingsCollections>();
         }
 
         public string Name { get; set; }
@@ -24,6 +24,6 @@
 
         public int DisplayPositionIndex { get; set; }
 
-        public ICollection<ProductCollection> CollectionProducts { get; set; }
+        public ICollection<ListingsCollections> CollectionProducts { get; set; }
     }
 }

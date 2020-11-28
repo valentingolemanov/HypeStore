@@ -19,5 +19,9 @@
     <ProjectReference Include="..\StreetwearStore.Services\StreetwearStore.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+  </ItemGroup>
+
 
 </Project>

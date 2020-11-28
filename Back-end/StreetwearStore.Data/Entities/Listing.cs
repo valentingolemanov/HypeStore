@@ -1,22 +1,34 @@
 ﻿namespace StreetwearStore.Data.Entities
 {
     using StreetwearStore.Data.Common;
-    using StreetwearStore.Data.Entities.Enums;
+    using System.Collections.Generic;
 
     public class Listing : BaseDeletableModel<int>
     {
-        public int ProductId { get; set; }
+        public Listing()
+        {
+            this.ProductCollections = new HashSet<ListingsCollections>();
+        }
 
-        public Product Product { get; set; }
+        public string Name { get; set; }
 
-        public int SizeId { get; set; }
+        public string Description { get; set; }
 
-        public Size Size { get; set; }
+        public int? CategoryId { get; set; }
 
-        public Condition Condition { get; set; }
+        public Category Category { get; set; }
 
-        public decimal Price { get; set; }
+        public int BrandId { get; set; }
 
-        public int NumberOfPairs { get; set; }
+        public Brand Brand { get; set; }
+
+        public string Colorway { get; set; }
+
+        public int? Quantity { get; set; }
+
+        public ICollection<ListingsCollections> ProductCollections { get; set; }
+
+        public ICollection<ListingImage> ListingImages { get; set; }
+
     }
 }

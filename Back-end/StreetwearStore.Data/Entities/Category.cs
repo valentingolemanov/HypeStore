@@ -8,7 +8,7 @@
     {
         public Category()
         {
-            this.Products = new HashSet<Product>();
+            this.Listings = new HashSet<Listing>();
           
         }
 
@@ -19,6 +19,6 @@
         
         public string ImageUrl { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Listing> Listings { get; set; }
     }
 }

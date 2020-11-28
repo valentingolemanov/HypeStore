@@ -1,15 +1,19 @@
 
 namespace StreetwearStore
 {
+    using System.IO;
     using System.Reflection;
     using System.Text;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Http.Features;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.FileProviders;
     using Microsoft.Extensions.Hosting;
     using Microsoft.IdentityModel.Tokens;
     using StreetwearStore.Data;
@@ -17,6 +21,7 @@ namespace StreetwearStore
     using StreetwearStore.Data.Repository;
     using StreetwearStore.Services.Brands;
     using StreetwearStore.Services.Collections;
+    using StreetwearStore.Services.ListingImages;
     using StreetwearStore.Services.Mapping;
     using StreetwearStore.Services.ProductCollections;
     using StreetwearStore.Services.Products;
@@ -92,6 +97,11 @@ namespace StreetwearStore
 
             }));
 
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
 
             services.AddMvc();
 
@@ -102,10 +112,11 @@ namespace StreetwearStore
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
-            services.AddTransient<IProductsService, ProductsService>();
+            services.AddTransient<IListingsService, ListingsService>();
             services.AddTransient<IBrandsService, BrandsService>();
             services.AddTransient<ICollectionsService, CollectionsService>();
-            services.AddTransient<IProductCollectionsService, ProductCollectionsService>();
+            services.AddTransient<IListingsCollectionsService, ListingsCollectionsServices>();
+            services.AddTransient<IListingImageService, ListingImageService>();
         }
           
 
@@ -125,6 +136,12 @@ namespace StreetwearStore
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+                RequestPath = new PathString("/Resources")
+            });
 
             app.UseAuthorization();
 
